@@ -11,8 +11,9 @@ body {
     background: url("photos/1.jpg");
     background-position: center center;
 	background-size: cover;
-    padding: 40px;
+    padding:  20px;
     text-align: left;
+	text-shadow: 2px 2px #408a8d;
 	color: #eee;
 }
 
@@ -85,4 +86,73 @@ body {
     display: block;
     margin-top: 10px;
     font-size: 5px;
+}
+
+
+
+/* Basic style reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+/* Main menu */
+.menu {
+  background-color: #408a8d;
+  color: #fff;
+  font-family: 'Verdana', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.menu__list {
+  display: flex;
+}
+.menu__link, .menu__item--parent {
+  padding: 15px 20px;
+}
+.menu__link {
+  color: #fff;
+}
+.menu__item--parent {
+  cursor: default;
+  position: relative;
+}
+
+.menu__item--parent {
+  cursor: default;
+  position: relative;
+}
+
+/* Drop-down */
+.menu__sublist {
+  display: none;
+  position: absolute;
+  background-color: #cdf5ec;
+}
+
+.menu__sublist--bottom {
+  left: 0;
+  top: 100%;
+}
+.menu__sublist--right {
+  left: 100%;
+  top: 0;
+}
+
+/* Change background color on hover for menu and drop-down items */
+.menu__item:hover {
+  background-color: #cdf5ec;
+}
+
+/* Show drop-down on hover of the parent menu item */
+.menu__item--parent:hover > .menu__sublist {
+  display: block;
 }
