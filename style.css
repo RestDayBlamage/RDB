@@ -1,0 +1,89 @@
+body {
+    background: #eee;
+    margin: 0;
+    font-family: Verdana;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.top {
+    background: url("photos/2.jpg");
+    background-position: center top;
+    border: 3px solid #acacac;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 1% ;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.trip {
+    display: flex;
+    padding: 80px;
+    color: #eee;
+    background: #408a8d;
+    background-position: center center;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: left;
+    transition: background-color 1.5s ease, transform 1.0s ease;
+    margin: 10px 1%;
+}
+
+.trip:hover {
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    background: rgb(131,234,215);
+    background: linear-gradient(90deg, rgba(131,234,215,1) 40%, rgba(255,255,255,0) 90%);
+}
+
+.trip:active {
+    transform: scale(0.98);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    background-color: #b4aeb2;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.tile {
+    text-align: center;
+}
+
+.tile a {
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.tile img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+	margin-top: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.tile a:hover img {
+    transform: scale(1.6);
+}
+
+.tile span {
+    display: block;
+    margin-top: 20px;
+    font-size: 5px;
+}

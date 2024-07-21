@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip 2023</title>
+	<link rel="shortcut icon" href="icons/rdb.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
+    <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Initialize map
+        var map = L.map('map').setView([49.451, 14.360], 5);
+
+        // Add map layer (OpenStreetMap)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            maxZoom: 20,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        }).addTo(map);
+
+        // Add circles and markers
+        var circle = L.circle([52.408152, 16.933514], {
+            color: '#83ead7',
+            fillColor: '#83ead7',
+            fillOpacity: 0.5,
+            radius: 10000
+        }).bindPopup('<h3>Poznań</h3><p>Start</p>').addTo(map);
+
+        var dworceIcon = L.icon({
+            iconUrl: 'icons/Train.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var Dworce = L.layerGroup([
+            L.marker([52.402353, 16.911831], { icon: dworceIcon })
+                .bindPopup('<h3>Poznań</h3><p>27.07.2023</p>'),
+            L.marker([52.349930, 14.815716], { icon: dworceIcon })
+                .bindPopup('<h3>Rzepin</h3><p>27.07.2023</p>'),
+            L.marker([52.524129, 13.370096], { icon: dworceIcon })
+                .bindPopup('<h3>Berlin</h3><p>27.07.2023</p>'),
+            L.marker([48.140251, 11.560885], { icon: dworceIcon })
+                .bindPopup('<h3>Munich</h3><p>28.07.2023</p>'),
+            L.marker([51.098374, 17.038279], { icon: dworceIcon })
+                .bindPopup('<h3>Wrocław</h3><p>11.08.2023</p>')
+        ]);
+
+        var hotIcon = L.icon({
+            iconUrl: 'icons/Hot.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var Hot = L.layerGroup([
+            L.marker([47.587272, 11.550840], { icon: hotIcon })
+                .bindPopup('<h3>Tunnel am Staudamm</h3><p>Germany</p><img src="./photos/Agricultural Machinery Depot.jpg" style="width:300px">'),
+        ]);
+
+        var sleepIcon = L.icon({
+            iconUrl: 'icons/Tent.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var Sleep = L.layerGroup([
+            L.marker([47.256844, 11.329313], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>29/30.07.2023</p>'),
+            L.marker([46.507881, 11.350628], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>30/31.07.2023</p>'),
+            L.marker([45.788343, 10.824790], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>31/01.08.2023</p>'),
+            L.marker([45.373651, 11.427969], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>01/02.08.2023</p>'),
+            L.marker([45.645984, 12.654267], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>02/03.08.2023</p>'),
+            L.marker([45.598320, 13.783057], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>03/04.08.2023</p>'),
+            L.marker([45.309447, 14.284681], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>04/05.08.2023</p>'),
+            L.marker([45.420713, 15.209846], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>05/06.08.2023</p>'),
+            L.marker([45.879229, 15.999641], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>06/07.08.2023</p>'),
+            L.marker([46.539944, 15.924602], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>07/08.08.2023</p>'),
+           L.marker([47.585979, 16.102185], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>08/09.08.2023</p>'),
+           L.marker([48.621341, 16.518346], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>09/10.08.2023</p>'),
+           L.marker([49.683346, 16.620236], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>10/11.08.2023</p>')		
+        ]);
+
+        // Add GPX tracks using Omnivore
+        function addGPXLayer(gpxFile, color) {
+            var layer = omnivore.gpx(gpxFile, null, L.geoJson(null, {
+                style: {
+                    color: color,
+                    weight: 3,
+                    opacity: 0.65
+                }
+            })).addTo(map);
+            return layer;
+        }
+
+        var gpxLayers = {
+            "0": addGPXLayer('data/2023/20230.gpx', '#ff7800'),
+            "1": addGPXLayer('data/2023/20231.gpx', '#eb6f00'),
+			"2": addGPXLayer('data/2023/20232.gpx', '#d86600'),
+			"3": addGPXLayer('data/2023/20233.gpx', '#c45c00'),
+			"4": addGPXLayer('data/2023/20234.gpx', '#b15300'),
+			"5": addGPXLayer('data/2023/20235.gpx', '#9d4a00'),
+			"6": addGPXLayer('data/2023/20236.gpx', '#894100'),
+			"7": addGPXLayer('data/2023/20237.gpx', '#763700'),
+			"8": addGPXLayer('data/2023/20238.gpx', '#622e00'),
+			"9": addGPXLayer('data/2023/20239.gpx', '#4e2500'),
+			"10": addGPXLayer('data/2023/202310.gpx', '#3b1c00'),
+			"11": addGPXLayer('data/2023/202311.gpx', '#271200'),
+			"12": addGPXLayer('data/2023/202312.gpx', '#271200'),
+			"13": addGPXLayer('data/2023/202313.gpx', '#271200'),
+			"14": addGPXLayer('data/2023/202314.gpx', '#271200')
+        };
+
+        var overlayMaps = {
+            "Dworce": Dworce,
+            "HotSpots": Hot,
+            "Spanie": Sleep,
+            "Rzepin-Berlin": gpxLayers["0"],
+            "Munich-Imst": gpxLayers["1"],
+			"Imst-Maloja": gpxLayers["2"],
+			"Maloja-Como": gpxLayers["3"],
+			"Milano": gpxLayers["4"],
+			"Milano-Genova": gpxLayers["5"],
+			"Genova-Savona": gpxLayers["6"],
+			"Savona-Torin": gpxLayers["7"],
+			"Torin-Santhia": gpxLayers["8"],
+			"Santhia-Lugano": gpxLayers["9"],
+			"Lugano-Altdorf": gpxLayers["10"],
+			"Altdorf-Zurich": gpxLayers["11"],
+			"Lugano-Altdorf": gpxLayers["12"],
+			"Lugano-Altdorf": gpxLayers["13"],
+			"Lugano-Altdorf": gpxLayers["14"]
+        };
+
+        L.control.layers(null, overlayMaps).addTo(map);
+
+        Dworce.addTo(map);
+        Hot.addTo(map);
+        Sleep.addTo(map);
+		
+		// Definiowanie danych GeoJSON dla linii
+		var myLines = [{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[16.911831, 52.402353], [14.815716, 52.349930]]
+			}
+		}, {
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[13.370096, 52.524129], [11.560885, 48.140251]]
+			}
+		}, {
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[17.038279, 51.098374], [16.911831, 52.402353]]
+			}
+		}];
+
+		// Definiowanie stylu dla linii
+		var myStyle = {
+			"color": "#ff7800",
+			"weight": 2,             // Grubość linii
+			"opacity": 0.5,         // Przezroczystość linii
+			"dashArray": "5, 5", // Wzór przerywanej linii
+			"lineJoin": "round",    // Zaokrąglenie zgięć linii
+			"lineCap": "round"      // Zaokrąglenie końców linii
+		};
+
+		// Dodanie linii do mapy z zastosowaniem stylu
+		L.geoJSON(myLines, {
+			style: myStyle
+		}).addTo(map);		
+
+
+		// Dodanie dodatkowych danych do mapy
+		var myLayer = L.geoJSON().addTo(map);
+		myLayer.addData(geojsonFeature);
+		
+    </script>
+</body>
+</html>
