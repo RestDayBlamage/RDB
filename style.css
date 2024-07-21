@@ -9,9 +9,10 @@ body {
 
 .top {
     background: url("photos/1.jpg");
-    background-position: center 850px;
-    padding: 10px;
-    text-align: center;
+    background-position: center 860px;
+    padding: 40px;
+    text-align: left;
+	color: #eee;
 }
 
 .content {
@@ -30,7 +31,7 @@ body {
     text-decoration: none;
     text-align: left;
     transition: background-color 1.5s ease, transform 1.0s ease;
-    margin: 10px 1%;
+    margin: 10px 20px;
 }
 
 .trip:hover {
