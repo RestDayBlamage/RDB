@@ -8,12 +8,9 @@ body {
 }
 
 .top {
-    background: url("photos/2.jpg");
-    background-position: center top;
-    border: 3px solid #acacac;
-    border-radius: 10px;
+    background: url("photos/1.jpg");
+    background-position: center 800px;
     padding: 10px;
-    margin: 10px 1% ;
     text-align: center;
 }
 
