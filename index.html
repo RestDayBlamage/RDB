@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<nav class="menu">
+<nav id="target" class="menu">
   <ul class="menu__list">
     <li class="menu__item">
       <a href="#home" class="menu__link">RDB</a>
@@ -71,27 +71,9 @@
   </ul>
 </nav>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var menuParents = document.querySelectorAll('.menu__item--parent > .menu__link');
-
-      menuParents.forEach(function (menuParent) {
-        menuParent.addEventListener('click', function (e) {
-          var parentItem = this.parentNode;
-          parentItem.classList.toggle('active');
-
-          // Zamknij inne otwarte podmenu
-          menuParents.forEach(function (otherMenuParent) {
-            if (otherMenuParent !== menuParent) {
-              otherMenuParent.parentNode.classList.remove('active');
-            }
-          });
-
-          e.preventDefault(); // Zapobiega domyślnemu zachowaniu linku
-        });
-      });
-    });
-  </script>
+<script>
+  $('#target').click();
+</script>
 
     <div class="top">
         <h1>RDB</h1>
