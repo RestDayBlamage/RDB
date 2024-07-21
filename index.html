@@ -12,9 +12,24 @@
 <nav class="menu">
   <ul class="menu__list">
     <li class="menu__item">
-      <a href="/index.html" class="menu__link">RDB</a>
+      <a href="#home" class="menu__link">RDB</a>
     </li>
-	
+
+	<li class="menu__item menu__item--parent">
+      GPXs ▼
+      <ul class="menu__sublist menu__sublist--bottom">
+        <li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/1BYNhvofH3a1_gQIUsoYjP0jAokVmlVAH?usp=drive_link" class="menu__link">Files 2024</a>
+        </li>
+		
+		<li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/1OrDntxGm1Pc8ehOvf9x5HqGtlTtDyW0v?usp=drive_link" class="menu__link">Files 2023</a>
+		
+		<li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/1TOS6kKYwgEDEh2E1hnU1bPuT9-NIwiRa?usp=drive_link" class="menu__link">Files 2022</a>
+        </li>
+      </ul>
+    </li>	
 	
     <li class="menu__item menu__item--parent">
       Photos ▼
@@ -32,21 +47,6 @@
       </ul>
     </li>
 	
-	   <li class="menu__item menu__item--parent">
-      GPXs ▼
-      <ul class="menu__sublist menu__sublist--bottom">
-        <li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/1BYNhvofH3a1_gQIUsoYjP0jAokVmlVAH?usp=drive_link" class="menu__link">Files 2024</a>
-        </li>
-		
-		<li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/1OrDntxGm1Pc8ehOvf9x5HqGtlTtDyW0v?usp=drive_link" class="menu__link">Files 2023</a>
-		
-		<li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/1TOS6kKYwgEDEh2E1hnU1bPuT9-NIwiRa?usp=drive_link" class="menu__link">Files 2022</a>
-        </li>
-      </ul>
-    </li>
 	
 	<li class="menu__item menu__item--parent">
       +
@@ -70,6 +70,28 @@
 	
   </ul>
 </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var menuParents = document.querySelectorAll('.menu__item--parent > .menu__link');
+
+      menuParents.forEach(function (menuParent) {
+        menuParent.addEventListener('click', function (e) {
+          var parentItem = this.parentNode;
+          parentItem.classList.toggle('active');
+
+          // Zamknij inne otwarte podmenu
+          menuParents.forEach(function (otherMenuParent) {
+            if (otherMenuParent !== menuParent) {
+              otherMenuParent.parentNode.classList.remove('active');
+            }
+          });
+
+          e.preventDefault(); // Zapobiega domyślnemu zachowaniu linku
+        });
+      });
+    });
+  </script>
 
     <div class="top">
         <h1>RDB</h1>
