@@ -1,11 +1,18 @@
+
+@font-face {
+  font-family: 'PismoTech';
+  src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
+}
+
 body {
     background: #eee;
     margin: 0;
-    font-family: Verdana;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'PismoTech', sans-serif;
 }
+
 
 .top {
     background: url("photos/1.jpg");
@@ -107,7 +114,7 @@ a {
 .menu {
   background-color: #408a8d;
   color: #fff;
-  font-family: 'Verdana', monospace;
+  font-family: 'PismoTech', monospace;
   font-size: 16px;
   font-weight: bold;
   white-space: nowrap;
