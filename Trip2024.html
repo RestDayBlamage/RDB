@@ -11,23 +11,122 @@
           crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""></script>
+            crossorigin="">
+	</script>
+	<link rel="stylesheet" href="../dist/leaflet-elevation.css" />
+	<script src="../dist/leaflet-elevation.js"></script>
+	
     <style>
+			@font-face {
+			font-family: 'PismoTech';
+			src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
+		}
         #map {
-            height: 80vh;
+            height: 60vh;
             width: 100%;
         }
-        #chart {
-            height: 20vh;
+        #page {
+            height: 40vh;
             width: 100%;
         }
+		
+		body {
+		background: #408a8d;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		font-family: 'PismoTech', sans-serif;
+		}
+		
+		.time {
+		background: #408a8d;
+		margin: 0;
+		display: flex;
+		flex-direction: row;
+		max-height: 40vh;
+		font-family: 'PismoTech', sans-serif;
+		overflow-x: auto;
+		}
+		
+		.time: :-webkit-scrollbar{
+			width: 0;
+		}
+		
+		.day {
+		    max-height: 40vh;
+			max-width: 80vh;
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+			color: #30404d;
+			background: #ffffff;
+			background-position: center center;
+			border: none;
+			border-radius: 10px;
+			text-decoration: none;
+			text-align: center;
+			margin: 5px 5px;
+		}
     </style>
+	
+	
 </head>
 <body>
     <div id="map"></div>
-    <div id="chart">
-        <canvas id="elevationChart"></canvas>
-    </div>
+    <div id="page" class="time">
+		
+		<div class="day">
+		<h1>05.09.2024</h1>
+		<br>
+		
+		</div>
+			
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+			
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+			
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+		
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>05.09.2024</h1>
+		</div>
+
+	</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
     <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
@@ -70,7 +169,10 @@
 
         var Dworce = L.layerGroup([
             L.marker([52.402353, 16.911831], { icon: dworceIcon })
-                .bindPopup('<h3>Poznań</h3><p>Tu ryszamy rano 03.09.2024</p>'),
+                .bindPopup('<h3>Poznań</h3><p>Tu ryszamy rano 03.09.2024</p>')
+				.on('click', function(e){
+				map.setView(e.latlng, 10);
+			}),
             L.marker([52.349930, 14.815716], { icon: dworceIcon })
                 .bindPopup('<h3>Rzepin</h3><p>Tu jesteśmy rano 03.09.2024</p>'),
             L.marker([52.524129, 13.370096], { icon: dworceIcon })
@@ -231,65 +333,7 @@
         var myLayer = L.geoJSON().addTo(map);
         myLayer.addData(geojsonFeature);
 
-        // Initialize Chart.js chart for elevation data
-        var ctx = document.getElementById('elevationChart').getContext('2d');
-        var elevationChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [{
-                    label: 'Elevation (m)',
-                    data: [],
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
-                    fill: false
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        type: 'linear',
-                        title: {
-                            display: true,
-                            text: 'Distance (km)'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Elevation (m)'
-                        }
-                    }
-                }
-            }
-        });
 
-        // Function to parse GPX file and update chart
-        function parseGPX(gpxFile) {
-            fetch(gpxFile)
-                .then(response => response.text())
-                .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-                .then(data => {
-                    var parser = new L.GPX(gpxFile, {async: true});
-                    parser.on('loaded', function(e) {
-                        var gpx = e.target;
-                        var totalDistance = 0;
-                        var elevationData = [];
-                        gpx.get_latlngs().forEach((latlng, index, array) => {
-                            if (index > 0) {
-                                totalDistance += latlng.distanceTo(array[index - 1]);
-                            }
-                            elevationData.push({x: totalDistance / 1000, y: latlng.meta.ele});
-                        });
-                        elevationChart.data.labels = elevationData.map(point => point.x);
-                        elevationChart.data.datasets[0].data = elevationData;
-                        elevationChart.update();
-                    });
-                });
-        }
-
-        // Parse the first GPX file to populate the chart initially
-        parseGPX('data/2024/20240.gpx');
     </script>
 </body>
 </html>
