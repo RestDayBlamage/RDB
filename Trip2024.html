@@ -36,11 +36,22 @@
         // Initialize map
         var map = L.map('map').setView([48.140, 11.557], 5);
 
-        // Add map layer (OpenStreetMap)
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            maxZoom: 20,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        }).addTo(map);
+        // Base layers
+        var baseLayers = {
+
+            "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 20,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            }).addTo(map),
+            "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 20,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }),
+            "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+				maxZoom: 20,
+				subdomains:['mt0','mt1','mt2','mt3']
+            })
+        };
 
         // Add circles and markers
         var circle = L.circle([52.408152, 16.933514], {
@@ -109,14 +120,12 @@
 
         var Sleep = L.layerGroup([
             L.marker([47.240208, 10.739584], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>03/04.09.2024</p>'),
-            L.marker([46.401264, 9.695282], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>04/05.09.2024</p>'),
-            L.marker([45.806332, 9.085168], { icon: sleepIcon })
+            L.marker([46.454308, 9.624029], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>05/06.09.2024</p>'),
-            L.marker([45.385594, 9.150372], { icon: sleepIcon })
+            L.marker([46.359643, 9.404696], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>06/07.09.2024</p>'),
-            L.marker([44.436691, 8.892040], { icon: sleepIcon })
+            L.marker([45.971870, 9.339104], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>07/08.09.2024</p>'),
             L.marker([44.345348, 8.530369], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>08/09.09.2024</p>'),
@@ -175,8 +184,9 @@
             "Altdorf-Zurich": gpxLayers["11"]
         };
 
-        L.control.layers(null, overlayMaps).addTo(map);
+        L.control.layers(baseLayers, overlayMaps).addTo(map);
 
+        // Add default overlays
         Dworce.addTo(map);
         Hot.addTo(map);
         Sleep.addTo(map);
