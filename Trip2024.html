@@ -54,9 +54,10 @@
 		}
 		
 		.day {
-		    max-height: 40vh;
+			min-height: 30vh;
+			min-width: 80vh;		    
+			max-height: 30vh;
 			max-width: 80vh;
-			display: flex;
 			flex-direction: column;
 			padding: 10px;
 			color: #30404d;
@@ -68,6 +69,10 @@
 			text-align: center;
 			margin: 5px 5px;
 		}
+		
+		.opis {
+			text-align: left;
+		}		
     </style>
 	
 	
@@ -77,53 +82,66 @@
     <div id="page" class="time">
 		
 		<div class="day">
+		<h1>03.09.2024</h1>
+		<h2>Poznań - Rzepin - Berlin - Munich</h2>
+		<h3 class="opis">
+		Pociąg 	Poznań - Rzepin 7:20 - 8:47 <br>
+		Rower Rzepin - Berlin 140 km 6.00 h <br>
+		Pociąg Berlin - Munich 21:26 - 7:28
+		</h3>	
+		</div>
+			
+		<div class="day">
+		<h1>04.09.2024</h1>
+		<h2>Munich - Imst</h2>
+		<h3 class="opis">
+		Pociąg Berlin - Munich 21:26 - 7:28 <br>
+		Rower Munich - Imst 140 km 6.00 h
+		</h3>
+		</div>
+
+		<div class="day">
 		<h1>05.09.2024</h1>
-		<br>
+		</div>
+
+		<div class="day">
+		<h1>06.09.2024</h1>
+		</div>
+			
+		<div class="day">
+		<h1>07.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>08.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>09.09.2024</h1>
+		</div>
+			
+		<div class="day">
+		<h1>10.09.2024</h1>
+		</div>
+
+		<div class="day">
+		<h1>11.09.2024</h1>
+		</div>
 		
-		</div>
-			
 		<div class="day">
-		<h1>05.09.2024</h1>
+		<h1>12.09.2024</h1>
 		</div>
 
 		<div class="day">
-		<h1>05.09.2024</h1>
+		<h1>13.09.2024</h1>
 		</div>
 
 		<div class="day">
-		<h1>05.09.2024</h1>
-		</div>
-			
-		<div class="day">
-		<h1>05.09.2024</h1>
+		<h1>14.09.2024</h1>
 		</div>
 
 		<div class="day">
-		<h1>05.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>05.09.2024</h1>
-		</div>
-			
-		<div class="day">
-		<h1>05.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>05.09.2024</h1>
-		</div>
-		
-		<div class="day">
-		<h1>05.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>05.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>05.09.2024</h1>
+		<h1>15.09.2024</h1>
 		</div>
 
 	</div>
@@ -174,13 +192,25 @@
 				map.setView(e.latlng, 10);
 			}),
             L.marker([52.349930, 14.815716], { icon: dworceIcon })
-                .bindPopup('<h3>Rzepin</h3><p>Tu jesteśmy rano 03.09.2024</p>'),
+                .bindPopup('<h3>Rzepin</h3><p>Tu jesteśmy rano 03.09.2024</p>')
+				.on('click', function(e){
+				map.setView(e.latlng, 10);
+			}),
             L.marker([52.524129, 13.370096], { icon: dworceIcon })
-                .bindPopup('<h3>Berlin</h3><p>Tu jesteśmy wieczore 03.09.2024</p>'),
+                .bindPopup('<h3>Berlin</h3><p>Tu jesteśmy wieczore 03.09.2024</p>')
+				.on('click', function(e){
+				map.setView(e.latlng, 10);
+			}),
             L.marker([48.140251, 11.560885], { icon: dworceIcon })
-                .bindPopup('<h3>Munich</h3><p>Tu jesteśmy rano 04.09.2024</p>'),
+                .bindPopup('<h3>Munich</h3><p>Tu jesteśmy rano 04.09.2024</p>')
+				.on('click', function(e){
+				map.setView(e.latlng, 10);
+			}),
             L.marker([47.377593, 8.541369], { icon: dworceIcon })
                 .bindPopup('<h3>Zurych</h3><p>Tu wracamy wieczorem 14.09.2024</p>')
+				.on('click', function(e){
+				map.setView(e.latlng, 10);
+			}),
         ]);
 
         var hotIcon = L.icon({
@@ -249,7 +279,13 @@
                     weight: 3,
                     opacity: 0.65
                 }
-            })).addTo(map);
+            })).on('ready', function() {
+                this.eachLayer(function(layer) {
+                    layer.on('click', function() {
+                        map.fitBounds(layer.getBounds());
+                    });
+                });
+            }).addTo(map);
             return layer;
         }
 
