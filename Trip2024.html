@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip 2024</title>
-	<link rel="shortcut icon" href="icons/rdb.png">
+    <link rel="shortcut icon" href="icons/rdb.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -14,13 +14,20 @@
             crossorigin=""></script>
     <style>
         #map {
-            height: 100vh;
+            height: 80vh;
+            width: 100%;
+        }
+        #chart {
+            height: 20vh;
             width: 100%;
         }
     </style>
 </head>
 <body>
     <div id="map"></div>
+    <div id="chart">
+        <canvas id="elevationChart"></canvas>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
     <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
@@ -138,16 +145,16 @@
         var gpxLayers = {
             "0": addGPXLayer('data/2024/20240.gpx', '#ff7800'),
             "1": addGPXLayer('data/2024/20241.gpx', '#eb6f00'),
-			"2": addGPXLayer('data/2024/20242.gpx', '#d86600'),
-			"3": addGPXLayer('data/2024/20243.gpx', '#c45c00'),
-			"4": addGPXLayer('data/2024/20244.gpx', '#b15300'),
-			"5": addGPXLayer('data/2024/20245.gpx', '#9d4a00'),
-			"6": addGPXLayer('data/2024/20246.gpx', '#894100'),
-			"7": addGPXLayer('data/2024/20247.gpx', '#763700'),
-			"8": addGPXLayer('data/2024/20248.gpx', '#622e00'),
-			"9": addGPXLayer('data/2024/20249.gpx', '#4e2500'),
-			"10": addGPXLayer('data/2024/202410.gpx', '#3b1c00'),
-			"11": addGPXLayer('data/2024/202411.gpx', '#271200')
+            "2": addGPXLayer('data/2024/20242.gpx', '#d86600'),
+            "3": addGPXLayer('data/2024/20243.gpx', '#c45c00'),
+            "4": addGPXLayer('data/2024/20244.gpx', '#b15300'),
+            "5": addGPXLayer('data/2024/20245.gpx', '#9d4a00'),
+            "6": addGPXLayer('data/2024/20246.gpx', '#894100'),
+            "7": addGPXLayer('data/2024/20247.gpx', '#763700'),
+            "8": addGPXLayer('data/2024/20248.gpx', '#622e00'),
+            "9": addGPXLayer('data/2024/20249.gpx', '#4e2500'),
+            "10": addGPXLayer('data/2024/202410.gpx', '#3b1c00'),
+            "11": addGPXLayer('data/2024/202411.gpx', '#271200')
         };
 
         var overlayMaps = {
@@ -156,16 +163,16 @@
             "Spanie": Sleep,
             "Rzepin-Berlin": gpxLayers["0"],
             "Munich-Imst": gpxLayers["1"],
-			"Imst-Maloja": gpxLayers["2"],
-			"Maloja-Como": gpxLayers["3"],
-			"Milano": gpxLayers["4"],
-			"Milano-Genova": gpxLayers["5"],
-			"Genova-Savona": gpxLayers["6"],
-			"Savona-Torin": gpxLayers["7"],
-			"Torin-Santhia": gpxLayers["8"],
-			"Santhia-Lugano": gpxLayers["9"],
-			"Lugano-Altdorf": gpxLayers["10"],
-			"Altdorf-Zurich": gpxLayers["11"]
+            "Imst-Maloja": gpxLayers["2"],
+            "Maloja-Como": gpxLayers["3"],
+            "Milano": gpxLayers["4"],
+            "Milano-Genova": gpxLayers["5"],
+            "Genova-Savona": gpxLayers["6"],
+            "Savona-Torin": gpxLayers["7"],
+            "Torin-Santhia": gpxLayers["8"],
+            "Santhia-Lugano": gpxLayers["9"],
+            "Lugano-Altdorf": gpxLayers["10"],
+            "Altdorf-Zurich": gpxLayers["11"]
         };
 
         L.control.layers(null, overlayMaps).addTo(map);
@@ -173,48 +180,106 @@
         Dworce.addTo(map);
         Hot.addTo(map);
         Sleep.addTo(map);
-		
-		// Definiowanie danych GeoJSON dla linii
-		var myLines = [{
-			"type": "Feature",
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [[16.911831, 52.402353], [14.815716, 52.349930]]
-			}
-		}, {
-			"type": "Feature",
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [[13.370096, 52.524129], [11.560885, 48.140251]]
-			}
-		}, {
-			"type": "Feature",
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [[8.541369, 47.377593], [13.370096, 52.524129]]
-			}
-		}];
+        
+        // Definiowanie danych GeoJSON dla linii
+        var myLines = [{
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [[16.911831, 52.402353], [14.815716, 52.349930]]
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [[13.370096, 52.524129], [11.560885, 48.140251]]
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [[8.541369, 47.377593], [13.370096, 52.524129]]
+            }
+        }];
 
-		// Definiowanie stylu dla linii
-		var myStyle = {
-			"color": "#ff7800",
-			"weight": 2,             // Grubość linii
-			"opacity": 0.5,         // Przezroczystość linii
-			"dashArray": "5, 5", // Wzór przerywanej linii
-			"lineJoin": "round",    // Zaokrąglenie zgięć linii
-			"lineCap": "round"      // Zaokrąglenie końców linii
-		};
+        // Definiowanie stylu dla linii
+        var myStyle = {
+            "color": "#ff7800",
+            "weight": 2,             // Grubość linii
+            "opacity": 0.5,         // Przezroczystość linii
+            "dashArray": "5, 5", // Wzór przerywanej linii
+            "lineJoin": "round",    // Zaokrąglenie zgięć linii
+            "lineCap": "round"      // Zaokrąglenie końców linii
+        };
 
-		// Dodanie linii do mapy z zastosowaniem stylu
-		L.geoJSON(myLines, {
-			style: myStyle
-		}).addTo(map);		
+        // Dodanie linii do mapy z zastosowaniem stylu
+        L.geoJSON(myLines, {
+            style: myStyle
+        }).addTo(map);        
 
+        // Dodanie dodatkowych danych do mapy
+        var myLayer = L.geoJSON().addTo(map);
+        myLayer.addData(geojsonFeature);
 
-		// Dodanie dodatkowych danych do mapy
-		var myLayer = L.geoJSON().addTo(map);
-		myLayer.addData(geojsonFeature);
-		
+        // Initialize Chart.js chart for elevation data
+        var ctx = document.getElementById('elevationChart').getContext('2d');
+        var elevationChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Elevation (m)',
+                    data: [],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        title: {
+                            display: true,
+                            text: 'Distance (km)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Elevation (m)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Function to parse GPX file and update chart
+        function parseGPX(gpxFile) {
+            fetch(gpxFile)
+                .then(response => response.text())
+                .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                .then(data => {
+                    var parser = new L.GPX(gpxFile, {async: true});
+                    parser.on('loaded', function(e) {
+                        var gpx = e.target;
+                        var totalDistance = 0;
+                        var elevationData = [];
+                        gpx.get_latlngs().forEach((latlng, index, array) => {
+                            if (index > 0) {
+                                totalDistance += latlng.distanceTo(array[index - 1]);
+                            }
+                            elevationData.push({x: totalDistance / 1000, y: latlng.meta.ele});
+                        });
+                        elevationChart.data.labels = elevationData.map(point => point.x);
+                        elevationChart.data.datasets[0].data = elevationData;
+                        elevationChart.update();
+                    });
+                });
+        }
+
+        // Parse the first GPX file to populate the chart initially
+        parseGPX('data/2024/20240.gpx');
     </script>
 </body>
 </html>
