@@ -415,6 +415,47 @@
             }
         }
 
+		// Definiowanie danych GeoJSON dla linii
+		var myLines = [{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[16.911831, 52.402353], [14.815716, 52.349930]]
+			}
+		}, {
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[13.370096, 52.524129], [11.560885, 48.140251]]
+			}
+		}, {
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[8.541369, 47.377593], [13.370096, 52.524129]]
+			}
+		}];
+
+		// Definiowanie stylu dla linii
+		var myStyle = {
+			"color": "#ff7800",
+			"weight": 2,             // Grubość linii
+			"opacity": 0.5,         // Przezroczystość linii
+			"dashArray": "5, 5", // Wzór przerywanej linii
+			"lineJoin": "round",    // Zaokrąglenie zgięć linii
+			"lineCap": "round"      // Zaokrąglenie końców linii
+		};
+
+		// Dodanie linii do mapy z zastosowaniem stylu
+		L.geoJSON(myLines, {
+			style: myStyle
+		}).addTo(map);		
+
+
+		// Dodanie dodatkowych danych do mapy
+		var myLayer = L.geoJSON().addTo(map);
+		myLayer.addData(geojsonFeature);
+		
     </script>
 </body>
 </html>
