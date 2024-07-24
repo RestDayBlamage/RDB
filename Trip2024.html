@@ -12,15 +12,15 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin="">
-	</script>
-	<link rel="stylesheet" href="../dist/leaflet-elevation.css" />
-	<script src="../dist/leaflet-elevation.js"></script>
-	
+    </script>
+    <link rel="stylesheet" href="../dist/leaflet-elevation.css" />
+    <script src="../dist/leaflet-elevation.js"></script>
+
     <style>
-			@font-face {
-			font-family: 'PismoTech';
-			src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
-		}
+        @font-face {
+            font-family: 'PismoTech';
+            src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
+        }
         #map {
             height: 60vh;
             width: 100%;
@@ -29,121 +29,109 @@
             height: 40vh;
             width: 100%;
         }
-		
-		body {
-		background: #408a8d;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		font-family: 'PismoTech', sans-serif;
-		}
-		
-		.time {
-		overflow-x: auto;
-		background: #408a8d;
-		margin: 0;
-		display: flex;
-		flex-direction: row;
-		max-height: 40vh;
-		font-family: 'PismoTech', sans-serif;
-		scroll-snap-type: x mandatory;
-		}
-		
-		.day {
-			min-height: 30vh;
-			min-width: 60%;		    
-			max-height: 40vh;
-			max-width: 60%;
-			flex-direction: column;
-			padding: 10px;
-			color: #30404d;
-			background: #ffffff;
-			background-position: center center;
-			border: none;
-			border-radius: 10px;
-			text-decoration: none;
-			text-align: center;
-			margin: 5px 5px;
-			scroll-snap-align: center;
-		}
-		
-		.opis {
-			text-align: left;
-			padding-left: 50px;
-		}		
+
+        body {
+            background: #408a8d;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'PismoTech', sans-serif;
+        }
+
+        .time {
+            overflow-x: auto;
+            background: #408a8d;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            max-height: 40vh;
+            font-family: 'PismoTech', sans-serif;
+            scroll-snap-type: x mandatory;
+        }
+
+        .day {
+            min-height: 30vh;
+            min-width: 60%;
+            max-height: 40vh;
+            max-width: 60%;
+            flex-direction: column;
+            padding: 10px;
+            color: #30404d;
+            background: #ffffff;
+            background-position: center center;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            margin: 5px 5px;
+            scroll-snap-align: center;
+        }
+
+        .opis {
+            text-align: left;
+            padding-left: 50px;
+        }
+        
+        .highlight {
+            border: 2px solid red;
+        }
     </style>
-	
-	
 </head>
 <body>
     <div id="map"></div>
     <div id="page" class="time">
-		
-		<div class="day">
-		<h2>03.09.2024</h2>
-		<h3>Poznań - Rzepin - Berlin - Munich</h3>
-		<p class="opis">
-		Pociąg 	Poznań - Rzepin 7:20 - 8:47 <br>
-		Rower Rzepin - Berlin 140 km 6.00 h <br>
-		Pociąg Berlin - Munich 21:26 - 7:28
-		</p>	
-		</div>
-			
-		<div class="day">
-		<h2>04.09.2024</h2>
-		<h3>Munich - Imst</h3>
-		<p class="opis">
-		Pociąg Berlin - Munich 21:26 - 7:28 <br>
-		Rower Munich - Imst 140 km 6.00 h
-		</p>
-		</div>
-
-		<div class="day">
-		<h1>05.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>06.09.2024</h1>
-		</div>
-			
-		<div class="day">
-		<h1>07.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>08.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>09.09.2024</h1>
-		</div>
-			
-		<div class="day">
-		<h1>10.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>11.09.2024</h1>
-		</div>
-		
-		<div class="day">
-		<h1>12.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>13.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>14.09.2024</h1>
-		</div>
-
-		<div class="day">
-		<h1>15.09.2024</h1>
-		</div>
-
-	</div>
+        <div class="day" id="day-1">
+            <h2>03.09.2024</h2>
+            <h3>Poznań - Rzepin - Berlin - Munich</h3>
+            <p class="opis">
+                Pociąg Poznań - Rzepin 7:20 - 8:47 <br>
+                Rower Rzepin - Berlin 140 km 6.00 h <br>
+                Pociąg Berlin - Munich 21:26 - 7:28
+            </p>
+        </div>
+        <div class="day" id="day-2">
+            <h2>04.09.2024</h2>
+            <h3>Munich - Imst</h3>
+            <p class="opis">
+                Pociąg Berlin - Munich 21:26 - 7:28 <br>
+                Rower Munich - Imst 140 km 6.00 h
+            </p>
+        </div>
+        <div class="day" id="day-3">
+            <h1>05.09.2024</h1>
+        </div>
+        <div class="day" id="day-4">
+            <h1>06.09.2024</h1>
+        </div>
+        <div class="day" id="day-5">
+            <h1>07.09.2024</h1>
+        </div>
+        <div class="day" id="day-6">
+            <h1>08.09.2024</h1>
+        </div>
+        <div class="day" id="day-7">
+            <h1>09.09.2024</h1>
+        </div>
+        <div class="day" id="day-8">
+            <h1>10.09.2024</h1>
+        </div>
+        <div class="day" id="day-9">
+            <h1>11.09.2024</h1>
+        </div>
+        <div class="day" id="day-10">
+            <h1>12.09.2024</h1>
+        </div>
+        <div class="day" id="day-11">
+            <h1>13.09.2024</h1>
+        </div>
+        <div class="day" id="day-12">
+            <h1>14.09.2024</h1>
+        </div>
+        <div class="day" id="day-13">
+            <h1>15.09.2024</h1>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
     <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
@@ -154,7 +142,6 @@
 
         // Base layers
         var baseLayers = {
-
             "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 maxZoom: 20,
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -164,8 +151,8 @@
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }),
             "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-				maxZoom: 20,
-				subdomains:['mt0','mt1','mt2','mt3']
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3']
             })
         };
 
@@ -187,29 +174,34 @@
         var Dworce = L.layerGroup([
             L.marker([52.402353, 16.911831], { icon: dworceIcon })
                 .bindPopup('<h3>Poznań</h3><p>Tu ryszamy rano 03.09.2024</p>')
-				.on('click', function(e){
-				map.setView(e.latlng, 10);
-			}),
+                .on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(1);
+                }),
             L.marker([52.349930, 14.815716], { icon: dworceIcon })
                 .bindPopup('<h3>Rzepin</h3><p>Tu jesteśmy rano 03.09.2024</p>')
-				.on('click', function(e){
-				map.setView(e.latlng, 10);
-			}),
+                .on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(1);
+                }),
             L.marker([52.524129, 13.370096], { icon: dworceIcon })
                 .bindPopup('<h3>Berlin</h3><p>Tu jesteśmy wieczore 03.09.2024</p>')
-				.on('click', function(e){
-				map.setView(e.latlng, 10);
-			}),
+                .on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(1);
+                }),
             L.marker([48.140251, 11.560885], { icon: dworceIcon })
                 .bindPopup('<h3>Munich</h3><p>Tu jesteśmy rano 04.09.2024</p>')
-				.on('click', function(e){
-				map.setView(e.latlng, 10);
-			}),
+                .on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(2);
+                }),
             L.marker([47.377593, 8.541369], { icon: dworceIcon })
                 .bindPopup('<h3>Zurych</h3><p>Tu wracamy wieczorem 14.09.2024</p>')
-				.on('click', function(e){
-				map.setView(e.latlng, 10);
-			}),
+                .on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(12);
+                }),
         ]);
 
         var hotIcon = L.icon({
@@ -271,7 +263,7 @@
         ]);
 
         // Add GPX tracks using Omnivore
-        function addGPXLayer(gpxFile, color) {
+        function addGPXLayer(gpxFile, color, dayId) {
             var layer = omnivore.gpx(gpxFile, null, L.geoJson(null, {
                 style: {
                     color: color,
@@ -282,6 +274,7 @@
                 this.eachLayer(function(layer) {
                     layer.on('click', function() {
                         map.fitBounds(layer.getBounds());
+                        highlightDay(dayId);
                     });
                 });
             }).addTo(map);
@@ -289,18 +282,18 @@
         }
 
         var gpxLayers = {
-            "0": addGPXLayer('data/2024/20240.gpx', '#ff7800'),
-            "1": addGPXLayer('data/2024/20241.gpx', '#eb6f00'),
-            "2": addGPXLayer('data/2024/20242.gpx', '#d86600'),
-            "3": addGPXLayer('data/2024/20243.gpx', '#c45c00'),
-            "4": addGPXLayer('data/2024/20244.gpx', '#b15300'),
-            "5": addGPXLayer('data/2024/20245.gpx', '#9d4a00'),
-            "6": addGPXLayer('data/2024/20246.gpx', '#894100'),
-            "7": addGPXLayer('data/2024/20247.gpx', '#763700'),
-            "8": addGPXLayer('data/2024/20248.gpx', '#622e00'),
-            "9": addGPXLayer('data/2024/20249.gpx', '#4e2500'),
-            "10": addGPXLayer('data/2024/202410.gpx', '#3b1c00'),
-            "11": addGPXLayer('data/2024/202411.gpx', '#271200')
+            "0": addGPXLayer('data/2024/20240.gpx', '#ff7800', 1),
+            "1": addGPXLayer('data/2024/20241.gpx', '#eb6f00', 2),
+            "2": addGPXLayer('data/2024/20242.gpx', '#d86600', 3),
+            "3": addGPXLayer('data/2024/20243.gpx', '#c45c00', 4),
+            "4": addGPXLayer('data/2024/20244.gpx', '#b15300', 5),
+            "5": addGPXLayer('data/2024/20245.gpx', '#9d4a00', 6),
+            "6": addGPXLayer('data/2024/20246.gpx', '#894100', 7),
+            "7": addGPXLayer('data/2024/20247.gpx', '#763700', 8),
+            "8": addGPXLayer('data/2024/20248.gpx', '#622e00', 9),
+            "9": addGPXLayer('data/2024/20249.gpx', '#4e2500', 10),
+            "10": addGPXLayer('data/2024/202410.gpx', '#3b1c00', 11),
+            "11": addGPXLayer('data/2024/202411.gpx', '#271200', 12)
         };
 
         var overlayMaps = {
@@ -327,47 +320,18 @@
         Dworce.addTo(map);
         Hot.addTo(map);
         Sleep.addTo(map);
-        
-        // Definiowanie danych GeoJSON dla linii
-        var myLines = [{
-            "type": "Feature",
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [[16.911831, 52.402353], [14.815716, 52.349930]]
+
+        function highlightDay(dayId) {
+            var days = document.querySelectorAll('.day');
+            days.forEach(function(day) {
+                day.classList.remove('highlight');
+            });
+            var selectedDay = document.getElementById('day-' + dayId);
+            if (selectedDay) {
+                selectedDay.classList.add('highlight');
+                selectedDay.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-        }, {
-            "type": "Feature",
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [[13.370096, 52.524129], [11.560885, 48.140251]]
-            }
-        }, {
-            "type": "Feature",
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [[8.541369, 47.377593], [13.370096, 52.524129]]
-            }
-        }];
-
-        // Definiowanie stylu dla linii
-        var myStyle = {
-            "color": "#ff7800",
-            "weight": 2,             // Grubość linii
-            "opacity": 0.5,         // Przezroczystość linii
-            "dashArray": "5, 5", // Wzór przerywanej linii
-            "lineJoin": "round",    // Zaokrąglenie zgięć linii
-            "lineCap": "round"      // Zaokrąglenie końców linii
-        };
-
-        // Dodanie linii do mapy z zastosowaniem stylu
-        L.geoJSON(myLines, {
-            style: myStyle
-        }).addTo(map);        
-
-        // Dodanie dodatkowych danych do mapy
-        var myLayer = L.geoJSON().addTo(map);
-        myLayer.addData(geojsonFeature);
-
+        }
 
     </script>
 </body>
