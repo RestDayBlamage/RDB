@@ -70,8 +70,8 @@
         }
 
         .opis {
-            text-align: left;
-            padding-left: 1%;
+            text-align: justify;
+            padding-left: 10%;
         }
         
         .highlight {
@@ -96,39 +96,78 @@
             <h2>04.09.2024</h2>
             <h3>Munich - Imst</h3>
             <p class="opis">
-                Pociąg Berlin - Munich 21:26 - 7:28 <br>
-                Rower Munich - Imst 140 km 6.00 h
+                Munich - Imst 180 km 9:00 h<br>
             </p>
         </div>
         <div class="day" id="day-3">
-            <h1>05.09.2024</h1>
+             <h2>05.09.2024</h2>
+            <h3>Imst - Maloja</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-4">
-            <h1>06.09.2024</h1>
+            <h2>06.09.2024</h2>
+            <h3>Maloja - Milano</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-5">
-            <h1>07.09.2024</h1>
+            <h2>07.09.2024</h2>
+            <h3>Milano</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-6">
-            <h1>08.09.2024</h1>
+            <h2>08.09.2024</h2>
+            <h3>Milano - Genova</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-7">
-            <h1>09.09.2024</h1>
+             <h2>09.09.2024</h2>
+            <h3>Genova - Savona</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-8">
-            <h1>10.09.2024</h1>
+             <h2>10.09.2024</h2>
+            <h3>Savona - Torino</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-9">
-            <h1>11.09.2024</h1>
+            <h2>11.09.2024</h2>
+            <h3>Torino - Santhia</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-10">
-            <h1>12.09.2024</h1>
+            <h2>12.09.2024</h2>
+            <h3>Santhia - Lugano</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-11">
-            <h1>13.09.2024</h1>
+             <h2>13.09.2024</h2>
+            <h3>Lugano - Altdorf</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-12">
-            <h1>14.09.2024</h1>
+             <h2>14.09.2024</h2>
+            <h3>Altdorf - Zurich</h3>
+            <p class="opis">
+                Munich - Imst 180 km 9:00 h<br>
+            </p>
         </div>
         <div class="day" id="day-13">
             <h2>15.09.2024</h2>
@@ -207,7 +246,7 @@
                 .bindPopup('<h3>Zurych</h3><p>Tu wracamy wieczorem 14.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
-                    highlightDay(12);
+                    highlightDay(13);
                 }),
         ]);
 
@@ -250,23 +289,59 @@
 
         var Sleep = L.layerGroup([
             L.marker([47.240208, 10.739584], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>04/05.09.2024</p>'),
+                .bindPopup('<h3>SPANIE</h3><p>04/05.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(3);
+                }),
             L.marker([46.454308, 9.624029], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>05/06.09.2024</p>'),
+                .bindPopup('<h3>SPANIE</h3><p>05/06.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(4);
+                }),
             L.marker([46.359643, 9.404696], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>06/07.09.2024</p>'),
+                .bindPopup('<h3>SPANIE</h3><p>06/07.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(5);
+                }),
             L.marker([45.971870, 9.339104], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>07/08.09.2024</p>'),
+                .bindPopup('<h3>SPANIE</h3><p>07/08.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(6);
+                }),
             L.marker([44.345348, 8.530369], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>08/09.09.2024</p>'),
+                .bindPopup('<h3>SPANIE</h3><p>08/09.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(7);
+                }),
             L.marker([44.946203, 7.631707], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>09/10.09.2024</p>'),
+                .bindPopup('<h3>SPANIE</h3><p>09/10.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(8);
+                }),
             L.marker([45.367874, 8.170329], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>10/11.09.2024</p>'),
+                .bindPopup('<h3>SPANIE</h3><p>10/11.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(9);
+                }),
             L.marker([46.003810, 8.948440], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>11/12.09.2024</p>'),
+                .bindPopup('<h3>SPANIE</h3><p>11/12.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(10);
+                }),
             L.marker([46.881931, 8.642370], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>12/13.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(11);
+                }),
         ]);
 
         // Add GPX tracks using Omnivore
