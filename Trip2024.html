@@ -385,21 +385,10 @@
         };
 
         var overlayMaps = {
-            "Dworce": Dworce,
+            "Trains": Dworce,
             "HotSpots": Hot,
-            "Spanie": Sleep,
-            "Rzepin-Berlin": gpxLayers["0"],
-            "Munich-Imst": gpxLayers["1"],
-            "Imst-Maloja": gpxLayers["2"],
-            "Maloja-Como": gpxLayers["3"],
-            "Milano": gpxLayers["4"],
-            "Milano-Genova": gpxLayers["5"],
-            "Genova-Savona": gpxLayers["6"],
-            "Savona-Torin": gpxLayers["7"],
-            "Torin-Santhia": gpxLayers["8"],
-            "Santhia-Lugano": gpxLayers["9"],
-            "Lugano-Altdorf": gpxLayers["10"],
-            "Altdorf-Zurich": gpxLayers["11"]
+            "SleepSpots": Sleep,
+            "GPXs": gpxLayers["0","1","2","3","4","5","6","7","8","9","10","11"],
         };
 
         L.control.layers(baseLayers, overlayMaps).addTo(map);
