@@ -404,7 +404,7 @@
                 // Add distance and elevation gain to the day description
                 var dayDescription = document.querySelector('#day-' + dayId + ' .opis');
                 if (dayDescription) {
-                    dayDescription.innerHTML += `<br>Dystans:<b> ${distance}</b>km<br><b>Elevation: ${elevationGain} m</b>`;
+                    dayDescription.innerHTML += `<br>Dystans:<b> ${distance}</b> km<br><b>Elevation:<b> ${elevationGain}</b> m`;
                 }
 
             }).addTo(map);
