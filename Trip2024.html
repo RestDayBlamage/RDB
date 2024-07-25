@@ -71,12 +71,6 @@
             text-align: justify;
             padding-left: 10%;
         }
-		
-        .opis {
-            text-align: justify;
-            padding-left: 10%;
-			font-weight: bold;
-        }
         
         .highlight {
             background: #ffffff;
@@ -408,9 +402,9 @@
                 elevationGain = elevationGain.toFixed(2); // Keep 2 decimal places
 
                 // Add distance and elevation gain to the day description
-                var dayDescription = document.querySelector('#day-' + dayId + ' .opisgrubo');
+                var dayDescription = document.querySelector('#day-' + dayId + ' .opis');
                 if (dayDescription) {
-                    dayDescription.innerHTML += `<br><br>Dystans: ${distance} km<br>Elevation: ${elevationGain} m`;
+                    dayDescription.innerHTML += `<br><b>Dystans: ${distance} km</b><br><b>Elevation: ${elevationGain} m</b>`;
                 }
 
             }).addTo(map);
