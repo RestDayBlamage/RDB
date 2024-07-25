@@ -3,418 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip 2024</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Rest Day Blamage</title>
     <link rel="shortcut icon" href="icons/rdb.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-          crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="">
-    </script>
-    <link rel="stylesheet" href="../dist/leaflet-elevation.css" />
-    <script src="../dist/leaflet-elevation.js"></script>
-
-    <style>
-        @font-face {
-            font-family: 'PismoTech';
-            src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
-        }
-        #map {
-            height: 60vh;
-            width: 100%;
-        }
-        #page {
-            height: 40vh;
-            width: 100%;
-        }
-
-        body {
-            background: #408a8d;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: 'PismoTech', sans-serif;
-        }
-
-        .time {
-            overflow-x: auto;
-            background: #408a8d;
-            margin: 0;
-            display: flex;
-            flex-direction: row;
-            max-height: 40vh;
-            font-family: 'PismoTech', sans-serif;
-            scroll-snap-type: x mandatory;
-        }
-
-        .day {
-            min-height: 30vh;
-            min-width: 60%;
-            max-height: 40vh;
-            max-width: 60%;
-            flex-direction: column;
-            padding: 10px;
-            color: #30404d;
-            background: #ffffff;
-            background-position: center center;
-            border: none;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            margin: 5px 5px;
-            scroll-snap-align: center;
-        }
-
-        .opis {
-            text-align: left;
-            padding-left: 50px;
-        }
-        
-        .highlight {
-            border: 2px solid red;
-        }
-        
-        .elevation-chart {
-            width: 100%;
-            height: 200px;
-        }
-    </style>
 </head>
 <body>
-    <div id="map"></div>
-    <div id="page" class="time">
-        <div class="day" id="day-1">
-            <h2>03.09.2024</h2>
-            <h3>Poznań - Rzepin - Berlin - Munich</h3>
-            <p class="opis">
-                Pociąg Poznań - Rzepin 7:20 - 8:47 <br>
-                Rower Rzepin - Berlin 140 km 6.00 h <br>
-                Pociąg Berlin - Munich 21:26 - 7:28
-            </p>
-            <canvas id="elevation-chart-1" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-2">
-            <h2>04.09.2024</h2>
-            <h3>Munich - Imst</h3>
-            <p class="opis">
-                Pociąg Berlin - Munich 21:26 - 7:28 <br>
-                Rower Munich - Imst 140 km 6.00 h
-            </p>
-            <canvas id="elevation-chart-2" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-3">
-            <h1>05.09.2024</h1>
-            <canvas id="elevation-chart-3" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-4">
-            <h1>06.09.2024</h1>
-            <canvas id="elevation-chart-4" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-5">
-            <h1>07.09.2024</h1>
-            <canvas id="elevation-chart-5" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-6">
-            <h1>08.09.2024</h1>
-            <canvas id="elevation-chart-6" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-7">
-            <h1>09.09.2024</h1>
-            <canvas id="elevation-chart-7" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-8">
-            <h1>10.09.2024</h1>
-            <canvas id="elevation-chart-8" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-9">
-            <h1>11.09.2024</h1>
-            <canvas id="elevation-chart-9" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-10">
-            <h1>12.09.2024</h1>
-            <canvas id="elevation-chart-10" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-11">
-            <h1>13.09.2024</h1>
-            <canvas id="elevation-chart-11" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-12">
-            <h1>14.09.2024</h1>
-            <canvas id="elevation-chart-12" class="elevation-chart"></canvas>
-        </div>
-        <div class="day" id="day-13">
-            <h1>15.09.2024</h1>
-            <canvas id="elevation-chart-13" class="elevation-chart"></canvas>
-        </div>
+
+<nav id="target" class="menu">
+  <ul class="menu__list">
+    <li class="menu__item">
+      <a href="#home" class="menu__link">RDB</a>
+    </li>
+
+	<li class="menu__item menu__item--parent">
+      GPXs ▼
+      <ul class="menu__sublist menu__sublist--bottom">
+        <li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/1BYNhvofH3a1_gQIUsoYjP0jAokVmlVAH?usp=drive_link" class="menu__link">Files 2024</a>
+        </li>
+		
+		<li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/1OrDntxGm1Pc8ehOvf9x5HqGtlTtDyW0v?usp=drive_link" class="menu__link">Files 2023</a>
+		
+		<li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/1TOS6kKYwgEDEh2E1hnU1bPuT9-NIwiRa?usp=drive_link" class="menu__link">Files 2022</a>
+        </li>
+      </ul>
+    </li>	
+	
+    <li class="menu__item menu__item--parent">
+      Photos ▼
+      <ul class="menu__sublist menu__sublist--bottom">
+        <li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/18jrPCOyUO0npZqtmqiCjpdpHfZ20aZKT?usp=drive_link" class="menu__link">Photos 2024</a>
+        </li>
+		
+		<li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/1b2030k-Ce3IklXr9_VcztK-EpCaYEeWc?usp=drive_link" class="menu__link">Photos 2023</a>
+		
+		<li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/1qhazUrDLeICuGZpJBgkIjQuiYWGkulyx?usp=drive_link" class="menu__link">Photos 2022</a>
+        </li>
+      </ul>
+    </li>
+	
+	
+	<li class="menu__item menu__item--parent">
+      +
+      <ul class="menu__sublist menu__sublist--bottom">
+        <li class="menu__item">
+          <a href="https://drive.google.com/drive/folders/18jrPCOyUO0npZqtmqiCjpdpHfZ20aZKT?usp=drive_link" class="menu__link">Z</a>
+        </li>
+        <li class="menu__item menu__item--parent">
+          XY ▶
+          <ul class="menu__sublist menu__sublist--right">
+            <li class="menu__item">
+              <a href="/html-css-course" class="menu__link">X</a>
+            </li>
+            <li class="menu__item">
+              <a href="/js-course" class="menu__link">Y</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+	
+  </ul>
+</nav>
+
+
+    <div class="top">
+        <h1>RDB</h1>
+        <h3>Rest Day Blamage</h3>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
-    <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
-    <script>
-        // Initialize map
-        var map = L.map('map').setView([48.140, 11.557], 5);
 
-        // Base layers
-        var baseLayers = {
-            "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                maxZoom: 20,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-            }).addTo(map),
-            "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 20,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }),
-            "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-                maxZoom: 20,
-                subdomains:['mt0','mt1','mt2','mt3']
-            })
-        };
+    <div class="content">
+        <a href="Trip2024.html" class="trip">
+            <div>
+                <h1>2024</h1>
+				<p>Italo disco</p>
+                <br>
+            </div>
+        </a>
 
-        // Add circles and markers
-        var circle = L.circle([52.408152, 16.933514], {
-            color: '#83ead7',
-            fillColor: '#83ead7',
-            fillOpacity: 0.5,
-            radius: 10000
-        }).bindPopup('<h3>Poznań</h3><p>Start</p>').addTo(map);
+        <a href="Trip2023.html" class="trip">
+            <div>
+                <h1>2023</h1>
+                <p>Rest day blamage</p>
+                <br>
+            </div>
+        </a>
 
-        var dworceIcon = L.icon({
-            iconUrl: 'icons/Train.png',
-            iconSize: [32, 32],
-            iconAnchor: [16, 32],
-            popupAnchor: [0, -32]
-        });
+        <a href="Trip2022.html" class="trip">
+            <div>
+                <h1>2022</h1>
+                <p>Schnell wie Niki Lauda</p>
+                <br>
+            </div>
+        </a>
+    </div>
 
-        var Dworce = L.layerGroup([
-            L.marker([52.402353, 16.911831], { icon: dworceIcon })
-                .bindPopup('<h3>Poznań</h3><p>Tu ryszamy rano 03.09.2024</p>')
-                .on('click', function(e){
-                    map.setView(e.latlng, 10);
-                    highlightDay(1);
-                }),
-            L.marker([52.349930, 14.815716], { icon: dworceIcon })
-                .bindPopup('<h3>Rzepin</h3><p>Tu jesteśmy rano 03.09.2024</p>')
-                .on('click', function(e){
-                    map.setView(e.latlng, 10);
-                    highlightDay(1);
-                }),
-            L.marker([52.524129, 13.370096], { icon: dworceIcon })
-                .bindPopup('<h3>Berlin</h3><p>Tu jesteśmy wieczore 03.09.2024</p>')
-                .on('click', function(e){
-                    map.setView(e.latlng, 10);
-                    highlightDay(1);
-                }),
-            L.marker([48.140251, 11.560885], { icon: dworceIcon })
-                .bindPopup('<h3>Munich</h3><p>Tu jesteśmy rano 04.09.2024</p>')
-                .on('click', function(e){
-                    map.setView(e.latlng, 10);
-                    highlightDay(2);
-                }),
-            L.marker([47.377593, 8.541369], { icon: dworceIcon })
-                .bindPopup('<h3>Zurych</h3><p>Tu wracamy wieczorem 14.09.2024</p>')
-                .on('click', function(e){
-                    map.setView(e.latlng, 10);
-                    highlightDay(12);
-                }),
-        ]);
+    <footer class="footer">
+        <div class="tile">
+            <a href="https://www.facebook.com/">
+                <img src="icons/facebook.svg" alt="Facebook">
+            </a>
+        </div>
+        <div class="tile">
+            <a href="https://www.instagram.com/tour.de.boyz/?igsh=czR4MDNnbWd2ampp/">
+                <img src="icons/instagram.svg" alt="Instagram">
+            </a>
+        </div>
+		<div class="tile">
+            <a href="https://www.youtube.com/">
+                <img src="icons/youtube.svg" alt="Youtube">
+            </a>
+        </div>
+        <div class="tile">
+            <a href="https://www.strava.com/">
+                <img src="icons/strava.svg" alt="Strava">
+            </a>
+        </div>
+        <div class="tile">
+            <a href="https://www.komoot.com/">
+                <img src="icons/komoot.svg" alt="Komoot">
+            </a>
+        </div>
+    </footer>
 
-        var hotIcon = L.icon({
-            iconUrl: 'icons/Hot.png',
-            iconSize: [32, 32],
-            iconAnchor: [16, 32],
-            popupAnchor: [0, -32]
-        });
 
-        var Hot = L.layerGroup([
-            L.marker([44.720513, 8.799982], { icon: hotIcon })
-                .bindPopup('<h3>Agricultural Machinery Depot</h3><p>Gavi</p><img src="./photos/Agricultural Machinery Depot.jpg" style="width:300px">'),
-            L.marker([44.405971, 8.932708], { icon: hotIcon })
-                .bindPopup('<h3>New School In Piazza Delle Erbe</h3><p>Genova</p><img src="./photos/New School In Piazza Delle Erbe.jpg" style="width:300px">'),
-            L.marker([44.331189, 8.525010], { icon: hotIcon })
-                .bindPopup('<h3>3S studio</h3><p>Albisola Superiore</p><img src="./photos/3S studio.jpg" style="width:300px">'),
-            L.marker([45.914711, 9.132155], { icon: hotIcon })
-                .bindPopup('<h3>Via Regina Public Garden</h3><p>Brienno</p><img src="./photos/Via Regina Public Garden.jpg" style="width:300px">'),
-            L.marker([46.500234, 9.843524], { icon: hotIcon })
-                .bindPopup('<h3>Kulm Eispavilion</h3><p>Saint Moritz</p><img src="./photos/Kulm Eispavilion.jpg" style="width:300px">'),
-            L.marker([47.999619, 11.351733], { icon: hotIcon })
-                .bindPopup('<h3>Extension Starnberg District Office</h3><p>Munich</p><img src="./photos/Extension Starnberg District Office.jpg" style="width:300px">'),
-            L.marker([48.107231, 11.459489], { icon: hotIcon })
-                .bindPopup('<h3>EIZB Residence</h3><p>Munich</p><img src="./photos/IZB Residence.jpg" style="width:300px">'),
-            L.marker([48.124107, 11.555894], { icon: hotIcon })
-                .bindPopup('<h3>Münchner Volkstheater</h3><p>Munich</p><img src="./photos/Münchner Volkstheater.jpg" style="width:300px">'),
-            L.marker([48.116224, 11.579687], { icon: hotIcon })
-                .bindPopup('<h3>Business Premise</h3><p>Munich</p><img src="./photos/Business Premise.jpg" style="width:300px">'),
-            L.marker([47.557776, 10.750494], { icon: hotIcon })
-                .bindPopup('<h3>Neuschwanstein Castle</h3><p>Munich</p><img src="./photos/Neuschwanstein Castle.jpg" style="width:300px">')
-        ]);
-
-        var sleepIcon = L.icon({
-            iconUrl: 'icons/Tent.png',
-            iconSize: [32, 32],
-            iconAnchor: [16, 32],
-            popupAnchor: [0, -32]
-        });
-
-        var Sleep = L.layerGroup([
-            L.marker([47.240208, 10.739584], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>04/05.09.2024</p>'),
-            L.marker([46.454308, 9.624029], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>05/06.09.2024</p>'),
-            L.marker([46.359643, 9.404696], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>06/07.09.2024</p>'),
-            L.marker([45.971870, 9.339104], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>07/08.09.2024</p>'),
-            L.marker([44.345348, 8.530369], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>08/09.09.2024</p>'),
-            L.marker([44.946203, 7.631707], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>09/10.09.2024</p>'),
-            L.marker([45.367874, 8.170329], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>10/11.09.2024</p>'),
-            L.marker([46.003810, 8.948440], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>11/12.09.2024</p>'),
-            L.marker([46.881931, 8.642370], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>12/13.09.2024</p>')
-        ]);
-
-        // Add GPX tracks using Omnivore
-        function addGPXLayer(gpxFile, color, dayId) {
-            var layer = omnivore.gpx(gpxFile, null, L.geoJson(null, {
-                style: {
-                    color: color,
-                    weight: 3,
-                    opacity: 0.65
-                }
-            })).on('ready', function() {
-                this.eachLayer(function(layer) {
-                    layer.on('click', function() {
-                        map.fitBounds(layer.getBounds());
-                        highlightDay(dayId);
-                    });
-                });
-                generateElevationChart(dayId, gpxFile);
-            }).addTo(map);
-            return layer;
-        }
-
-        var gpxLayers = {
-            "0": addGPXLayer('data/2024/20240.gpx', '#ff7800', 1),
-            "1": addGPXLayer('data/2024/20241.gpx', '#eb6f00', 2),
-            "2": addGPXLayer('data/2024/20242.gpx', '#d86600', 3),
-            "3": addGPXLayer('data/2024/20243.gpx', '#c45c00', 4),
-            "4": addGPXLayer('data/2024/20244.gpx', '#b15300', 5),
-            "5": addGPXLayer('data/2024/20245.gpx', '#9d4a00', 6),
-            "6": addGPXLayer('data/2024/20246.gpx', '#894100', 7),
-            "7": addGPXLayer('data/2024/20247.gpx', '#763700', 8),
-            "8": addGPXLayer('data/2024/20248.gpx', '#622e00', 9),
-            "9": addGPXLayer('data/2024/20249.gpx', '#4e2500', 10),
-            "10": addGPXLayer('data/2024/202410.gpx', '#3b1c00', 11),
-            "11": addGPXLayer('data/2024/202411.gpx', '#271200', 12)
-        };
-
-        var overlayMaps = {
-            "Dworce": Dworce,
-            "HotSpots": Hot,
-            "Spanie": Sleep,
-            "Rzepin-Berlin": gpxLayers["0"],
-            "Munich-Imst": gpxLayers["1"],
-            "Imst-Maloja": gpxLayers["2"],
-            "Maloja-Como": gpxLayers["3"],
-            "Milano": gpxLayers["4"],
-            "Milano-Genova": gpxLayers["5"],
-            "Genova-Savona": gpxLayers["6"],
-            "Savona-Torin": gpxLayers["7"],
-            "Torin-Santhia": gpxLayers["8"],
-            "Santhia-Lugano": gpxLayers["9"],
-            "Lugano-Altdorf": gpxLayers["10"],
-            "Altdorf-Zurich": gpxLayers["11"]
-        };
-
-        L.control.layers(baseLayers, overlayMaps).addTo(map);
-
-        // Add default overlays
-        Dworce.addTo(map);
-        Hot.addTo(map);
-        Sleep.addTo(map);
-
-        function highlightDay(dayId) {
-            var days = document.querySelectorAll('.day');
-            days.forEach(function(day) {
-                day.classList.remove('highlight');
-            });
-            var selectedDay = document.getElementById('day-' + dayId);
-            if (selectedDay) {
-                selectedDay.classList.add('highlight');
-                selectedDay.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        }
-
-        function generateElevationChart(dayId, gpxFile) {
-            var ctx = document.getElementById('elevation-chart-' + dayId).getContext('2d');
-
-            omnivore.gpx(gpxFile).on('ready', function() {
-                var elevations = [];
-                var distances = [];
-                this.eachLayer(function(layer) {
-                    layer.feature.geometry.coordinates.forEach(function(coord, index) {
-                        elevations.push(coord[2]); // Elevation
-                        if (index === 0) {
-                            distances.push(0);
-                        } else {
-                            var dist = distances[distances.length - 1] + getDistance(coord, layer.feature.geometry.coordinates[index - 1]);
-                            distances.push(dist);
-                        }
-                    });
-                });
-
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: distances,
-                        datasets: [{
-                            label: 'Elevation (m)',
-                            data: elevations,
-                            borderColor: '#3e95cd',
-                            fill: false
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        scales: {
-                            x: {
-                                type: 'linear',
-                                position: 'bottom',
-                                title: {
-                                    display: true,
-                                    text: 'Distance (km)'
-                                }
-                            },
-                            y: {
-                                title: {
-                                    display: true,
-                                    text: 'Elevation (m)'
-                                }
-                            }
-                        }
-                    }
-                });
-            });
-        }
-
-        function getDistance(coord1, coord2) {
-            var R = 6371; // Radius of the Earth in km
-            var dLat = (coord2[1] - coord1[1]) * Math.PI / 180;
-            var dLon = (coord2[0] - coord1[0]) * Math.PI / 180;
-            var a = 
-                0.5 - Math.cos(dLat)/2 + 
-                Math.cos(coord1[1] * Math.PI / 180) * Math.cos(coord2[1] * Math.PI / 180) * 
-                (1 - Math.cos(dLon))/2;
-
-            return R * 2 * Math.asin(Math.sqrt(a));
-        }
-    </script>
 </body>
 </html>

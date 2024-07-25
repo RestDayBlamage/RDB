@@ -79,7 +79,7 @@
     </style>
 </head>
 <body>
-    <div id="map"></div>
+    
     <div id="page" class="time">
         <div class="day" id="day-1">
             <h2>03.09.2024</h2>
@@ -175,7 +175,9 @@
             </p>
         </div>
     </div>
-
+	
+	<div id="map"></div>
+	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
     <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
@@ -298,47 +300,53 @@
                     map.setView(e.latlng, 10);
                     highlightDay(4);
                 }),
-            L.marker([46.359643, 9.404696], { icon: sleepIcon })
+            L.marker([45.627039, 9.034524], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>06/07.09.2024</p>')
 				.on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(5);
                 }),
-            L.marker([45.971870, 9.339104], { icon: sleepIcon })
+            L.marker([45.333767, 9.099534], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>07/08.09.2024</p>')
 				.on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(6);
                 }),
-            L.marker([44.345348, 8.530369], { icon: sleepIcon })
+            L.marker([44.428161, 8.938723], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>08/09.09.2024</p>')
 				.on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(7);
                 }),
-            L.marker([44.946203, 7.631707], { icon: sleepIcon })
+            L.marker([44.345348, 8.530369], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>09/10.09.2024</p>')
 				.on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(8);
                 }),
-            L.marker([45.367874, 8.170329], { icon: sleepIcon })
+            L.marker([44.946203, 7.631707], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>10/11.09.2024</p>')
 				.on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(9);
                 }),
-            L.marker([46.003810, 8.948440], { icon: sleepIcon })
+            L.marker([45.367874, 8.170329], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>11/12.09.2024</p>')
 				.on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(10);
                 }),
-            L.marker([46.881931, 8.642370], { icon: sleepIcon })
+            L.marker([46.003810, 8.948440], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>12/13.09.2024</p>')
 				.on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(11);
+                }),
+            L.marker([46.881931, 8.642370], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>13/14.09.2024</p>')
+				.on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(12);
                 }),
         ]);
 
