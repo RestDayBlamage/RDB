@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'PismoTech';
   src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
@@ -13,15 +12,20 @@ body {
     font-family: 'PismoTech', sans-serif;
 }
 
+#map {
+    height: 70vh;
+    width: 100%;
+    margin-top: 20px;
+}
 
 .top {
     background: url("photos/1.jpg");
     background-position: center center;
-	background-size: cover;
-    padding:  20px;
+    background-size: cover;
+    padding: 20px;
     text-align: left;
-	text-shadow: 2px 2px #408a8d;
-	color: #eee;
+    text-shadow: 2px 2px #408a8d;
+    color: #eee;
 }
 
 .content {
@@ -80,7 +84,7 @@ body {
     width: 30px;
     height: 30px;
     margin-bottom: 5px;
-	margin-top: 10px;
+    margin-top: 10px;
     border-radius: 10px;
     transition: transform 0.3s;
 }
@@ -94,8 +98,6 @@ body {
     margin-top: 10px;
     font-size: 5px;
 }
-
-
 
 /* Basic style reset */
 * {
@@ -128,11 +130,6 @@ a {
 .menu__link {
   color: #fff;
 }
-.menu__item--parent {
-  cursor: default;
-  position: relative;
-}
-
 .menu__item--parent {
   cursor: default;
   position: relative;

@@ -3,134 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Rest Day Blamage</title>
     <link rel="shortcut icon" href="icons/rdb.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin="">
+    </script>
+    <style>
+        /* Ensure the map has a fixed height and width */
+        #map {
+            height: 70vh;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
 <nav id="target" class="menu">
   <ul class="menu__list">
-    <li class="menu__item">
-      <a href="#home" class="menu__link">RDB</a>
-    </li>
+    <li class="menu__item"><a href="#home" class="menu__link">RDB</a></li>
 
-	<li class="menu__item menu__item--parent">
+    <li class="menu__item menu__item--parent">
       GPXs ▼
       <ul class="menu__sublist menu__sublist--bottom">
-        <li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/1BYNhvofH3a1_gQIUsoYjP0jAokVmlVAH?usp=drive_link" class="menu__link">Files 2024</a>
-        </li>
-		
-		<li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/1OrDntxGm1Pc8ehOvf9x5HqGtlTtDyW0v?usp=drive_link" class="menu__link">Files 2023</a>
-		
-		<li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/1TOS6kKYwgEDEh2E1hnU1bPuT9-NIwiRa?usp=drive_link" class="menu__link">Files 2022</a>
-        </li>
+        <li class="menu__item"><a href="https://drive.google.com/drive/folders/1BYNhvofH3a1_gQIUsoYjP0jAokVmlVAH?usp=drive_link" class="menu__link">Files 2024</a></li>
+        <li class="menu__item"><a href="https://drive.google.com/drive/folders/1OrDntxGm1Pc8ehOvf9x5HqGtlTtDyW0v?usp=drive_link" class="menu__link">Files 2023</a></li>
+        <li class="menu__item"><a href="https://drive.google.com/drive/folders/1TOS6kKYwgEDEh2E1hnU1bPuT9-NIwiRa?usp=drive_link" class="menu__link">Files 2022</a></li>
       </ul>
-    </li>	
-	
+    </li>
+
     <li class="menu__item menu__item--parent">
       Photos ▼
       <ul class="menu__sublist menu__sublist--bottom">
-        <li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/18jrPCOyUO0npZqtmqiCjpdpHfZ20aZKT?usp=drive_link" class="menu__link">Photos 2024</a>
-        </li>
-		
-		<li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/1b2030k-Ce3IklXr9_VcztK-EpCaYEeWc?usp=drive_link" class="menu__link">Photos 2023</a>
-		
-		<li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/1qhazUrDLeICuGZpJBgkIjQuiYWGkulyx?usp=drive_link" class="menu__link">Photos 2022</a>
-        </li>
+        <li class="menu__item"><a href="https://drive.google.com/drive/folders/18jrPCOyUO0npZqtmqiCjpdpHfZ20aZKT?usp=drive_link" class="menu__link">Photos 2024</a></li>
+        <li class="menu__item"><a href="https://drive.google.com/drive/folders/1b2030k-Ce3IklXr9_VcztK-EpCaYEeWc?usp=drive_link" class="menu__link">Photos 2023</a></li>
+        <li class="menu__item"><a href="https://drive.google.com/drive/folders/1qhazUrDLeICuGZpJBgkIjQuiYWGkulyx?usp=drive_link" class="menu__link">Photos 2022</a></li>
       </ul>
     </li>
-	
-	
-	<li class="menu__item menu__item--parent">
+
+    <li class="menu__item menu__item--parent">
       +
       <ul class="menu__sublist menu__sublist--bottom">
-        <li class="menu__item">
-          <a href="https://drive.google.com/drive/folders/18jrPCOyUO0npZqtmqiCjpdpHfZ20aZKT?usp=drive_link" class="menu__link">Z</a>
-        </li>
+        <li class="menu__item"><a href="https://drive.google.com/drive/folders/18jrPCOyUO0npZqtmqiCjpdpHfZ20aZKT?usp=drive_link" class="menu__link">Z</a></li>
         <li class="menu__item menu__item--parent">
           XY ▶
           <ul class="menu__sublist menu__sublist--right">
-            <li class="menu__item">
-              <a href="/html-css-course" class="menu__link">X</a>
-            </li>
-            <li class="menu__item">
-              <a href="/js-course" class="menu__link">Y</a>
-            </li>
+            <li class="menu__item"><a href="/html-css-course" class="menu__link">X</a></li>
+            <li class="menu__item"><a href="/js-course" class="menu__link">Y</a></li>
           </ul>
         </li>
       </ul>
     </li>
-	
   </ul>
 </nav>
 
+<div class="top">
+    <h1>RDB</h1>
+    <h3>Rest Day Blamage</h3>
+</div>
 
-    <div class="top">
-        <h1>RDB</h1>
-        <h3>Rest Day Blamage</h3>
-    </div>
+<div id="map"></div>
 
-    <div class="content">
-        <a href="Trip2024.html" class="trip">
-            <div>
-                <h1>2024</h1>
-				<p>Italo disco</p>
-                <br>
-            </div>
-        </a>
-
-        <a href="Trip2023.html" class="trip">
-            <div>
-                <h1>2023</h1>
-                <p>Rest day blamage</p>
-                <br>
-            </div>
-        </a>
-
-        <a href="Trip2022.html" class="trip">
-            <div>
-                <h1>2022</h1>
-                <p>Schnell wie Niki Lauda</p>
-                <br>
-            </div>
-        </a>
-    </div>
-
-    <footer class="footer">
-        <div class="tile">
-            <a href="https://www.facebook.com/">
-                <img src="icons/facebook.svg" alt="Facebook">
-            </a>
+<div class="content">
+    <a href="Trip2024.html" class="trip">
+        <div>
+            <h1>2024</h1>
+            <p>Italo disco</p>
+            <br>
         </div>
-        <div class="tile">
-            <a href="https://www.instagram.com/tour.de.boyz/?igsh=czR4MDNnbWd2ampp/">
-                <img src="icons/instagram.svg" alt="Instagram">
-            </a>
-        </div>
-		<div class="tile">
-            <a href="https://www.youtube.com/">
-                <img src="icons/youtube.svg" alt="Youtube">
-            </a>
-        </div>
-        <div class="tile">
-            <a href="https://www.strava.com/">
-                <img src="icons/strava.svg" alt="Strava">
-            </a>
-        </div>
-        <div class="tile">
-            <a href="https://www.komoot.com/">
-                <img src="icons/komoot.svg" alt="Komoot">
-            </a>
-        </div>
-    </footer>
+    </a>
 
+    <a href="Trip2023.html" class="trip">
+        <div>
+            <h1>2023</h1>
+            <p>Rest day blamage</p>
+            <br>
+        </div>
+    </a>
+
+    <a href="Trip2022.html" class="trip">
+        <div>
+            <h1>2022</h1>
+            <p>Schnell wie Niki Lauda</p>
+            <br>
+        </div>
+    </a>
+</div>
+
+<footer class="footer">
+    <div class="tile"><a href="https://www.facebook.com/"><img src="icons/facebook.svg" alt="Facebook"></a></div>
+    <div class="tile"><a href="https://www.instagram.com/tour.de.boyz/?igsh=czR4MDNnbWd2ampp/"><img src="icons/instagram.svg" alt="Instagram"></a></div>
+    <div class="tile"><a href="https://www.youtube.com/"><img src="icons/youtube.svg" alt="Youtube"></a></div>
+    <div class="tile"><a href="https://www.strava.com/"><img src="icons/strava.svg" alt="Strava"></a></div>
+    <div class="tile"><a href="https://www.komoot.com/user/4337639147933"><img src="icons/komoot.svg" alt="Komoot"></a></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
+<script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+<script>
+    // Initialize map
+    var map = L.map('map').setView([48.140, 11.557], 5);
+
+    // Add tile layer to the map
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    }).addTo(map);
+
+    // Add GPX tracks using Omnivore
+    function addGPXLayer(gpxFile, color, dayId) {
+        var layer = omnivore.gpx(gpxFile, null, L.geoJson(null, {
+            style: {
+                color: color,
+                weight: 5,
+                opacity: 0.65
+            }
+        })).on('ready', function() {
+            this.eachLayer(function(layer) {
+                layer.on('click', function() {
+                    map.fitBounds(layer.getBounds());
+                });
+            });
+        }).addTo(map);
+        return layer;
+    }
+
+    // Create a layer group to hold all GPX layers
+    var allGPXLayers = L.layerGroup();
+
+    // Add GPX layers
+    var gpxLayers = {
+        "0": addGPXLayer('data/2024/20240.gpx', '#ff7800', 1),
+        "1": addGPXLayer('data/2024/20241.gpx', '#eb6f00', 2),
+        "2": addGPXLayer('data/2024/20242.gpx', '#d86600', 3)
+    };
+
+    // Add all GPX layers to the layer group
+    for (var key in gpxLayers) {
+        allGPXLayers.addLayer(gpxLayers[key]);
+    }
+
+    // Add the layer group to the map
+    allGPXLayers.addTo(map);
+</script>
 
 </body>
 </html>
