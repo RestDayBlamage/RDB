@@ -110,7 +110,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
 <script>
     // Initialize map
-    var map = L.map('map').setView([48.140, 11.557], 5);
+    var map = L.map('map').setView([47.803320, 13.039210], 6);
 
     // Add tile layer to the map
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -123,8 +123,8 @@
         var layer = omnivore.gpx(gpxFile, null, L.geoJson(null, {
             style: {
                 color: color,
-                weight: 5,
-                opacity: 0.65
+                weight: 6,
+                opacity: 0.80
             }
         })).on('ready', function() {
             this.eachLayer(function(layer) {
@@ -141,9 +141,9 @@
 
     // Add GPX layers
     var gpxLayers = {
-        "1": addGPXLayer('data/2022/2022full.gpx', '#ff7800', 1),
-        "2": addGPXLayer('data/2023/2023full.gpx', '#eb6f00', 2),
-        "3": addGPXLayer('data/2024/2024full.gpx', '#d86600', 3)
+        "1": addGPXLayer('data/2022/2022full.gpx', '#FFCCA2', 1),
+        "2": addGPXLayer('data/2023/2023full.gpx', '#FFB797', 2),
+        "3": addGPXLayer('data/2024/2024full.gpx', '#FF9D8B', 3)
     };
 
     // Add all GPX layers to the layer group
