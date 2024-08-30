@@ -34,33 +34,78 @@ body {
 .content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.year-group {
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+    margin: 0 auto;
+    position: relative;
+    height: 20vh;
+    border-radius: 10px;
+    gap: 10px;
 }
 
 .trip {
-	width: 95vw;
-    display: flex;
-    padding: 80px;
+    background: #408A8D;
     color: #eee;
-    background: #408a8d;
-    background-position: center center;
     border: none;
     border-radius: 5px;
-    text-decoration: none;
     text-align: left;
+    width: 60%; /* Zmniejszenie szerokości trip, aby było miejsce na inne kafelki */
+    margin: 5px 0;
+    padding: 20px;
     transition: background-color 1.5s ease, transform 1.0s ease;
-    margin: 5px auto;
 }
 
-.trip:hover {
-    filter: alpha(opacity=50);
-    opacity: 0.5;
-    background: rgb(131,234,215);
+.photos {
+    color: #eee;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    width: 30%; /* Zwiększenie szerokości mniejszych kafelków */
+    right: 0;
+    top: 10px;
+    margin: 5px 0;
+    padding: 20px;
+    transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
+    right: 5%; /* Pozycjonowanie photos obok gpx */
+    background: #73CDBD; /* Kolor dla photos */
+}
+
+.gpx {
+    color: #eee;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    width: 10%; /* Zwiększenie szerokości mniejszych kafelków */
+    right: 0;
+    top: 10px;
+    margin: 5px 0;
+    padding: 20px;
+    transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
+    right: 10%; /* Pozycjonowanie photos obok gpx */
+    background: #83EAD7; /* Kolor dla gpx */
+}
+
+.photos:hover, .gpx:hover {
+    width: 30%; /* Rozszerzenie kafelka po najechaniu */
+    transform: translateX(-10px); /* Efekt wysuwania się na lewo */
+}
+
+.trip:hover, .photos:hover, .gpx:hover {
+    opacity: 0.7;
     background: linear-gradient(90deg, rgba(131,234,215,1) 40%, rgba(255,255,255,0) 90%);
 }
 
-.trip:active {
-    transform: scale(0.98);
+.trip:active, .photos:active, .gpx:active {
+    transform: scale(1.1); /* Powiększenie po kliknięciu */
 }
+
+
 
 .footer {
     display: flex;
@@ -114,53 +159,5 @@ ul {
 }
 a {
   text-decoration: none;
-  display: block;
-}
-/* Main menu */
-.menu {
-  background-color: #408a8d;
-  color: #fff;
-  font-family: 'PismoTech', monospace;
-  font-size: 16px;
-  font-weight: bold;
-  white-space: nowrap;
-}
-.menu__list {
-  display: flex;
-}
-.menu__link, .menu__item--parent {
-  padding: 15px 20px;
-}
-.menu__link {
-  color: #fff;
-}
-.menu__item--parent {
-  cursor: default;
-  position: relative;
-}
-
-/* Drop-down */
-.menu__sublist {
-  display: none;
-  position: absolute;
-  background-color: #408a8d;
-}
-
-.menu__sublist--bottom {
-  left: 0;
-  top: 100%;
-}
-.menu__sublist--right {
-  left: 100%;
-  top: 0;
-}
-
-/* Change background color on hover for menu and drop-down items */
-.menu__item:hover {
-  background-color: #cdf5ec;
-}
-
-/* Show drop-down on hover of the parent menu item */
-.menu__item--parent:hover > .menu__sublist {
   display: block;
 }
