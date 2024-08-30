@@ -15,8 +15,8 @@ body {
 
 	#map {
 	height: 40vh;
-
-
+	width: 98vw;
+	margin: 5px auto;
 
 }
 
@@ -38,12 +38,12 @@ body {
 .year-group {
     display: flex;
     flex-direction: row;
-    width: 95vw;
+    width: 98vw;
     margin: 0 auto;
     position: relative;
     height: 20vh;
-    border-radius: 10px;
-    gap: 10px;
+    border-radius: 2px;
+    gap: 2px;
 }
 
 .trip {
