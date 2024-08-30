@@ -32,7 +32,6 @@ body {
 }
 
 .content {
-    flex-direction: column;
     justify-content: center;
     margin: auto auto;
 }
