@@ -53,10 +53,10 @@ body {
     border: none;
     border-radius: 5px;
     text-align: left;
-    width: 60%; /* Zmniejszenie szerokości trip, aby było miejsce na inne kafelki */
+    width: 50%; /* Zwiększenie szerokości mniejszych kafelków */
     margin: 5px 0;
     padding: 20px;
-    transition: background-color 1.5s ease, transform 1.0s ease;
+    transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
 }
 
 .photos {
@@ -64,7 +64,7 @@ body {
     border: none;
     border-radius: 5px;
     text-align: left;
-    width: 30%; /* Zwiększenie szerokości mniejszych kafelków */
+	width: 30%; /* Zwiększenie szerokości mniejszych kafelków */
     right: 0;
     top: 10px;
     margin: 5px 0;
@@ -79,7 +79,7 @@ body {
     border: none;
     border-radius: 5px;
     text-align: left;
-    width: 10%; /* Zwiększenie szerokości mniejszych kafelków */
+    width: 20%; /* Zwiększenie szerokości mniejszych kafelków */
     right: 0;
     top: 10px;
     margin: 5px 0;
@@ -89,14 +89,19 @@ body {
     background: #83EAD7; /* Kolor dla gpx */
 }
 
-.photos:hover, .gpx:hover {
-    width: 30%; /* Rozszerzenie kafelka po najechaniu */
-    transform: translateX(-10px); /* Efekt wysuwania się na lewo */
+.trip:hover{
+    opacity: 0.7;
+    background: #FFDBB6;
 }
 
-.trip:hover, .photos:hover, .gpx:hover {
+.photos:hover{
     opacity: 0.7;
-    background: linear-gradient(90deg, rgba(131,234,215,1) 40%, rgba(255,255,255,0) 90%);
+    background: #FFB797;
+}
+
+.gpx:hover{
+    opacity: 0.7;
+    background: #FF9D8B;
 }
 
 .trip:active, .photos:active, .gpx:active {
