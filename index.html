@@ -30,22 +30,22 @@
     <div class="year-group">
         <a href="Trip2024.html" class="trip">
             <div>
-                <h1>2024</h1>
-                <h1>Italo disco</h1>
+                <h2>2024</h2>
+                <h3>Italo disco</h3>
                 <br>
             </div>
         </a>
         <a href="https://drive.google.com/drive/folders/18jrPCOyUO0npZqtmqiCjpdpHfZ20aZKT?usp=drive_link" class="photos">
             <div>
-                <h1>2024</h1>
-                <h1>Photos</h1>
+                <h2>2024</h2>
+                <h3>Photos</h3>
                 <br>
             </div>
         </a>
         <a href="https://drive.google.com/drive/folders/1BYNhvofH3a1_gQIUsoYjP0jAokVmlVAH?usp=drive_link" class="gpx">
             <div>
-                <h1>2024</h1>
-                <h1>GPXs</h1>
+                <h2>2024</h2>
+                <h3>GPXs</h3>
                 <br>
             </div>
         </a>
@@ -55,22 +55,22 @@
     <div class="year-group">
         <a href="Trip2023.html" class="trip">
             <div>
-                <h1>2023</h1>
-                <h1>Rest day blamage</h1>
+                <h2>2023</h2>
+                <h3>Rest day blamage</h3>
                 <br>
             </div>
         </a>
         <a href="https://drive.google.com/drive/folders/1b2030k-Ce3IklXr9_VcztK-EpCaYEeWc?usp=drive_link" class="photos">
             <div>
-                <h1>2023</h1>
-                <h1>Photos</h1>
+                <h2>2023</h2>
+                <h3>Photos</h3>
                 <br>
             </div>
         </a>
         <a href="https://drive.google.com/drive/folders/1OrDntxGm1Pc8ehOvf9x5HqGtlTtDyW0v?usp=drive_link" class="gpx">
             <div>
-                <h1>2023</h1>
-                <h1>GPXs</h1>
+                <h2>2023</h2>
+                <h3>GPXs</h3>
                 <br>
             </div>
         </a>
@@ -80,22 +80,22 @@
     <div class="year-group">
         <a href="Trip2022.html" class="trip">
             <div>
-                <h1>2022</h1>
-                <h1>Schnell wie Niki Lauda</h1>
+                <h2>2022</h2>
+                <h3>Schnell wie Niki Lauda</h3>
                 <br>
             </div>
         </a>
         <a href="https://drive.google.com/drive/folders/1qhazUrDLeICuGZpJBgkIjQuiYWGkulyx?usp=drive_link" class="photos">
             <div>
-                <h1>2022</h1>
-                <h1>Photos</h1>
+                <h2>2022</h2>
+                <h3>Photos</h3>
                 <br>
             </div>
         </a>
         <a href="https://drive.google.com/drive/folders/1TOS6kKYwgEDEh2E1hnU1bPuT9-NIwiRa?usp=drive_link" class="gpx">
             <div>
-                <h1>2022</h1>
-                <h1>GPXs</h1>
+                <h2>2022</h2>
+                <h3>GPXs</h3>
                 <br>
             </div>
         </a>
@@ -135,15 +135,14 @@
 		  zoomDelta: false, 
 		  trackResize: false,
 		  touchZoom: false,
-		  scrollWheelZoom: false
+		  scrollWheelZoom: false,
+		  zoomControl: false
 	});
 	map.setView([47.803320, 13.039210], 4); 
 
     // Add tile layer to the map
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-		minZoom: 2,
-		maxZoom: 20,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+	L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+    subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(map);
 
     // Add GPX tracks using Omnivore
