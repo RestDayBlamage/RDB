@@ -33,6 +33,21 @@ body {
     margin: auto auto;
 }
 
+.year {
+    display: flex;
+    flex-direction: row;
+    width: 98vw;
+    margin: 0 auto;
+    position: relative;
+    height: 5vh;
+    border-radius: 2px;
+    gap: 1px;
+}
+
+.opis {
+	color: #30404D;
+}	
+
 .year-group {
     display: flex;
     flex-direction: row;
@@ -41,14 +56,13 @@ body {
     position: relative;
     height: 20vh;
     border-radius: 2px;
-    gap: 2px;
+    gap: 1px;
 }
 
 .trip {
     background: #408A8D;
     color: #eee;
     border: none;
-    border-radius: 5px;
     text-align: left;
     width: 50%; /* Zwiększenie szerokości mniejszych kafelków */
     margin: 5px 0;
@@ -59,7 +73,6 @@ body {
 .photos {
     color: #eee;
     border: none;
-    border-radius: 5px;
     text-align: left;
 	width: 30%; /* Zwiększenie szerokości mniejszych kafelków */
     right: 0;
@@ -67,22 +80,19 @@ body {
     margin: 5px 0;
     padding: 20px;
     transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
-    right: 5%; /* Pozycjonowanie photos obok gpx */
     background: #73CDBD; /* Kolor dla photos */
 }
 
 .gpx {
     color: #eee;
     border: none;
-    border-radius: 5px;
-    text-align: center;
+    text-align: left;
     width: 20%; /* Zwiększenie szerokości mniejszych kafelków */
     right: 0;
     top: 10px;
     margin: 5px 0;
     padding: 20px;
     transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
-    right: 10%; /* Pozycjonowanie photos obok gpx */
     background: #83EAD7; /* Kolor dla gpx */
 }
 
