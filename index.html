@@ -195,14 +195,14 @@
   };
 
   // Add a legend
-  var legend = L.control({ position: 'bottomleft' });
+  var legend = L.control({ position: 'topleft' });
 
   legend.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'info legend');
-    div.innerHTML = '<h4>GPX KEY</h4>';
+    div.innerHTML = '<h5>GPX KEY</h5>';
     for (var year in gpxLayers) {
       div.innerHTML +=
-        '<i style="background:' + gpxLayers[year].options.style.color + '; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></i>' +
+        '<i style="background:' + gpxLayers[year].options.style.color + '; color: #30404D; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></i>' +
         year + '<br>';
     }
     return div;
