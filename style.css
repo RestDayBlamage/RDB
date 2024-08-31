@@ -39,7 +39,6 @@ body {
     width: 98vw;
     margin: 0 auto;
     position: relative;
-    height: 5vh;
     border-radius: 2px;
     gap: 1px;
 }
@@ -66,7 +65,7 @@ body {
     text-align: left;
     width: 50%; /* Zwiększenie szerokości mniejszych kafelków */
     margin: 5px 0;
-    padding: 20px;
+    padding: 10px;
     transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
 }
 
@@ -78,7 +77,7 @@ body {
     right: 0;
     top: 10px;
     margin: 5px 0;
-    padding: 20px;
+    padding: 10px;
     transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
     background: #73CDBD; /* Kolor dla photos */
 }
@@ -91,7 +90,7 @@ body {
     right: 0;
     top: 10px;
     margin: 5px 0;
-    padding: 20px;
+    padding: 10px;
     transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
     background: #83EAD7; /* Kolor dla gpx */
 }

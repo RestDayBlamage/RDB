@@ -102,7 +102,7 @@
         <a href="https://www.komoot.com/tour/1770640593?share_token=a5Jy3XrZiwBYuLwclTZQU9uKSNKegzWgfDjXva3LNQXhBzfqDQ&ref=" class="opis">
             <div>
                 <h2>2022</h2>
-                <h3>Schnell wie Niki Lauda</h3>
+				<h3>Schnell wie Niki Lauda</h3>
             </div>
         </a>
 	</div>
@@ -189,26 +189,27 @@
                 });
             });
         }).addTo(map);
-        return layer;
+	}
+
+  // Add GPX layers
+  var gpxLayers = {
+    "2024": addGPXLayer('data/2024/2024full.gpx', '#FF9D8B', '2024: Italo disco'),
+    "2023": addGPXLayer('data/2023/2023full.gpx', '#FFB797', '2023: Rest day blamage'),
+    "2022": addGPXLayer('data/2022/2022full.gpx', '#FFCCA2', '2022: Schnell wie Niki Lauda')
+  };
+
+  // Add a legend
+  var legend = L.control({ position: 'bottomleft' });
+
+  legend.onAdd = function(map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML = '<h4>GPX Tracks</h4>';
+    for (var year in gpxLayers) {
+      div.innerHTML += '<i style="background:' + gpxLayers[year].options.style.color + '"></i> ' + year + '<br>';
     }
-
-    // Create a layer group to hold all GPX layers
-    var allGPXLayers = L.layerGroup();
-
-    // Add GPX layers
-    var gpxLayers = {
-        "1": addGPXLayer('data/2022/2022full.gpx', '#FFCCA2', 1),
-        "2": addGPXLayer('data/2023/2023full.gpx', '#FFB797', 2),
-        "3": addGPXLayer('data/2024/2024full.gpx', '#FF9D8B', 3)
-    };
-
-    // Add all GPX layers to the layer group
-    for (var key in gpxLayers) {
-        allGPXLayers.addLayer(gpxLayers[key]);
-    }
-
-    // Add the layer group to the map
-    allGPXLayers.addTo(map);
+    return div;
+  };
+  legend.addTo(map);
 </script>
 
 </body>
