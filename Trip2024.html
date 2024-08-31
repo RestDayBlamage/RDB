@@ -85,11 +85,9 @@
 			●○○○○○○○○○○○○<br>
 			03.09.2024
 			</h2>
-            <h3>Poznań - Rzepin - Berlin - Munich</h3>
+            <h3>Poznań - Wolfhalden</h3>
             <p class="opis">
-                Pociąg Poznań - Rzepin 7:20 - 8:47 <br>
-                Rower Rzepin - Berlin 140 km 6.00 h <br>
-                Pociąg Berlin - Munich 20:14 - 7:28
+
             </p>
         </div>
         
@@ -234,7 +232,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
     <script>
         // Initialize map
-        var map = L.map('map').setView([48.140, 11.557], 5);
+		var map = L.map('map', {
+			zoomControl: false
+		}).setView([48.140, 11.557], 5);
 
         // Base layers
         var baseLayers = {
@@ -274,29 +274,11 @@
                     map.setView(e.latlng, 10);
                     highlightDay(1);
                 }),
-            L.marker([52.349930, 14.815716], { icon: dworceIcon })
+            L.marker([47.452613, 9.550585], { icon: dworceIcon })
                 .bindPopup('<h3>Rzepin</h3><p>Tu jesteśmy rano 03.09.2024</p><img src="./icons/PKP.svg" style="width:100px">')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(1);
-                }),
-            L.marker([52.524129, 13.370096], { icon: dworceIcon })
-                .bindPopup('<h3>Berlin</h3><p>Tu jesteśmy wieczore 03.09.2024</p><img src="./icons/DB.svg" style="width:100px">')
-                .on('click', function(e){
-                    map.setView(e.latlng, 10);
-                    highlightDay(1);
-                }),
-            L.marker([48.140251, 11.560885], { icon: dworceIcon })
-                .bindPopup('<h3>Munich</h3><p>Tu jesteśmy rano 04.09.2024</p><img src="./icons/DB.svg" style="width:100px">')
-                .on('click', function(e){
-                    map.setView(e.latlng, 10);
-                    highlightDay(2);
-                }),
-            L.marker([47.377593, 8.541369], { icon: dworceIcon })
-                .bindPopup('<h3>Zurych</h3><p>Tu wracamy wieczorem 14.09.2024</p><img src="./icons/DB.svg" style="width:100px">')
-                .on('click', function(e){
-                    map.setView(e.latlng, 10);
-                    highlightDay(13);
                 }),
         ]);
 
@@ -316,18 +298,6 @@
                 .bindPopup('<h3>3S studio</h3><p>Albisola Superiore</p><img src="./photos/3S studio.jpg" style="width:300px">'),
             L.marker([45.914711, 9.132155], { icon: hotIcon })
                 .bindPopup('<h3>Via Regina Public Garden</h3><p>Brienno</p><img src="./photos/Via Regina Public Garden.jpg" style="width:300px">'),
-            L.marker([46.500234, 9.843524], { icon: hotIcon })
-                .bindPopup('<h3>Kulm Eispavilion</h3><p>Saint Moritz</p><img src="./photos/Kulm Eispavilion.jpg" style="width:300px">'),
-            L.marker([47.999619, 11.351733], { icon: hotIcon })
-                .bindPopup('<h3>Extension Starnberg District Office</h3><p>Munich</p><img src="./photos/Extension Starnberg District Office.jpg" style="width:300px">'),
-            L.marker([48.107231, 11.459489], { icon: hotIcon })
-                .bindPopup('<h3>EIZB Residence</h3><p>Munich</p><img src="./photos/IZB Residence.jpg" style="width:300px">'),
-            L.marker([48.124107, 11.555894], { icon: hotIcon })
-                .bindPopup('<h3>Münchner Volkstheater</h3><p>Munich</p><img src="./photos/Münchner Volkstheater.jpg" style="width:300px">'),
-            L.marker([48.116224, 11.579687], { icon: hotIcon })
-                .bindPopup('<h3>Business Premise</h3><p>Munich</p><img src="./photos/Business Premise.jpg" style="width:300px">'),
-            L.marker([47.557776, 10.750494], { icon: hotIcon })
-                .bindPopup('<h3>Neuschwanstein Castle</h3><p>Munich</p><img src="./photos/Neuschwanstein Castle.jpg" style="width:300px">')
         ]);
 
         var sleepIcon = L.icon({
@@ -338,65 +308,65 @@
         });
 
         var Sleep = L.layerGroup([
-            L.marker([47.240208, 10.739584], { icon: sleepIcon })
+            L.marker([46.85073578772397, 9.531979972736242], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>03/04.09.2024</p>')
+                .on('click', function(e){
+                    map.setView(e.latlng, 10);
+                    highlightDay(3);
+                }),
+            L.marker([46.17221428842507, 9.414515395819476], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>04/05.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(3);
                 }),
-            L.marker([46.454308, 9.624029], { icon: sleepIcon })
+            L.marker([45.69874210940779, 8.46236780727361], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>05/06.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(4);
                 }),
-            L.marker([45.627039, 9.034524], { icon: sleepIcon })
+            L.marker([45.09895716112396, 7.722381965816562], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>06/07.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(5);
                 }),
-            L.marker([45.333767, 9.099534], { icon: sleepIcon })
+            L.marker([44.283125640196, 8.44035348526463], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>07/08.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(6);
                 }),
-            L.marker([44.428161, 8.938723], { icon: sleepIcon })
+            L.marker([44.36224964650585, 8.230839533941758], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>08/09.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(7);
                 }),
-            L.marker([44.345348, 8.530369], { icon: sleepIcon })
+            L.marker([44.41425384878893, 8.705722391205255], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>09/10.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(8);
                 }),
-            L.marker([44.946203, 7.631707], { icon: sleepIcon })
+            L.marker([45.36790194361113, 9.219161178903263], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>10/11.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(9);
                 }),
-            L.marker([45.367874, 8.170329], { icon: sleepIcon })
+            L.marker([45.53204790583469, 9.039533030040165], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>11/12.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(10);
                 }),
-            L.marker([46.003810, 8.948440], { icon: sleepIcon })
+            L.marker([46.14164172806269, 9.413606569103731], { icon: sleepIcon })
                 .bindPopup('<h3>SPANIE</h3><p>12/13.09.2024</p>')
                 .on('click', function(e){
                     map.setView(e.latlng, 10);
                     highlightDay(11);
-                }),
-            L.marker([46.881931, 8.642370], { icon: sleepIcon })
-                .bindPopup('<h3>SPANIE</h3><p>13/14.09.2024</p>')
-                .on('click', function(e){
-                    map.setView(e.latlng, 10);
-                    highlightDay(12);
                 }),
         ]);
 
@@ -453,7 +423,6 @@
         var allGPXLayers = L.layerGroup();
 
         var gpxLayers = {
-            "0": addGPXLayer('data/2024/20240.gpx', '#ff7800', 1),
             "1": addGPXLayer('data/2024/20241.gpx', '#eb6f00', 2),
             "2": addGPXLayer('data/2024/20242.gpx', '#d86600', 3),
             "3": addGPXLayer('data/2024/20243.gpx', '#c45c00', 4),
@@ -499,30 +468,18 @@
             "type": "Feature",
             "geometry": {
                 "type": "LineString",
-                "coordinates": [[16.911831, 52.402353], [14.815716, 52.349930]]
-            }
-        }, {
-            "type": "Feature",
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [[13.370096, 52.524129], [11.560885, 48.140251]]
-            }
-        }, {
-            "type": "Feature",
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [[8.541369, 47.377593], [13.370096, 52.524129]]
+                "coordinates": [[16.911831, 52.402353], [9.550585, 47.452613]]
             }
         }];
 
         // Definiowanie stylu dla linii
         var myStyle = {
             "color": "#ff7800",
-            "weight": 3,             // Grubość linii
-            "opacity": 0.5,         // Przezroczystość linii
-            "dashArray": "5, 5", // Wzór przerywanej linii
-            "lineJoin": "round",    // Zaokrąglenie zgięć linii
-            "lineCap": "round"      // Zaokrąglenie końców linii
+            "weight": 3,             		// Grubość linii
+            "opacity": 0.5,        		 	// Przezroczystość linii
+            "dashArray": "5, 5", 		// Wzór przerywanej linii
+            "lineJoin": "round",    	// Zaokrąglenie zgięć linii
+            "lineCap": "round"      	// Zaokrąglenie końców linii
         };
 
         // Dodanie linii do mapy z zastosowaniem stylu
