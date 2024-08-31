@@ -199,9 +199,11 @@
 
   legend.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'info legend');
-    div.innerHTML = '<h4>GPX Tracks</h4>';
+    div.innerHTML = '<h4>GPX KEY</h4>';
     for (var year in gpxLayers) {
-      div.innerHTML += '<i style="background:' + gpxLayers[year].options.style.color + '"></i> ' + year + '<br>';
+      div.innerHTML +=
+        '<i style="background:' + gpxLayers[year].options.style.color + '; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></i>' +
+        year + '<br>';
     }
     return div;
   };
