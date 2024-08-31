@@ -21,7 +21,7 @@ body {
 
 .top {
     background: url("photos/1.jpg");
-    background-position: center 900px;
+    background-position: center center;
     background-size: cover;
     padding: 10px;
 }
