@@ -181,7 +181,7 @@
       }
     })).on('ready', function() {
       this.eachLayer(function(layer) {
-        layer.bindPopup(label).on('click', function() {
+        layer.on('click', function() {
           map.fitBounds(layer.getBounds());
         });
       });
