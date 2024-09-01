@@ -31,17 +31,12 @@
         }
 
         body {
-            background: #408a8d;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: 'PismoTech', sans-serif;
+            background: #eee;
         }
 
         .time {
             overflow-x: auto;
-            background: #408a8d;
+            background: #eee;
             margin: 0;
             display: flex;
             flex-direction: row;
@@ -240,11 +235,9 @@
         var baseLayers = {
             "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 maxZoom: 20,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
             }).addTo(map),
             "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 20,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }),
             "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
                 maxZoom: 20,
@@ -423,18 +416,33 @@
         var allGPXLayers = L.layerGroup();
 
         var gpxLayers = {
-            "1": addGPXLayer('data/2024/20241.gpx', '#eb6f00', 2),
-            "2": addGPXLayer('data/2024/20242.gpx', '#d86600', 3),
-            "3": addGPXLayer('data/2024/20243.gpx', '#c45c00', 4),
-            "4": addGPXLayer('data/2024/20244.gpx', '#b15300', 5),
-            "5": addGPXLayer('data/2024/20245.gpx', '#9d4a00', 6),
-            "6": addGPXLayer('data/2024/20246.gpx', '#894100', 7),
-            "7": addGPXLayer('data/2024/20247.gpx', '#763700', 8),
-            "8": addGPXLayer('data/2024/20248.gpx', '#622e00', 9),
-            "9": addGPXLayer('data/2024/20249.gpx', '#4e2500', 10),
-            "10": addGPXLayer('data/2024/202410.gpx', '#3b1c00', 11),
-            "11": addGPXLayer('data/2024/202411.gpx', '#271200', 12)
+			"03.09.2024": addGPXLayer('data/2024/20240.gpx', '#30404D', 1),
+            "04.09.2024": addGPXLayer('data/2024/20241.gpx', '#408A8D', 2),
+            "05.09.2024": addGPXLayer('data/2024/20242.gpx', '#59C2C5', 3),
+            "06.09.2024": addGPXLayer('data/2024/20243.gpx', '#73CDBD', 4),
+            "07.09.2024": addGPXLayer('data/2024/20244.gpx', '#83EAD7', 5),
+            "08.09.2024": addGPXLayer('data/2024/20245.gpx', '#FFE1A8', 6),
+            "09.09.2024": addGPXLayer('data/2024/20246.gpx', '#FFDBB6', 7),
+            "10.09.2024": addGPXLayer('data/2024/20247.gpx', '#FFCCA2', 8),
+            "11.09.2024": addGPXLayer('data/2024/20248.gpx', '#FFB797', 9),
+            "Optimum": addGPXLayer('data/2024/20249.gpx', '#FF9D8B', 10),
+            "Optimum": addGPXLayer('data/2024/202410.gpx', '#FF9D8B', 11),
+            "Optimum": addGPXLayer('data/2024/202411.gpx', '#FF9D8B', 12)
         };
+		
+		  // Add a legend
+		  var legend = L.control({ position: 'topleft' });
+
+		  legend.onAdd = function(map) {
+			var div = L.DomUtil.create('div', 'info legend');
+			for (var year in gpxLayers) {
+			  div.innerHTML +=
+				'<i style="background:' + gpxLayers[year].options.style.color + '; color: #30404D; width: 20px; height: 8px; display: inline-block; margin-right: 5px;"></i>' +
+				year + '<br>';
+			}
+			return div;
+		  };
+		  legend.addTo(map);
 
         var overlayMaps = {
             "Trains": Dworce,
