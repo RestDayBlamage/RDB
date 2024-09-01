@@ -51,9 +51,10 @@
 
         .day {
 			margin-top: 10px;
-            height: 30vh;
-            min-width: 100%;
-            max-width: 100%;
+            min-height: 35vh;
+			max-height: 35vh;
+            min-width: 400px;
+            max-width: 400px;
             color: #30404d;
             background: #eee;
             background-position: center center;
@@ -69,7 +70,9 @@
         }
         
         .highlight {
-            color: #000;
+			background-color: #fff;
+			border: 2px solid #30404d;
+			border-radius: 10px;
         }
 		
 		.download-button {
@@ -547,8 +550,10 @@
         // Dodanie dodatkowych danych do mapy
         var myLayer = L.geoJSON().addTo(map);
         myLayer.addData(geojsonFeature);
-		
         
     </script>
+	
+		<link rel="stylesheet" href="../dist/leaflet-elevation.css" />
+		<script src="../dist/leaflet-elevation.js"></script>
 </body>
 </html>
