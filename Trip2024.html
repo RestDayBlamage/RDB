@@ -228,7 +228,7 @@
         }).bindPopup('<h3>Poznań</h3><p>Start</p>').addTo(map);
 
         var dworceIcon = L.icon({
-            iconUrl: 'icons/Train.png',
+            iconUrl: 'icons/beer.png',
             iconSize: [32, 32],
             iconAnchor: [16, 32],
             popupAnchor: [0, -16]
@@ -236,15 +236,13 @@
 
         var Dworce = L.layerGroup([
             L.marker([52.402353, 16.911831], { icon: dworceIcon })
-                .bindPopup('<h3>Poznań</h3><p>Tu ryszamy rano 03.09.2024</p><img src="./icons/PKP.svg" style="width:100px">')
+                .bindPopup('<h3>Poznań</h3><p>Tu ryszamy rano 03.09.2024</p>')
                 .on('click', function(e){
-                    map.setView(e.latlng, 10);
                     highlightDay(1);
                 }),
             L.marker([47.452613, 9.550585], { icon: dworceIcon })
-                .bindPopup('<h3>Rzepin</h3><p>Tu jesteśmy rano 03.09.2024</p><img src="./icons/PKP.svg" style="width:100px">')
+                .bindPopup('<h3>Wolfhalden</h3><p>03.09.2024</p>')
                 .on('click', function(e){
-                    map.setView(e.latlng, 10);
                     highlightDay(1);
                 }),
         ]);
@@ -259,125 +257,76 @@
         var Hot = L.layerGroup([		
 		
             L.marker([45.91439972903672, 9.13214723444168], { icon: hotIcon })
-                .bindPopup('<h3>Via Regina Public Garden</h3><p>Brienno</p><img src="./photos/Via Regina Public Garden.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Via Regina Public Garden</h3><p>Brienno</p><img src="./photos/Via Regina Public Garden.jpg" style="width:300px">'),
+			
             L.marker([45.837037436397054, 9.026502727639711], { icon: hotIcon })
-                .bindPopup('<h3>m.a.x. Museo</h3><p>Chiasso</p><img src="./photos/Max Museo.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>m.a.x. Museo</h3><p>Chiasso</p><img src="./photos/Max Museo.jpg" style="width:300px">'),
+			
             L.marker([45.09472127894106, 7.684120456838213], { icon: hotIcon })
-                .bindPopup('<h3>Crowdsourced Graffiti</h3><p>Torino</p><img src="./photos/Crowdsourced Graffiti.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Crowdsourced Graffiti</h3><p>Torino</p><img src="./photos/Crowdsourced Graffiti.jpg" style="width:300px">'),	
+				
            L.marker([45.07363201125167, 7.699811014003454], { icon: hotIcon })
-                .bindPopup('<h3>Campus Luigi Einaudi</h3><p>Torino</p><img src="./photos/Campus Luigi Einaudi.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),
+                .bindPopup('<h3>Campus Luigi Einaudi</h3><p>Torino</p><img src="./photos/Campus Luigi Einaudi.jpg" style="width:300px">'),
+			
             L.marker([45.043268024141405, 7.664506539610981], { icon: hotIcon })
-                .bindPopup('<h3>PAV Prize 2011</h3><p>Torino</p><img src="./photos/PAV Prize 2011.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>PAV Prize 2011</h3><p>Torino</p><img src="./photos/PAV Prize 2011.jpg" style="width:300px">'),
+	
             L.marker([45.045421945387325, 7.680482763507323], { icon: hotIcon })
-                .bindPopup('<h3>25 Green</h3><p>Torino</p><img src="./photos/25 Green.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>25 Green</h3><p>Torino</p><img src="./photos/25 Green.jpg" style="width:300px">'),
+
             L.marker([45.034270063674384, 7.670669704203118], { icon: hotIcon })
-                .bindPopup('<h3>Enrico Fermi School</h3><p>Torino</p><img src="./photos/Enrico Fermi School.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Enrico Fermi School</h3><p>Torino</p><img src="./photos/Enrico Fermi School.jpg" style="width:300px">'),
+		
             L.marker([44.3311253578447, 8.524760061832788], { icon: hotIcon })
-                .bindPopup('<h3>3S studio</h3><p>Albisola Superiore</p><img src="./photos/3S studio.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>3S studio</h3><p>Albisola Superiore</p><img src="./photos/3S studio.jpg" style="width:300px">'),
+		
             L.marker([44.40600656226252, 8.932679177208966], { icon: hotIcon })
-                .bindPopup('<h3>New School In Piazza Delle Erbe</h3><p>Genova</p><img src="./photos/New School In Piazza Delle Erbe.jpg" style="width:300px">')	
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>New School In Piazza Delle Erbe</h3><p>Genova</p><img src="./photos/New School In Piazza Delle Erbe.jpg" style="width:300px">'),	
+		
             L.marker([44.72050584034911, 8.799979103639325], { icon: hotIcon })
-                .bindPopup('<h3>Agricultural Machinery Depot</h3><p>Gavi</p><img src="./photos/Agricultural Machinery Depot.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Agricultural Machinery Depot</h3><p>Gavi</p><img src="./photos/Agricultural Machinery Depot.jpg" style="width:300px">'),
+		
             L.marker([45.36081324567102, 9.216076987568924], { icon: hotIcon })
-                .bindPopup('<h3>Scalo Milano City Style</h3><p>Milano</p><img src="./photos/Scalo Milano City Style.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Scalo Milano City Style</h3><p>Milano</p><img src="./photos/Scalo Milano City Style.jpg" style="width:300px">'),
+				
             L.marker([45.41071358282692, 9.152620532267106], { icon: hotIcon })
-                .bindPopup('<h3>Park Associati</h3><p>Milano</p><img src="./photos/Park Associati.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Park Associati</h3><p>Milano</p><img src="./photos/Park Associati.jpg" style="width:300px">'),
+				
             L.marker([45.443220531398076, 9.20464896526529], { icon: hotIcon })
-                .bindPopup('<h3>Fondazione Prada</h3><p>Milano</p><img src="./photos/Fondazione Prada.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Fondazione Prada</h3><p>Milano</p><img src="./photos/Fondazione Prada.jpg" style="width:300px">'),
+	
             L.marker([45.48587475058355, 9.190300411198345], { icon: hotIcon })
-                .bindPopup('<h3>Bosco Verticale</h3><p>Milano</p><img src="./photos/Bosco Verticale.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Bosco Verticale</h3><p>Milano</p><img src="./photos/Bosco Verticale.jpg" style="width:300px">'),
+				
            L.marker([45.478002840283935, 9.156495861608555], { icon: hotIcon })
-                .bindPopup('<h3>Generali Tower</h3><p>Milano</p><img src="./photos/Generali Tower.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Generali Tower</h3><p>Milano</p><img src="./photos/Generali Tower.jpg" style="width:300px">'),
+				
            L.marker([45.4470702269167, 9.188606287543221], { icon: hotIcon })
-                .bindPopup('<h3>Urban Campus for Bocconi University</h3><p>Milano</p><img src="./photos/Urban Campus for Bocconi University.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Urban Campus for Bocconi University</h3><p>Milano</p><img src="./photos/Urban Campus for Bocconi University.jpg" style="width:300px">'),
+				
            L.marker([45.44202395297032, 9.16366317011672], { icon: hotIcon })
-                .bindPopup('<h3>IULM_Milan</h3><p>Milano</p><img src="./photos/IULM_Milan.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>IULM_Milan</h3><p>Milano</p><img src="./photos/IULM_Milan.jpg" style="width:300px">'),
+				
           L.marker([45.497951434021466, 9.100715188323923], { icon: hotIcon })
-                .bindPopup('<h3>Gallaratese Quarter</h3><p>Milano</p><img src="./photos/Gallaratese Quarter.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Gallaratese Quarter</h3><p>Milano</p><img src="./photos/Gallaratese Quarter.jpg" style="width:300px">'),
+			
           L.marker([45.46011629926843, 9.190339401210572], { icon: hotIcon })
-                .bindPopup('<h3>Torre Velasca</h3><p>Milano</p><img src="./photos/Torre Velasca.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Torre Velasca</h3><p>Milano</p><img src="./photos/Torre Velasca.jpg" style="width:300px">'),
+			
           L.marker([45.465461774340326, 9.19409270691459], { icon: hotIcon })
-                .bindPopup('<h3>Apple Piazza Liberty</h3><p>Milano</p><img src="./photos/Apple Piazza Liberty.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Apple Piazza Liberty</h3><p>Milano</p><img src="./photos/Apple Piazza Liberty.jpg" style="width:300px">'),
+			
           L.marker([45.484664108753435, 9.201416721242571], { icon: hotIcon })
-                .bindPopup('<h3>Pirelli Tower</h3><p>Milano</p><img src="./photos/Pirelli Tower.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Pirelli Tower</h3><p>Milano</p><img src="./photos/Pirelli Tower.jpg" style="width:300px">'),
+			
           L.marker([45.47578793739839, 9.221647821905641], { icon: hotIcon })
-                .bindPopup('<h3>Residenze Carlo Erba</h3><p>Milano</p><img src="./photos/Residenze Carlo Erba.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),	
+                .bindPopup('<h3>Residenze Carlo Erba</h3><p>Milano</p><img src="./photos/Residenze Carlo Erba.jpg" style="width:300px">'),
+
           L.marker([45.48462379987224, 9.192522303604244], { icon: hotIcon })
-                .bindPopup('<h3>Bibilioteca degli Alberi Park</h3><p>Milano</p><img src="./photos/Bibilioteca degli Alberi Park.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),				
+                .bindPopup('<h3>Bibilioteca degli Alberi Park</h3><p>Milano</p><img src="./photos/Bibilioteca degli Alberi Park.jpg" style="width:300px">'),
+				
             L.marker([45.511848197113906, 9.099550068660173], { icon: hotIcon })
                 .bindPopup('<h3>Cascina Merlata</h3><p>Milano</p><img src="./photos/Cascina Merlata.jpg" style="width:300px">')
-				.on('click', function(e){
-                    map.setView(e.latlng, 10);
-                }),
         ]);
 
         var sleepIcon = L.icon({
