@@ -79,7 +79,7 @@
 			●○○○○○○○○○○○○<br>
 			03.09.2024
 			</h2>
-            <h3>Poznań - Wolfhalden</h3>
+            <h3>Poznań - Wolfhalden - Chur</h3>🇵🇱 ⮕ 🇨🇭
             <p class="opis">
 
             </p>
@@ -90,7 +90,7 @@
 			○●○○○○○○○○○○○<br>
 			04.09.2024
 			</h2>
-            <h3>Munich - Imst</h3>
+            <h3>Chur - Ponte del Passo</h3>🇨🇭 ⮕ 🇮🇹
             <p class="opis">
                 
             </p>
@@ -101,7 +101,7 @@
 			○○●○○○○○○○○○○<br>
 			05.09.2024
 			</h2>
-            <h3>Imst - Maloja</h3>
+            <h3>Ponte del Passo - Carpinano Desia</h3>🇮🇹
             <p class="opis">
                 
             </p>
@@ -112,7 +112,7 @@
 			○○○●○○○○○○○○○<br>
 			06.09.2024
 			</h2>
-            <h3>Maloja - Milano</h3>
+            <h3>Carpinano Desia - Turin - Carignano</h3>🇮🇹
             <p class="opis">
                 
             </p>
@@ -123,7 +123,7 @@
 			○○○○●○○○○○○○○<br>
 			07.09.2024
 			</h2>
-            <h3>Milano</h3>
+            <h3>Carignano - Savona</h3>🇮🇹
             <p class="opis">
                 
             </p>
@@ -134,7 +134,7 @@
 			○○○○○●○○○○○○○<br>
 			08.09.2024
 			</h2>
-            <h3>Milano - Genova</h3>
+            <h3>Savona - Genova</h3>🇮🇹
             <p class="opis">
                 
             </p>
@@ -145,7 +145,7 @@
 			 ○○○○○○●○○○○○○<br>
 			 09.09.2024
 			 </h2>
-            <h3>Genova - Savona</h3>
+            <h3>Genova - Garlasco</h3>🇮🇹
             <p class="opis">
                 
             </p>
@@ -156,7 +156,7 @@
 			 ○○○○○○○●○○○○○<br>
 			 10.09.2024
 			 </h2>
-            <h3>Savona - Torino</h3>
+            <h3>Garlasco - Milan - Rho</h3>🇮🇹
             <p class="opis">
                 
             </p>
@@ -167,7 +167,7 @@
 			○○○○○○○○●○○○○<br>
 			11.09.2024
 			</h2>
-            <h3>Torino - Santhia</h3>
+            <h3>Rho - Colico</h3>🇮🇹
             <p class="opis">
                 
             </p>
@@ -178,7 +178,7 @@
 			○○○○○○○○○●○○○<br>
 			12.09.2024
 			</h2>
-            <h3>Santhia - Lugano</h3>
+            <h3>Colico - Bormio</h3>🇮🇹
             <p class="opis">
                 
             </p>
@@ -189,7 +189,7 @@
 			 ○○○○○○○○○○●○○<br>
 			 13.09.2024
 			 </h2>
-            <h3>Lugano - Altdorf</h3>
+            <h3>Bormio - Landeck</h3>🇮🇹 ⮕ 🇦🇹
             <p class="opis">
                 
             </p>
@@ -200,7 +200,7 @@
 			 ○○○○○○○○○○○●○<br>
 			 14.09.2024
 			 </h2>
-            <h3>Altdorf - Zurich</h3>
+            <h3>Landeck - Wolfhalden</h3>🇦🇹 ⮕ 🇨🇭 
             <p class="opis">
                 
             </p>
@@ -211,7 +211,7 @@
 			○○○○○○○○○○○○●<br>
 			15.09.2024
 			</h2>
-            <h3>Zurich - Berlin - Poznań</h3>
+            <h3>Wolfhalden - Poznań</h3>🇨🇭 ⮕ 🇵🇱
             <p class="opis">
                 
             </p>
@@ -228,7 +228,7 @@
         // Initialize map
 		var map = L.map('map', {
 			zoomControl: false
-		}).setView([45.80609556978651, 9.085033224481258], 7);
+		}).setView([45.80609556978651, 9.085033224481258], 6);
 
         // Base layers
         var baseLayers = {
@@ -415,18 +415,18 @@
         var allGPXLayers = L.layerGroup();
 
         var gpxLayers = {
-			"03.09.2024": addGPXLayer('data/2024/20240.gpx', '#30404D', 1),
-            "04.09.2024": addGPXLayer('data/2024/20241.gpx', '#408A8D', 2),
-            "05.09.2024": addGPXLayer('data/2024/20242.gpx', '#59C2C5', 3),
-            "06.09.2024": addGPXLayer('data/2024/20243.gpx', '#73CDBD', 4),
-            "07.09.2024": addGPXLayer('data/2024/20244.gpx', '#83EAD7', 5),
-            "08.09.2024": addGPXLayer('data/2024/20245.gpx', '#FFE1A8', 6),
-            "09.09.2024": addGPXLayer('data/2024/20246.gpx', '#FFDBB6', 7),
-            "10.09.2024": addGPXLayer('data/2024/20247.gpx', '#FFCCA2', 8),
-            "11.09.2024": addGPXLayer('data/2024/20248.gpx', '#FFB797', 9),
-            "Optimum": addGPXLayer('data/2024/20249.gpx', '#FF9D8B', 10),
-            "Optimum": addGPXLayer('data/2024/202410.gpx', '#FF9D8B', 11),
-            "Optimum": addGPXLayer('data/2024/202411.gpx', '#FF9D8B', 12)
+			"03.09.2024 🇨🇭": addGPXLayer('data/2024/20240.gpx', '#30404D', 1),
+            "04.09.2024 🇨🇭 ⮕ 🇮🇹": addGPXLayer('data/2024/20241.gpx', '#408A8D', 2),
+            "05.09.2024 🇮🇹": addGPXLayer('data/2024/20242.gpx', '#59C2C5', 3),
+            "06.09.2024 🇮🇹": addGPXLayer('data/2024/20243.gpx', '#73CDBD', 4),
+            "07.09.2024 🇮🇹": addGPXLayer('data/2024/20244.gpx', '#83EAD7', 5),
+            "08.09.2024 🇮🇹": addGPXLayer('data/2024/20245.gpx', '#FFE1A8', 6),
+            "09.09.2024 🇮🇹": addGPXLayer('data/2024/20246.gpx', '#FFDBB6', 7),
+            "10.09.2024 🇮🇹": addGPXLayer('data/2024/20247.gpx', '#FFCCA2', 8),
+            "11.09.2024 🇮🇹": addGPXLayer('data/2024/20248.gpx', '#FFB797', 9),
+            "Optimum 🇮🇹": addGPXLayer('data/2024/20249.gpx', '#FF9D8B', 10),
+            "Optimum 🇮🇹 ⮕ 🇦🇹": addGPXLayer('data/2024/202410.gpx', '#FF9D8B', 11),
+            "Optimum 🇦🇹 ⮕ 🇨🇭": addGPXLayer('data/2024/202411.gpx', '#FF9D8B', 12)
         };
 		
 		  // Add a legend

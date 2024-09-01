@@ -4,36 +4,278 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip 2023</title>
-	<link rel="shortcut icon" href="icons/rdb.png">
+    <link rel="shortcut icon" href="icons/rdb.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""></script>
+            crossorigin="">
+    </script>
+    <link rel="stylesheet" href="../dist/leaflet-elevation.css" />
+    <script src="../dist/leaflet-elevation.js"></script>
+
     <style>
+        @font-face {
+            font-family: 'PismoTech';
+            src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
+        }
         #map {
-            height: 100vh;
-            width: 100%;
+            height: 60vh;
+            width: 100vw;
+        }
+        #page {
+            height: 40vh;
+            width: 100vw;
+        }
+
+        body {
+            background: #eee;
+        }
+
+        .time {
+            overflow-x: auto;
+            background: #eee;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            max-height: 40vh;
+            font-family: 'PismoTech', sans-serif;
+            scroll-snap-type: x mandatory;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .day {
+            min-height: 20vh;
+            min-width: 100%;
+            max-height: 30vh;
+            max-width: 100%;
+            color: #30404d;
+            background: #eee;
+            background-position: center center;
+            border: none;
+            text-decoration: none;
+            text-align: center;
+            scroll-snap-align: center;
+        }
+
+        .opis {
+            text-align: justify;
+            padding-left: 10%;
+        }
+        
+        .highlight {
+            background: #ffffff;
         }
     </style>
 </head>
 <body>
+    
+    <div id="page" class="time">
+        <div class="day" id="day-1">
+            <h2>
+			●○○○○○○○○○○○○○○○<br>
+			27.07.2023
+			</h2>
+            <h3>Poznań - Berlin - Munich</h3>🇵🇱 ⮕ 🇩🇪
+            <p class="opis">
+
+            </p>
+        </div>
+        
+        <div class="day" id="day-2">
+            <h2>
+			○●○○○○○○○○○○○○○○<br>
+			28.07.2023
+			</h2>
+            <h3>Munich - Innsbruck</h3>🇩🇪 ⮕ 🇦🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-3">
+            <h2>
+			○○●○○○○○○○○○○○○○<br>
+			29.07.2023
+			</h2>
+            <h3>Innsbruck - Bolzano</h3>🇩🇪 ⮕ 🇮🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-4">
+            <h2>
+			○○○●○○○○○○○○○○○○<br>
+			30.07.2023
+			</h2>
+            <h3>Bolzano - Lago di Garda</h3>🇮🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-5">
+            <h2>
+			○○○○●○○○○○○○○○○○<br>
+			31.07.2023
+			</h2>
+            <h3>Lago di Garda - Verona</h3>🇮🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-6">
+            <h2>
+			○○○○○●○○○○○○○○○○<br>
+			01.08.2023
+			</h2>
+            <h3>Verona - Genova</h3>🇮🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-7">
+             <h2>
+			 ○○○○○○●○○○○○○○○○<br>
+			 02.08.2023
+			 </h2>
+            <h3>Genova - Mestre</h3>🇮🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-8">
+             <h2>
+			 ○○○○○○○●○○○○○○○○<br>
+			 03.08.2023
+			 </h2>
+            <h3>Mestre - Muggia</h3>🇮🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-9">
+            <h2>
+			○○○○○○○○●○○○○○○○<br>
+			04.08.2023
+			</h2>
+            <h3>Muggia - Icici</h3>🇮🇹 ⮕ 🇸🇮 ⮕ 🇭🇷
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-10">
+            <h2>
+			○○○○○○○○○●○○○○○○<br>
+			05.08.2023
+			</h2>
+            <h3>Icici - Rim</h3>🇭🇷
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-11">
+             <h2>
+			 ○○○○○○○○○○●○○○○○<br>
+			 06.08.2023
+			 </h2>
+            <h3>Rim - Zagreb</h3>🇭🇷
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-12">
+             <h2>
+			 ○○○○○○○○○○○●○○○○<br>
+			 07.08.2023
+			 </h2>
+            <h3>Zagreb - Ptuj</h3>🇨🇭 ⮕ 🇸🇮
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-13">
+            <h2>
+			○○○○○○○○○○○○●○○○<br>
+			08.08.2023
+			</h2>
+            <h3>Ptuj - Holl</h3>🇸🇮 ⮕ 🇦🇹
+            <p class="opis">
+                
+            </p>
+		</div>
+		
+        <div class="day" id="day-14">
+            <h2>
+			○○○○○○○○○○○○○●○○<br>
+			09.08.2023
+			</h2>
+            <h3>Holl - Vienna - Horersdorf</h3>🇦🇹
+            <p class="opis">
+                
+            </p>
+		</div>
+		
+        <div class="day" id="day-15">
+            <h2>
+			○○○○○○○○○○○○○○●○<br>
+			10.08.2023
+			</h2>
+            <h3>Horersdorf - Brno - Krenov</h3>🇦🇹 ⮕ 🇨🇿
+            <p class="opis">
+                
+            </p>
+		</div>
+		
+        <div class="day" id="day-16">
+            <h2>
+			○○○○○○○○○○○○○○○●<br>
+			11.08.2023
+			</h2>
+            <h3>Krenov - Wrocław</h3>🇨🇿 ⮕ 🇵🇱
+            <p class="opis">
+                
+            </p>
+        </div>
+    </div>
+    
     <div id="map"></div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
     <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
     <script>
         // Initialize map
-        var map = L.map('map').setView([49.451, 14.360], 5);
+		var map = L.map('map', {
+			zoomControl: false
+		}).setView([48.30689762946932, 14.285845262713428], 6);
 
-        // Add map layer (OpenStreetMap)
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            maxZoom: 20,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        }).addTo(map);
+        // Base layers
+        var baseLayers = {
+            "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 20,
+            }).addTo(map),
+            "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 20,
+            }),
+            "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3']
+            })
+        };
 
         // Add circles and markers
         var circle = L.circle([52.408152, 16.933514], {
@@ -112,62 +354,116 @@
         ]);
 
         // Add GPX tracks using Omnivore
-        function addGPXLayer(gpxFile, color) {
+        function addGPXLayer(gpxFile, color, dayId) {
             var layer = omnivore.gpx(gpxFile, null, L.geoJson(null, {
                 style: {
                     color: color,
-                    weight: 3,
+                    weight: 5,
                     opacity: 0.65
                 }
-            })).addTo(map);
+            })).on('ready', function() {
+                this.eachLayer(function(layer) {
+                    layer.on('click', function() {
+                        map.fitBounds(layer.getBounds());
+                        highlightDay(dayId);
+                    });
+                });
+
+                // Calculate distance and elevation gain
+                var distance = 0;
+                var elevationGain = 0;
+                var previousPoint = null;
+                
+                layer.eachLayer(function(segment) {
+                    var points = segment.feature.geometry.coordinates;
+                    for (var i = 1; i < points.length; i++) {
+                        var point1 = L.latLng(points[i - 1][1], points[i - 1][0]);
+                        var point2 = L.latLng(points[i][1], points[i][0]);
+                        distance += point1.distanceTo(point2);
+
+                        if (points[i][2] && points[i - 1][2]) {
+                            var elevationDiff = points[i][2] - points[i - 1][2];
+                            if (elevationDiff > 0) {
+                                elevationGain += elevationDiff;
+                            }
+                        }
+                    }
+                });
+
+                distance = (distance / 1000).toFixed(2); // Convert to km
+                elevationGain = elevationGain.toFixed(2); // Keep 2 decimal places
+
+                // Add distance and elevation gain to the day description
+                var dayDescription = document.querySelector('#day-' + dayId + ' .opis');
+                if (dayDescription) {
+                    dayDescription.innerHTML += `<br>Dystans:<b> ${distance}</b> km<br>Elevation:<b> ${elevationGain}</b> m`;
+                }
+
+            }).addTo(map);
             return layer;
         }
+        
+        var allGPXLayers = L.layerGroup();
 
         var gpxLayers = {
-            "0": addGPXLayer('data/2023/20230.gpx', '#ff7800'),
-            "1": addGPXLayer('data/2023/20231.gpx', '#eb6f00'),
-			"2": addGPXLayer('data/2023/20232.gpx', '#d86600'),
-			"3": addGPXLayer('data/2023/20233.gpx', '#c45c00'),
-			"4": addGPXLayer('data/2023/20234.gpx', '#b15300'),
-			"5": addGPXLayer('data/2023/20235.gpx', '#9d4a00'),
-			"6": addGPXLayer('data/2023/20236.gpx', '#894100'),
-			"7": addGPXLayer('data/2023/20237.gpx', '#763700'),
-			"8": addGPXLayer('data/2023/20238.gpx', '#622e00'),
-			"9": addGPXLayer('data/2023/20239.gpx', '#4e2500'),
-			"10": addGPXLayer('data/2023/202310.gpx', '#3b1c00'),
-			"11": addGPXLayer('data/2023/202311.gpx', '#271200'),
-			"12": addGPXLayer('data/2023/202312.gpx', '#271200'),
-			"13": addGPXLayer('data/2023/202313.gpx', '#271200'),
-			"14": addGPXLayer('data/2023/202314.gpx', '#271200')
+            "27.07.2023 🇵🇱 ⮕ 🇩🇪": addGPXLayer('data/2023/20230.gpx', '#30404D'),
+            "28.07.2023 🇩🇪 ⮕ 🇦🇹": addGPXLayer('data/2023/20231.gpx', '#30404D'),
+			"29.07.2023 🇦🇹  ⮕ 🇮🇹": addGPXLayer('data/2023/20232.gpx', '#408A8D'),
+			"30.07.2023 🇮🇹": addGPXLayer('data/2023/20233.gpx', '#408A8D'),
+			"31.07.2023 🇮🇹": addGPXLayer('data/2023/20234.gpx', '#59C2C5'),
+			"01.08.2023 🇮🇹": addGPXLayer('data/2023/20235.gpx', '#59C2C5'),
+			"02.08.2023 🇮🇹": addGPXLayer('data/2023/20236.gpx', '#73CDBD'),
+			"03.08.2023 🇮🇹 ⮕ 🇸🇮 ⮕ 🇭🇷": addGPXLayer('data/2023/20237.gpx', '#83EAD7'),
+			"05.08.2023 🇭🇷": addGPXLayer('data/2023/20238.gpx', '#FFE1A8'),
+			"06.08.2023 🇭🇷": addGPXLayer('data/2023/20239.gpx', '#FFDBB6'),
+			"07.08.2023 🇭🇷 ⮕ 🇸🇮": addGPXLayer('data/2023/202310.gpx', '#FFCCA2'),
+			"08.08.2023 🇸🇮 ⮕ 🇦🇹": addGPXLayer('data/2023/202311.gpx', '#FFB797'),
+			"09.08.2023 🇦🇹": addGPXLayer('data/2023/202312.gpx', '#FFB797'),
+			"10.08.2023 🇦🇹 ⮕ 🇨🇿": addGPXLayer('data/2023/202313.gpx', '#FF9D8B'),
+			"11.08.2023 🇨🇿 ⮕ 🇵🇱": addGPXLayer('data/2023/202314.gpx', '#FF9D8B')
         };
+		
+		  // Add a legend
+		  var legend = L.control({ position: 'topleft' });
+
+		  legend.onAdd = function(map) {
+			var div = L.DomUtil.create('div', 'info legend');
+			for (var year in gpxLayers) {
+			  div.innerHTML +=
+				'<i style="background:' + gpxLayers[year].options.style.color + '; color: #30404D; width: 20px; height: 8px; display: inline-block; margin-right: 5px;"></i>' +
+				year + '<br>';
+			}
+			return div;
+		  };
+		  legend.addTo(map);
 
         var overlayMaps = {
-            "Dworce": Dworce,
+            "Trains": Dworce,
             "HotSpots": Hot,
-            "Spanie": Sleep,
-            "Rzepin-Berlin": gpxLayers["0"],
-            "Munich-Imst": gpxLayers["1"],
-			"Imst-Maloja": gpxLayers["2"],
-			"Maloja-Como": gpxLayers["3"],
-			"Milano": gpxLayers["4"],
-			"Milano-Genova": gpxLayers["5"],
-			"Genova-Savona": gpxLayers["6"],
-			"Savona-Torin": gpxLayers["7"],
-			"Torin-Santhia": gpxLayers["8"],
-			"Santhia-Lugano": gpxLayers["9"],
-			"Lugano-Altdorf": gpxLayers["10"],
-			"Altdorf-Zurich": gpxLayers["11"],
-			"Lugano-Altdorf": gpxLayers["12"],
-			"Lugano-Altdorf": gpxLayers["13"],
-			"Lugano-Altdorf": gpxLayers["14"]
+            "SleepSpots": Sleep,
+            "GPXs": allGPXLayers
         };
 
-        L.control.layers(null, overlayMaps).addTo(map);
+        L.control.layers(baseLayers, overlayMaps).addTo(map);
 
+        // Add default overlays
         Dworce.addTo(map);
         Hot.addTo(map);
         Sleep.addTo(map);
-		
+        allGPXLayers.addTo(map);
+
+        function highlightDay(dayId) {
+            var days = document.querySelectorAll('.day');
+            days.forEach(function(day) {
+                day.classList.remove('highlight');
+            });
+            var selectedDay = document.getElementById('day-' + dayId);
+            if (selectedDay) {
+                selectedDay.classList.add('highlight');
+                selectedDay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
 		// Definiowanie danych GeoJSON dla linii
 		var myLines = [{
 			"type": "Feature",
@@ -189,26 +485,32 @@
 			}
 		}];
 
-		// Definiowanie stylu dla linii
-		var myStyle = {
-			"color": "#ff7800",
-			"weight": 2,             // Grubość linii
-			"opacity": 0.5,         // Przezroczystość linii
-			"dashArray": "5, 5", // Wzór przerywanej linii
-			"lineJoin": "round",    // Zaokrąglenie zgięć linii
-			"lineCap": "round"      // Zaokrąglenie końców linii
-		};
+        // Definiowanie stylu dla linii
+        var myStyle = {
+            "color": "#ff7800",
+            "weight": 3,             		// Grubość linii
+            "opacity": 0.5,        		 // Przezroczystość linii
+            "dashArray": "5, 5", 		// Wzór przerywanej linii
+            "lineJoin": "round",    	// Zaokrąglenie zgięć linii
+            "lineCap": "round"      	// Zaokrąglenie końców linii
+        };
 
-		// Dodanie linii do mapy z zastosowaniem stylu
-		L.geoJSON(myLines, {
-			style: myStyle
-		}).addTo(map);		
-
-
-		// Dodanie dodatkowych danych do mapy
-		var myLayer = L.geoJSON().addTo(map);
-		myLayer.addData(geojsonFeature);
-		
+        // Dodanie linii do mapy z zastosowaniem stylu
+        L.geoJSON(myLines, {
+            style: myStyle
+        }).on('ready', function() {
+            this.eachLayer(function(layer) {
+                layer.on('click', function() {
+                    map.fitBounds(layer.getBounds());
+                    highlightDay(dayId); // Upewnij się, że zmienna dayId jest poprawnie zdefiniowana
+                });
+            });
+        }).addTo(map);
+    
+        // Dodanie dodatkowych danych do mapy
+        var myLayer = L.geoJSON().addTo(map);
+        myLayer.addData(geojsonFeature);
+        
     </script>
 </body>
 </html>
