@@ -19,7 +19,7 @@
 <body>
 
 <div class="top">
-		<img " src="icons/rdbmini.png" alt="RDB"></a>
+		<img " src="icons/blmzmini.png" alt="RDB"></a>
 		<br>
 </div>
 
@@ -156,7 +156,20 @@
     <div class="tile"><a href="https://www.facebook.com/"><img src="icons/facebook.svg" alt="Facebook"></a></div>
     <div class="tile"><a href="https://www.instagram.com/blamaz.vc/"><img src="icons/instagram.svg" alt="Instagram"></a></div>
     <div class="tile"><a href="https://www.youtube.com/"><img src="icons/youtube.svg" alt="Youtube"></a></div>
-    <div class="tile"><a href="https://www.strava.com/"><img src="icons/strava.svg" alt="Strava"></a></div>
+	<div class="tile">
+		<a href="#">
+			<img src="icons/strava.svg" alt="Strava" onclick="toggleDropdown()">
+		</a>
+		<div class="dropdown-menu" id="dropdownMenu">
+			<ul>
+				<li><a href="https://www.strava.com/athletes/22747634">Filip</a></li>
+				<li><a href="https://www.strava.com/athletes/34214799">Pafko</a></li>
+				<li><a href="https://www.strava.com/athletes/43856339">Janek</a></li>
+				<li><a href="https://www.strava.com/athletes/83068305">Szymon</a></li>
+				<li><a href="https://www.strava.com/athletes/79153110">Łukasz</a></li>
+			</ul>
+		</div>
+	</div>
     <div class="tile"><a href="https://www.komoot.com/user/4337639147933"><img src="icons/komoot.svg" alt="Komoot"></a></div>
 </footer>
 
@@ -217,6 +230,15 @@
     return div;
   };
   legend.addTo(map);
+  
+		function toggleDropdown() {
+			var dropdownMenu = document.getElementById("dropdownMenu");
+			if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
+				dropdownMenu.style.display = "block";
+			} else {
+				dropdownMenu.style.display = "none";
+			}
+		}
 </script>
 
 </body>
