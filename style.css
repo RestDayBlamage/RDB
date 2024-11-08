@@ -56,6 +56,17 @@ body {
     gap: 1px;
 }
 
+.wild {
+    background: #73CDBD;
+    color: #eee;
+    border: none;
+    text-align: left;
+    width: 100%; /* Zwiększenie szerokości mniejszych kafelków */
+    margin: 5px 0;
+    padding: 10px;
+    transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
+}
+
 .trip {
     background: #408A8D;
     color: #eee;
