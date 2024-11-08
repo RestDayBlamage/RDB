@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip 2022</title>
+    <link rel="shortcut icon" href="icons/rdb.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin="">
+    </script>
+    <link rel="stylesheet" href="../dist/leaflet-elevation.css" />
+    <script src="../dist/leaflet-elevation.js"></script>
+
+    <style>
+
+        #map {
+            height: 100vh;
+            width: 100vw;
+
+        body {
+            background: #eee;
+
+    </style>
+</head>
+<body>
+    
+    <div id="map"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
+    <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Initialize map
+		var map = L.map('map', {
+			zoomControl: false
+		}).setView([47.609401746377145, 13.783270663071217], 6);
+
+        // Base layers
+        var baseLayers = {
+            "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 20,
+            }).addTo(map),
+            "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 20,
+            }),
+            "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3']
+            })
+        };
+
+        // Add circles and markers
+        var circle = L.circle([52.408152, 16.933514], {
+            color: '#83ead7',
+            fillColor: '#83ead7',
+            fillOpacity: 0.5,
+            radius: 10000
+        }).bindPopup('<h3>Poznań</h3><p>Start</p>').addTo(map);
+
+        var dworceIcon = L.icon({
+            iconUrl: 'icons/Train.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var Dworce = L.layerGroup([
+        ]);
+
+        var hotIcon = L.icon({
+            iconUrl: 'icons/Hot.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var Hot = L.layerGroup([
+        ]);
+
+        var sleepIcon = L.icon({
+            iconUrl: 'icons/Tent.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var Sleep = L.layerGroup([
+            L.marker([50.343530, 14.870005], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>1st Brodce</p>'),
+            L.marker([50.033846, 14.404621], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Prague</p>'),
+            L.marker([49.410181, 15.076606], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Moravec</p>'),
+            L.marker([48.564758, 16.047581], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Hollabrunn</p>'),
+            L.marker([48.211440, 16.447545], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Vienna</p>'),
+            L.marker([48.209367, 16.468869], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Vienna</p>'),
+            L.marker([47.699867, 17.621120], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Gyor</p>'),
+            L.marker([46.764867, 17.289952], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Keszthely</p>'),
+            L.marker([46.803734, 17.518897], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Badacsonytomaj</p>'),
+            L.marker([46.938394, 18.127529], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Siofok</p>'),
+            L.marker([47.417180, 18.907596], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Budapest</p>'),
+            L.marker([47.476161, 19.083333], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Budapest</p>'),
+            L.marker([47.831521, 18.698297], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Esztergom</p>'),
+            L.marker([48.595192, 18.455335], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>26/27.08.2022</p>'),
+            L.marker([49.446265, 18.771056], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Cadca</p>'),
+				
+            L.marker([47.256844, 11.329313], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Innsbruck</p>'),
+            L.marker([46.507881, 11.350628], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Bolzano</p>'),
+            L.marker([45.788343, 10.824790], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Garda</p>'),
+            L.marker([45.373651, 11.427969], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Lonigo</p>'),
+            L.marker([45.645984, 12.654267], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Venice</p>'),
+            L.marker([45.598320, 13.783057], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Muggia</p>'),
+            L.marker([45.309447, 14.284681], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Icici</p>'),
+            L.marker([45.879229, 15.999641], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Zagreb</p>'),
+            L.marker([46.539944, 15.924602], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Ptuj</p>'),
+           L.marker([47.585979, 16.102185], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Holl</p>'),
+           L.marker([48.621341, 16.518346], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Horesdorf</p>'),
+           L.marker([49.683346, 16.620236], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Krenov</p>'),
+				
+            L.marker([46.8505730, 9.4947960], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Military Base Chur</p>'),
+            L.marker([46.1328810, 9.2883730], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Dongo</p>'),
+            L.marker([45.5718960, 8.5406310], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Momo</p>'),
+            L.marker([44.9344880, 7.6514900], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Brassi</p>'),
+            L.marker([44.2903990, 8.4518020], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Savona</p>'),
+            L.marker([44.738556, 8.821508], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Novi Ligure</p>'),
+            L.marker([45.4083410, 9.1414780], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Milan</p>'),
+            L.marker([45.8219370, 9.4146720], { icon: hotIcon })
+                .bindPopup('<h3>CAMPING</h3><p>Lecco</p>'),
+            L.marker([46.3102690, 9.3938510], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Chiavenna</p>'),
+            L.marker([46.7047960, 9.4453320], { icon: sleepIcon })
+                .bindPopup('<h3>WILD CAMP</h3><p>Thusis</p>')
+        ]);
+
+        // Add GPX tracks using Omnivore
+        function addGPXLayer(gpxFile, color, dayId) {
+            var layer = omnivore.gpx(gpxFile, null, L.geoJson(null, {
+                style: {
+                    color: color,
+                    weight: 5,
+                    opacity: 0.65
+                }
+            })).on('ready', function() {
+                this.eachLayer(function(layer) {
+                    layer.on('click', function() {
+                        map.fitBounds(layer.getBounds());
+                        highlightDay(dayId);
+                    });
+                });
+
+                // Calculate distance and elevation gain
+                var distance = 0;
+                var elevationGain = 0;
+                var previousPoint = null;
+                
+                layer.eachLayer(function(segment) {
+                    var points = segment.feature.geometry.coordinates;
+                    for (var i = 1; i < points.length; i++) {
+                        var point1 = L.latLng(points[i - 1][1], points[i - 1][0]);
+                        var point2 = L.latLng(points[i][1], points[i][0]);
+                        distance += point1.distanceTo(point2);
+
+                        if (points[i][2] && points[i - 1][2]) {
+                            var elevationDiff = points[i][2] - points[i - 1][2];
+                            if (elevationDiff > 0) {
+                                elevationGain += elevationDiff;
+                            }
+                        }
+                    }
+                });
+
+                distance = (distance / 1000).toFixed(2); // Convert to km
+                elevationGain = elevationGain.toFixed(2); // Keep 2 decimal places
+
+                // Add distance and elevation gain to the day description
+                var dayDescription = document.querySelector('#day-' + dayId + ' .opis');
+                if (dayDescription) {
+                    dayDescription.innerHTML += `<br>Dystans:<b> ${distance}</b> km<br>Elevation:<b> ${elevationGain}</b> m`;
+                }
+
+            }).addTo(map);
+            return layer;
+        }
+        
+        var allGPXLayers = L.layerGroup();
+
+        var gpxLayers = {
+        };
+		
+		  // Add a legend
+		  var legend = L.control({ position: 'topleft' });
+
+		  legend.onAdd = function(map) {
+			var div = L.DomUtil.create('div', 'info legend');
+			for (var year in gpxLayers) {
+			  div.innerHTML +=
+				'<i style="background:' + gpxLayers[year].options.style.color + '; color: #30404D; width: 20px; height: 8px; display: inline-block; margin-right: 5px;"></i>' +
+				year + '<br>';
+			}
+			return div;
+		  };
+		  legend.addTo(map);
+
+        var overlayMaps = {
+            "Trains": Dworce,
+            "HotSpots": Hot,
+            "SleepSpots": Sleep,
+            "GPXs": allGPXLayers
+        };
+
+        L.control.layers(baseLayers, overlayMaps).addTo(map);
+
+        // Add default overlays
+        Dworce.addTo(map);
+        Hot.addTo(map);
+        Sleep.addTo(map);
+        allGPXLayers.addTo(map);
+
+        function highlightDay(dayId) {
+            var days = document.querySelectorAll('.day');
+            days.forEach(function(day) {
+                day.classList.remove('highlight');
+            });
+            var selectedDay = document.getElementById('day-' + dayId);
+            if (selectedDay) {
+                selectedDay.classList.add('highlight');
+                selectedDay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // Dodanie linii do mapy z zastosowaniem stylu
+        L.geoJSON(myLines, {
+            style: myStyle
+        }).on('ready', function() {
+            this.eachLayer(function(layer) {
+                layer.on('click', function() {
+                    map.fitBounds(layer.getBounds());
+                    highlightDay(dayId); // Upewnij się, że zmienna dayId jest poprawnie zdefiniowana
+                });
+            });
+        }).addTo(map);
+    
+        // Dodanie dodatkowych danych do mapy
+        var myLayer = L.geoJSON().addTo(map);
+        myLayer.addData(geojsonFeature);
+        
+    </script>
+</body>
+</html>
