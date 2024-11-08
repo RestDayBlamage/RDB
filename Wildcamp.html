@@ -39,7 +39,7 @@
         // Initialize map
 		var map = L.map('map', {
 			zoomControl: false
-		}).setView([47.609401746377145, 13.783270663071217], 6);
+		}).setView([47.609401746377145, 13.783270663071217], 5);
 
         // Base layers
         var baseLayers = {
@@ -55,13 +55,6 @@
             })
         };
 
-        // Add circles and markers
-        var circle = L.circle([52.408152, 16.933514], {
-            color: '#83ead7',
-            fillColor: '#83ead7',
-            fillOpacity: 0.5,
-            radius: 10000
-        }).bindPopup('<h3>Poznań</h3><p>Start</p>').addTo(map);
 
         var dworceIcon = L.icon({
             iconUrl: 'icons/Train.png',
@@ -74,7 +67,7 @@
         ]);
 
         var hotIcon = L.icon({
-            iconUrl: 'icons/Hot.png',
+            iconUrl: 'icons/Camp.png',
             iconSize: [32, 32],
             iconAnchor: [16, 32],
             popupAnchor: [0, -32]
