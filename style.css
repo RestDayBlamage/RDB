@@ -15,13 +15,15 @@
 	margin: 5px auto;
 	position: relative;
 	border-radius: 8px;
-    font-family: 'PismoTech', sans-serif;
 }
 
 body {
     font-family: 'PismoTech', sans-serif;
     background-color: #f0f0f0;
     justify-content: center;
+	color: #408a8d;
+	text-align: center;
+	font-weight: bold;
 }
 
 hr {
