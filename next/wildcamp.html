@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildcamps</title>
+	<link rel="shortcut icon" href="icons/rdb.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+		@font-face {
+		font-family: 'PismoTech';
+		src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
+		}
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #map { height: 100vh; width: calc(100% - 200px); margin-left: 200px; }
+        #sidebar {
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: #f7f7f7;
+            overflow-y: auto;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+            box-shadow: 2px 0px 5px rgba(0,0,0,0.1);
+			font-family: 'PismoTech', sans-serif;
+        }
+        #sidebar h2 { font-size: 1.2em; margin-top: 0; }
+        #sidebar ul { list-style: none; padding: 0; }
+        #sidebar li { margin: 10px 0; }
+        #sidebar li a {
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+        }
+        #sidebar li a:hover {color: #1c2e60;}
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <h2>CAMP LIST</h2>
+    <ul id="locationList"></ul>
+</div>
+<div id="map"></div>
+
+<script>
+    // Inicjalizacja mapy
+		var map = L.map('map', {
+			zoomControl: false
+		}).setView([47.609401746377145, 13.783270663071217], 5);
+
+    // Warstwy mapy
+    var baseLayers = {
+        "Google Satellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3']
+        }).addTo(map),
+        "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 20,
+        }),
+        "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            maxZoom: 20,
+        })
+    };
+
+    // Ikony dla markerów
+    var hotIcon = L.icon({
+        iconUrl: 'icons/Camp.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+    });
+
+    var sleepIcon = L.icon({
+        iconUrl: 'icons/Tent.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+    });
+
+    // Lista markerów do dodania do mapy i sidebara
+    var locations = [
+        { coords: [50.343530, 14.870005], icon: sleepIcon, title: "WILD", description: "1st Brodce" },
+        { coords: [50.033846, 14.404621], icon: sleepIcon, title: "WILD", description: "Prague" },
+        { coords: [49.410181, 15.076606], icon: hotIcon, title: "CAMP", description: "Moravec" },
+        { coords: [48.564758, 16.047581], icon: sleepIcon, title: "WILD", description: "Hollabrunn" },
+        { coords: [48.211440, 16.447545], icon: hotIcon, title: "CAMP", description: "Vienna" },
+        { coords: [48.209367, 16.468869], icon: sleepIcon, title: "WILD", description: "Vienna" },
+        { coords: [47.699867, 17.621120], icon: sleepIcon, title: "WILD", description: "Gyor" },
+        { coords: [46.764867, 17.289952], icon: hotIcon, title: "CAMP", description: "Keszthely" },
+        { coords: [46.803734, 17.518897], icon: hotIcon, title: "CAMP", description: "Badacsonytomaj" },
+        { coords: [46.938394, 18.127529], icon: sleepIcon, title: "WILD", description: "Siofok" },
+        { coords: [47.417180, 18.907596], icon: sleepIcon, title: "WILD", description: "Budapest" },
+        { coords: [47.476161, 19.083333], icon: hotIcon, title: "CAMP", description: "Budapest" },
+        { coords: [47.831521, 18.698297], icon: sleepIcon, title: "WILD", description: "Esztergom" },
+        { coords: [48.595192, 18.455335], icon: sleepIcon, title: "WILD", description: "26/27.08.2022" },
+        { coords: [49.446265, 18.771056], icon: sleepIcon, title: "WILD", description: "Cadca" },
+        { coords: [47.256844, 11.329313], icon: sleepIcon, title: "WILD", description: "Innsbruck" },
+        { coords: [46.507881, 11.350628], icon: sleepIcon, title: "WILD", description: "Bolzano" },
+        { coords: [45.788343, 10.824790], icon: hotIcon, title: "CAMP", description: "Garda" },
+        { coords: [45.373651, 11.427969], icon: sleepIcon, title: "WILD", description: "Lonigo" },
+        { coords: [45.645984, 12.654267], icon: sleepIcon, title: "WILD", description: "Venice" },
+        { coords: [45.598320, 13.783057], icon: sleepIcon, title: "WILD", description: "Muggia" },
+        { coords: [45.309447, 14.284681], icon: hotIcon, title: "CAMP", description: "Icici" },
+        { coords: [45.879229, 15.999641], icon: sleepIcon, title: "WILD", description: "Zagreb" },
+        { coords: [46.539944, 15.924602], icon: sleepIcon, title: "WILD", description: "Ptuj" },
+        { coords: [47.585979, 16.102185], icon: sleepIcon, title: "WILD", description: "Holl" },
+        { coords: [48.621341, 16.518346], icon: sleepIcon, title: "WILD", description: "Horesdorf" },
+        { coords: [49.683346, 16.620236], icon: sleepIcon, title: "WILD", description: "Krenov" },
+        { coords: [46.8505730, 9.4947960], icon: sleepIcon, title: "WILD", description: "Military Base Chur" },
+        { coords: [46.1328810, 9.2883730], icon: hotIcon, title: "CAMP", description: "Dongo" },
+        { coords: [45.5718960, 8.5406310], icon: sleepIcon, title: "WILD", description: "Momo" },
+        { coords: [44.9344880, 7.6514900], icon: sleepIcon, title: "WILD", description: "Brassi" },
+        { coords: [44.2903990, 8.4518020], icon: hotIcon, title: "CAMP", description: "Savona" },
+        { coords: [44.738556, 8.821508], icon: sleepIcon, title: "WILD", description: "Novi Ligure" },
+        { coords: [45.4083410, 9.1414780], icon: sleepIcon, title: "WILD", description: "Milan" },
+        { coords: [45.8219370, 9.4146720], icon: hotIcon, title: "CAMP", description: "Lecco" },
+        { coords: [46.3102690, 9.3938510], icon: sleepIcon, title: "WILD", description: "Chiavenna" },
+        { coords: [46.7047960, 9.4453320], icon: sleepIcon, title: "WILD", description: "Thusis" }
+    ];
+
+    // Dodanie markerów i elementów do sidebaru
+    var Sleep = L.layerGroup(locations.map(function(location) {
+        var marker = L.marker(location.coords, { icon: location.icon })
+            .bindPopup('<h3>' + location.title + '</h3><p>' + location.description + '</p>');
+        
+        // Tworzenie elementu listy dla sidebaru
+        var listItem = document.createElement('li');
+        var link = document.createElement('a');
+        link.textContent = location.title + "-" + location.description;
+        link.onclick = function() {
+            map.setView(location.coords, 15);
+            marker.openPopup();
+        };
+        listItem.appendChild(link);
+        document.getElementById('locationList').appendChild(listItem);
+        
+        return marker;
+    }));
+
+    // Dodanie warstwy markerów do mapy i sidebaru
+    var overlayMaps = {
+        "SleepSpots": Sleep
+    };
+
+    L.control.layers(baseLayers, overlayMaps).addTo(map);
+    Sleep.addTo(map);
+
+    // Dopasowanie mapy do zasięgu wszystkich markerów
+    map.fitBounds(Sleep.getBounds(), { padding: [50, 50] });
+
+</script>
+</body>
+</html>
