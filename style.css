@@ -3,128 +3,134 @@
   src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
 }
 
-body {
-    background: #eee;
+* {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: 'PismoTech', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 	#map {
-	height: 40vh;
-	width: 98vw;
+	height: 30vh;
+	max-width: 1160px;
 	margin: 5px auto;
+	position: relative;
+	border-radius: 8px;
 }
 
-.top {
-    background: url("photos/1.jpg");
-    background-position: center center;
-    background-size: cover;
-    padding: 10px;
+body {
+    font-family: 'PismoTech', sans-serif;
+    background-color: #f0f0f0;
+    justify-content: center;
+	color: #408a8d;
+	text-align: center;
+	font-weight: bold;
 }
 
 hr {
     border: 0;
     height: 1px;
-    background-color: #30404d;  /* Kolor linii */
+    background-color: #30404d;
 }
 
-.content {
-    justify-content: center;
-    margin: auto auto;
-}
-
-.year {
-    display: flex;
-    flex-direction: column;
-    width: 98vw;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 2px;
-    gap: 1px;
-}
-
-.opis {
-	color: #30404D;
-}	
-
-.year-group {
-    display: flex;
-    flex-direction: column;
-    width: 98vw;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 2px;
-    gap: 1px;
-}
-
-.wild {
-    background: #83ead7;
-    color: #eee;
-    border: none;
-    text-align: left;
-    width: 100%; /* Zwiększenie szerokości mniejszych kafelków */
-    margin: 5px 0;
+header {
+    position: top;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 10px;
-    transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+    z-index: 1000;
+	padding: 10px;
+	background-color: #408a8d;
+	color: #f0f0f0;
+	font-weight: bold;
 }
 
 .trip {
-    background: #408A8D;
-    color: #eee;
-    border: none;
-    text-align: left;
-    width: 100%; /* Zwiększenie szerokości mniejszych kafelków */
-    margin: 0px 0;
-    padding: 10px;
-    transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
-}
-
-.photos {
-    color: #eee;
-    border: none;
-    text-align: left;
-    width: 100%; /* Szerokość kafelka */
-    margin: 0px 0;
-    padding: 10px;
-    transition: width 0.1s ease, transform 0.3s ease, background-color 0.5s ease;
-    background: #73CDBD; /* Kolor dla photos */
+    font-family: 'PismoTech', sans-serif;
+    background-color: #f0f0f0;
     display: flex;
-    justify-content: space-between;
-    align-items: top;
-	max-height: 300px;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.photos img {
-    object-fit: cover; /* Utrzymanie proporcji zdjęcia */
-	text-align: right;
-	border-radius: 5px;
+.container {
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: row; /* Ustawienie w rzędzie na większych ekranach */
+    flex-wrap: wrap;
 }
 
-.trip:hover{
-    opacity: 0.7;
-    background: #FFDBB6;
+.project {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1 1 calc(33.33% - 20px); /* 3 projekty w rzędzie */
+    transition: transform 0.2s;
+	max-height: 55%;
 }
 
-.photos:hover{
-    opacity: 0.7;
-    background: #FFB797;
+.project img {
+    width: 100%;
+    height: auto;
 }
 
-.wild:hover{
-    opacity: 0.7;
-    background: #FF9D8B;
+.project:hover {
+    transform: translateY(-5px);
 }
 
-
-.trip:active, .photos:active, .gpx:active, .wild:active {
-    transform: scale(1.1); /* Powiększenie po kliknięciu */
+.project-content {
+    padding: 15px;
+	text-align: left;
 }
 
+.project-title {
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333;
+}
 
+.project-date {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 14px;
+    color: #555;
+}
+
+.icons {
+	display: row;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+/* Styl dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    .trip {
+        display: block; /* Wyłączenie flex na body, aby umożliwić przewijanie */
+        padding: 10px;
+    }
+
+    .container {
+        flex-direction: column; /* Ustawienie w kolumnie na mniejszych ekranach */
+        align-items: center;
+    }
+
+    .project {
+        flex: 1 1 100%; /* Pełna szerokość w kolumnie */
+        max-width: 100%;
+    }
+}
 
 .footer {
     display: flex;
@@ -136,6 +142,14 @@ hr {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.coop {
+background-color: #408a8d;
+color: white;
+text-align: center;
+padding: 10px;
+bottom: 0;
 }
 
 .tile {
