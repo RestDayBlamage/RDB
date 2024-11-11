@@ -20,7 +20,7 @@ header {
   background: #408a8d;
   color: white;
   font-weight: bold;
-  padding: 20px;
+  padding: 10px;
 }
 
 .gallery-container {
@@ -98,3 +98,4 @@ header {
   color: white;
   padding: 1rem;
 }
+
