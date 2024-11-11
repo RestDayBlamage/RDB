@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip 2022</title>
+    <link rel="shortcut icon" href="icons/rdb.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin="">
+    </script>
+    <link rel="stylesheet" href="../dist/leaflet-elevation.css" />
+    <script src="../dist/leaflet-elevation.js"></script>
+
+    <style>
+        @font-face {
+            font-family: 'PismoTech';
+            src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
+        }
+        #map {
+            height: 100vh;
+            width: 100vw;
+        }
+        #page {
+            height: 40vh;
+            width: 100vw;
+        }
+
+        body {
+            background: #eee;
+        }
+
+        .time {
+            overflow-x: auto;
+            background: #eee;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            max-height: 40vh;
+            font-family: 'PismoTech', sans-serif;
+            scroll-snap-type: x mandatory;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .day {
+            min-height: 20vh;
+            min-width: 100%;
+            max-height: 30vh;
+            max-width: 100%;
+            color: #30404d;
+            background: #eee;
+            background-position: center center;
+            border: none;
+            text-decoration: none;
+            text-align: center;
+            scroll-snap-align: center;
+        }
+
+        .opis {
+            text-align: justify;
+            padding-left: 10%;
+        }
+        
+        .highlight {
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="page" class="time">
+        <div class="day" id="day-1">
+            <h2>
+			●○○○○○○○○○○○○○○○<br>
+			13.08.2022
+			</h2>
+            <h3>Jelenia Góra - Brodce</h3>🇵🇱 ⮕ 🇨🇿
+            <p class="opis">
+
+            </p>
+        </div>
+        
+        <div class="day" id="day-2">
+            <h2>
+			○●○○○○○○○○○○○○○○<br>
+			14.08.2022
+			</h2>
+            <h3>Brodce - Prague</h3>🇨🇿
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-3">
+            <h2>
+			○○●○○○○○○○○○○○○○<br>
+			15.08.2022
+			</h2>
+            <h3>Prague - Moravec</h3>🇨🇿
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-4">
+            <h2>
+			○○○●○○○○○○○○○○○○<br>
+			16.08.2022
+			</h2>
+            <h3>Moravec - Hollabrunn</h3>🇨🇿 ⮕ 🇦🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-5">
+            <h2>
+			○○○○●○○○○○○○○○○○<br>
+			17.08.2022
+			</h2>
+            <h3>Hollabrunn - Vienna</h3>🇦🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-6">
+            <h2>
+			○○○○○●○○○○○○○○○○<br>
+			18.08.2022
+			</h2>
+            <h3>Vienna</h3>🇦🇹
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-7">
+             <h2>
+			 ○○○○○○●○○○○○○○○○<br>
+			19.08.2022
+			 </h2>
+            <h3>Vienna - Bratislava - Gyor</h3>🇦🇹 ⮕ 🇸🇰 ⮕ 🇭🇺
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-8">
+             <h2>
+			 ○○○○○○○●○○○○○○○○<br>
+			20.08.2022
+			 </h2>
+            <h3>Gyor - Keszthely</h3>🇭🇺
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-9">
+            <h2>
+			○○○○○○○○●○○○○○○○<br>
+			21.08.2022
+			</h2>
+            <h3>Keszthely - Badacsonytomaj</h3>🇭🇺
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-10">
+            <h2>
+			○○○○○○○○○●○○○○○○<br>
+			22.08.2022
+			</h2>
+            <h3>Badacsonytomaj - Siofok</h3>🇭🇺
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-11">
+             <h2>
+			 ○○○○○○○○○○●○○○○○<br>
+			23.08.2022
+			 </h2>
+            <h3>Siofok - Budapest</h3>🇭🇺
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-12">
+             <h2>
+			 ○○○○○○○○○○○●○○○○<br>
+			24.08.2022
+			 </h2>
+            <h3>Budapest</h3>🇭🇺 
+            <p class="opis">
+                
+            </p>
+        </div>
+        
+        <div class="day" id="day-13">
+            <h2>
+			○○○○○○○○○○○○●○○○<br>
+			25.08.2022
+			</h2>
+            <h3>Budapest - Esztergom</h3>🇭🇺 ⮕ 🇸🇰
+            <p class="opis">
+                
+            </p>
+        </div>
+		
+        <div class="day" id="day-13">
+            <h2>
+			○○○○○○○○○○○○○●○○<br>
+			26.08.2022
+			</h2>
+            <h3>Esztergom - Kolackko</h3>🇸🇰
+            <p class="opis">
+                
+            </p>
+        </div>
+
+        <div class="day" id="day-13">
+            <h2>
+			○○○○○○○○○○○○○○●○<br>
+			27.08.2022
+			</h2>
+            <h3>Kolackko - Cadca</h3>🇸🇰
+            <p class="opis">
+                
+            </p>
+        </div>
+
+        <div class="day" id="day-13">
+            <h2>
+			○○○○○○○○○○○○○○○●<br>
+			28.08.2022
+			</h2>
+            <h3>Cadca - Katowice</h3>🇸🇰 ⮕ 🇨🇿 ⮕ 🇵🇱
+            <p class="opis">
+                
+            </p>
+        </div>
+    </div>
+    
+    <div id="map"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
+    <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Initialize map
+		var map = L.map('map', {
+			zoomControl: false
+		}).setView([49.22428556069891, 17.6645904809129], 6);
+
+        // Base layers
+        var baseLayers = {
+            "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 20,
+            }).addTo(map),
+            "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 20,
+            }),
+            "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3']
+            })
+        };
+
+        // Add circles and markers
+        var circle = L.circle([52.408152, 16.933514], {
+            color: '#83ead7',
+            fillColor: '#83ead7',
+            fillOpacity: 0.5,
+            radius: 10000
+        }).bindPopup('<h3>Poznań</h3><p>Start</p>').addTo(map);
+
+        var dworceIcon = L.icon({
+            iconUrl: 'icons/Train.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var Dworce = L.layerGroup([
+            L.marker([52.402353, 16.911831], { icon: dworceIcon })
+                .bindPopup('<h3>Poznań</h3><p>13.08.2022</p>'),
+            L.marker([51.098374, 17.038279], { icon: dworceIcon })
+                .bindPopup('<h3>Wrocław</h3><p>13.08.2022</p>'),
+            L.marker([50.902340, 15.754613], { icon: dworceIcon })
+                .bindPopup('<h3>Jelenia Góra</h3><p>13.08.2022</p>'),
+            L.marker([50.258428, 19.018284], { icon: dworceIcon })
+                .bindPopup('<h3>Katowice</h3><p>28.08.2022</p>')
+        ]);
+
+        var hotIcon = L.icon({
+            iconUrl: 'icons/Hot.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var Hot = L.layerGroup([
+            L.marker([46.912059, 18.056866], { icon: hotIcon })
+                .bindPopup('<h3>Lávakövi Pizzéria</h3><p>Hungary</p><img src="./photos/Agricultural Machinery Depot.jpg" style="width:300px">')
+        ]);
+
+        var sleepIcon = L.icon({
+            iconUrl: 'icons/Tent.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var Sleep = L.layerGroup([
+            L.marker([50.343530, 14.870005], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>13/14.08.2022</p>'),
+            L.marker([50.033846, 14.404621], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>14/15.08.2022</p>'),
+            L.marker([49.410181, 15.076606], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>15/16.08.2022</p>'),
+            L.marker([48.564758, 16.047581], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>16/17.08.2022</p>'),
+            L.marker([48.211440, 16.447545], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>17/18.08.2022</p>'),
+            L.marker([48.209367, 16.468869], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>18/19.08.2022</p>'),
+            L.marker([47.699867, 17.621120], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>19/20.08.2022</p>'),
+            L.marker([46.764867, 17.289952], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>20/21.08.2022</p>'),
+            L.marker([46.803734, 17.518897], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>21/22.08.2022</p>'),
+            L.marker([46.938394, 18.127529], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>22/23.08.2022</p>'),
+            L.marker([47.417180, 18.907596], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>23/24.08.2022</p>'),
+            L.marker([47.476161, 19.083333], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>24/25.08.2022</p>'),
+            L.marker([47.831521, 18.698297], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>25/26.08.2022</p>'),
+            L.marker([48.595192, 18.455335], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>26/27.08.2022</p>'),
+            L.marker([49.446265, 18.771056], { icon: sleepIcon })
+                .bindPopup('<h3>SPANIE</h3><p>27/28.08.2022</p>')		
+        ]);
+
+        // Add GPX tracks using Omnivore
+        function addGPXLayer(gpxFile, color, dayId) {
+            var layer = omnivore.gpx(gpxFile, null, L.geoJson(null, {
+                style: {
+                    color: color,
+                    weight: 5,
+                    opacity: 0.65
+                }
+            })).on('ready', function() {
+                this.eachLayer(function(layer) {
+                    layer.on('click', function() {
+                        map.fitBounds(layer.getBounds());
+                        highlightDay(dayId);
+                    });
+                });
+
+                // Calculate distance and elevation gain
+                var distance = 0;
+                var elevationGain = 0;
+                var previousPoint = null;
+                
+                layer.eachLayer(function(segment) {
+                    var points = segment.feature.geometry.coordinates;
+                    for (var i = 1; i < points.length; i++) {
+                        var point1 = L.latLng(points[i - 1][1], points[i - 1][0]);
+                        var point2 = L.latLng(points[i][1], points[i][0]);
+                        distance += point1.distanceTo(point2);
+
+                        if (points[i][2] && points[i - 1][2]) {
+                            var elevationDiff = points[i][2] - points[i - 1][2];
+                            if (elevationDiff > 0) {
+                                elevationGain += elevationDiff;
+                            }
+                        }
+                    }
+                });
+
+                distance = (distance / 1000).toFixed(2); // Convert to km
+                elevationGain = elevationGain.toFixed(2); // Keep 2 decimal places
+
+                // Add distance and elevation gain to the day description
+                var dayDescription = document.querySelector('#day-' + dayId + ' .opis');
+                if (dayDescription) {
+                    dayDescription.innerHTML += `<br>Dystans:<b> ${distance}</b> km<br>Elevation:<b> ${elevationGain}</b> m`;
+                }
+
+            }).addTo(map);
+            return layer;
+        }
+        
+        var allGPXLayers = L.layerGroup();
+
+        var gpxLayers = {
+            "13.08.2022 🇵🇱 ⮕ 🇨🇿": addGPXLayer('data/2022/20220.gpx', '#30404D'),
+            "14.08.2022 🇨🇿": addGPXLayer('data/2022/20221.gpx', '#30404D'),
+			"15.08.2022 🇨🇿": addGPXLayer('data/2022/20222.gpx', '#408A8D'),
+			"16.08.2022 🇨🇿 ⮕ 🇦🇹": addGPXLayer('data/2022/20223.gpx', '#408A8D'),
+			"17.08.2022 🇦🇹": addGPXLayer('data/2022/20224.gpx', '#59C2C5'),
+			"18.08.2022 🇦🇹": addGPXLayer('data/2022/20225.gpx', '#59C2C5'),
+			"19.08.2022 🇦🇹 ⮕ 🇸🇰 ⮕ 🇭🇺": addGPXLayer('data/2022/20226.gpx', '#73CDBD'),
+			"20.08.2022 🇭🇺": addGPXLayer('data/2022/20227.gpx', '#83EAD7'),
+			"21.08.2022 🇭🇺": addGPXLayer('data/2022/20228.gpx', '#FFE1A8'),
+			"22.08.2022 🇭🇺": addGPXLayer('data/2022/20229.gpx', '#FFDBB6'),
+			"23.08.2022 🇭🇺": addGPXLayer('data/2022/202210.gpx', '#FFCCA2'),
+			"24.08.2022 🇭🇺": addGPXLayer('data/2022/202211.gpx', '#FFCCA2'),
+			"25.08.2022 🇭🇺 ⮕ 🇸🇰": addGPXLayer('data/2022/202212.gpx', '#FFB797'),
+			"26.08.2022 🇸🇰": addGPXLayer('data/2022/202213.gpx', '#FFB797'),
+			"27.08.2022 🇸🇰": addGPXLayer('data/2022/202214.gpx', '#FF9D8B'),
+			"28.08.2022 🇸🇰 ⮕ 🇨🇿 ⮕ 🇵🇱": addGPXLayer('data/2022/202215.gpx', '#FF9D8B')
+        };
+		
+		  // Add a legend
+		  var legend = L.control({ position: 'topleft' });
+
+		  legend.onAdd = function(map) {
+			var div = L.DomUtil.create('div', 'info legend');
+			for (var year in gpxLayers) {
+			  div.innerHTML +=
+				'<i style="background:' + gpxLayers[year].options.style.color + '; color: #30404D; width: 20px; height: 8px; display: inline-block; margin-right: 5px;"></i>' +
+				year + '<br>';
+			}
+			return div;
+		  };
+		  legend.addTo(map);
+
+        var overlayMaps = {
+            "Trains": Dworce,
+            "HotSpots": Hot,
+            "SleepSpots": Sleep,
+            "GPXs": allGPXLayers
+        };
+
+        L.control.layers(baseLayers, overlayMaps).addTo(map);
+
+        // Add default overlays
+        Dworce.addTo(map);
+        Hot.addTo(map);
+        Sleep.addTo(map);
+        allGPXLayers.addTo(map);
+
+        function highlightDay(dayId) {
+            var days = document.querySelectorAll('.day');
+            days.forEach(function(day) {
+                day.classList.remove('highlight');
+            });
+            var selectedDay = document.getElementById('day-' + dayId);
+            if (selectedDay) {
+                selectedDay.classList.add('highlight');
+                selectedDay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // Definiowanie danych GeoJSON dla linii
+		var myLines = [{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[16.911831, 52.402353], [17.038279, 51.098374]]
+			}
+		}, {
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[17.038279, 51.098374], [15.754613, 50.902340]]
+			}
+		}, {
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[19.018284, 50.258428], [16.911831, 52.402353]]
+			}
+		}];
+
+        // Definiowanie stylu dla linii
+        var myStyle = {
+            "color": "#ff7800",
+            "weight": 3,             		// Grubość linii
+            "opacity": 0.5,        		 // Przezroczystość linii
+            "dashArray": "5, 5", 		// Wzór przerywanej linii
+            "lineJoin": "round",    	// Zaokrąglenie zgięć linii
+            "lineCap": "round"      	// Zaokrąglenie końców linii
+        };
+
+        // Dodanie linii do mapy z zastosowaniem stylu
+        L.geoJSON(myLines, {
+            style: myStyle
+        }).on('ready', function() {
+            this.eachLayer(function(layer) {
+                layer.on('click', function() {
+                    map.fitBounds(layer.getBounds());
+                    highlightDay(dayId); // Upewnij się, że zmienna dayId jest poprawnie zdefiniowana
+                });
+            });
+        }).addTo(map);
+    
+        // Dodanie dodatkowych danych do mapy
+        var myLayer = L.geoJSON().addTo(map);
+        myLayer.addData(geojsonFeature);
+        
+    </script>
+</body>
+</html>

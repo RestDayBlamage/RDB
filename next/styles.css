@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'PismoTech';
+  src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'PismoTech', sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+header {
+  text-align: center;
+  background: #35637c;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.gallery-item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  aspect-ratio: 16 / 9; /* Proporcja panoramiczna */
+  border-radius: 8px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Dopasowanie obrazu z przycinaniem */
+  object-position: center 40%; /* Wyśrodkowanie obrazu */
+}
+
+.caption {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.modal-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 5rem;
+  color: white;
+  cursor: pointer;
+}
+
+#modal-caption {
+  text-align: center;
+  color: white;
+  padding: 1rem;
+}
