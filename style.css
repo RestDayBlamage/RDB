@@ -32,6 +32,24 @@ hr {
     background-color: #30404d;
 }
 
+.hr1 {
+    border: 0;
+    height: 5px;
+    background-color: #FFCCA2;
+}
+
+.hr2 {
+    border: 0;
+    height: 5px;
+    background-color: #FFB797;
+}
+
+.hr3 {
+    border: 0;
+    height: 5px;
+    background-color: #FF9D8B;
+}
+
 header {
     position: top;
     top: 0;
