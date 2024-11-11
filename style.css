@@ -42,8 +42,10 @@ header {
     justify-content: center;
     align-items: center;     
     z-index: 1000;
-    height: 50px;            
+	padding: 10px;
 	background-color: #408a8d;
+	color: #f0f0f0;
+	font-weight: bold;
 }
 
 .trip {
