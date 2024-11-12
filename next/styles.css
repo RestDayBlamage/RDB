@@ -93,6 +93,38 @@ header {
   cursor: pointer;
 }
 
+.coop {
+background-color: #408a8d;
+color: white;
+text-align: center;
+padding: 10px;
+bottom: 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #30404d;
+}
+
+.hr1 {
+    border: 0;
+    height: 5px;
+    background-color: #FFCCA2;
+}
+
+.hr2 {
+    border: 0;
+    height: 5px;
+    background-color: #FFB797;
+}
+
+.hr3 {
+    border: 0;
+    height: 5px;
+    background-color: #FF9D8B;
+}
+
 #modal-caption {
   text-align: center;
   color: white;
