@@ -21,234 +21,22 @@
             font-family: 'PismoTech';
             src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
         }
+		
         #map {
             height: 100vh;
             width: 100vw;
-        }
-        #page {
-            height: 40vh;
-            width: 100vw;
+			position: fixed;
+            top: 0;
         }
 
         body {
             background: #eee;
         }
 
-        .time {
-            overflow-x: auto;
-            background: #eee;
-            margin: 0;
-            display: flex;
-            flex-direction: row;
-            max-height: 40vh;
-            font-family: 'PismoTech', sans-serif;
-            scroll-snap-type: x mandatory;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .day {
-            min-height: 20vh;
-            min-width: 100%;
-            max-height: 30vh;
-            max-width: 100%;
-            color: #30404d;
-            background: #eee;
-            background-position: center center;
-            border: none;
-            text-decoration: none;
-            text-align: center;
-            scroll-snap-align: center;
-        }
-
-        .opis {
-            text-align: justify;
-            padding-left: 10%;
-        }
-        
-        .highlight {
-        }
     </style>
 </head>
 <body>
-    
-    <div id="page" class="time">
-        <div class="day" id="day-1">
-            <h2>
-			●○○○○○○○○○○○○○○○<br>
-			13.08.2022
-			</h2>
-            <h3>Jelenia Góra - Brodce</h3>🇵🇱 ⮕ 🇨🇿
-            <p class="opis">
-
-            </p>
-        </div>
-        
-        <div class="day" id="day-2">
-            <h2>
-			○●○○○○○○○○○○○○○○<br>
-			14.08.2022
-			</h2>
-            <h3>Brodce - Prague</h3>🇨🇿
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-3">
-            <h2>
-			○○●○○○○○○○○○○○○○<br>
-			15.08.2022
-			</h2>
-            <h3>Prague - Moravec</h3>🇨🇿
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-4">
-            <h2>
-			○○○●○○○○○○○○○○○○<br>
-			16.08.2022
-			</h2>
-            <h3>Moravec - Hollabrunn</h3>🇨🇿 ⮕ 🇦🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-5">
-            <h2>
-			○○○○●○○○○○○○○○○○<br>
-			17.08.2022
-			</h2>
-            <h3>Hollabrunn - Vienna</h3>🇦🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-6">
-            <h2>
-			○○○○○●○○○○○○○○○○<br>
-			18.08.2022
-			</h2>
-            <h3>Vienna</h3>🇦🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-7">
-             <h2>
-			 ○○○○○○●○○○○○○○○○<br>
-			19.08.2022
-			 </h2>
-            <h3>Vienna - Bratislava - Gyor</h3>🇦🇹 ⮕ 🇸🇰 ⮕ 🇭🇺
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-8">
-             <h2>
-			 ○○○○○○○●○○○○○○○○<br>
-			20.08.2022
-			 </h2>
-            <h3>Gyor - Keszthely</h3>🇭🇺
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-9">
-            <h2>
-			○○○○○○○○●○○○○○○○<br>
-			21.08.2022
-			</h2>
-            <h3>Keszthely - Badacsonytomaj</h3>🇭🇺
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-10">
-            <h2>
-			○○○○○○○○○●○○○○○○<br>
-			22.08.2022
-			</h2>
-            <h3>Badacsonytomaj - Siofok</h3>🇭🇺
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-11">
-             <h2>
-			 ○○○○○○○○○○●○○○○○<br>
-			23.08.2022
-			 </h2>
-            <h3>Siofok - Budapest</h3>🇭🇺
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-12">
-             <h2>
-			 ○○○○○○○○○○○●○○○○<br>
-			24.08.2022
-			 </h2>
-            <h3>Budapest</h3>🇭🇺 
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-13">
-            <h2>
-			○○○○○○○○○○○○●○○○<br>
-			25.08.2022
-			</h2>
-            <h3>Budapest - Esztergom</h3>🇭🇺 ⮕ 🇸🇰
-            <p class="opis">
-                
-            </p>
-        </div>
-		
-        <div class="day" id="day-13">
-            <h2>
-			○○○○○○○○○○○○○●○○<br>
-			26.08.2022
-			</h2>
-            <h3>Esztergom - Kolackko</h3>🇸🇰
-            <p class="opis">
-                
-            </p>
-        </div>
-
-        <div class="day" id="day-13">
-            <h2>
-			○○○○○○○○○○○○○○●○<br>
-			27.08.2022
-			</h2>
-            <h3>Kolackko - Cadca</h3>🇸🇰
-            <p class="opis">
-                
-            </p>
-        </div>
-
-        <div class="day" id="day-13">
-            <h2>
-			○○○○○○○○○○○○○○○●<br>
-			28.08.2022
-			</h2>
-            <h3>Cadca - Katowice</h3>🇸🇰 ⮕ 🇨🇿 ⮕ 🇵🇱
-            <p class="opis">
-                
-            </p>
-        </div>
-    </div>
+ 
     
     <div id="map"></div>
     
@@ -264,15 +52,34 @@
 
         // Base layers
         var baseLayers = {
+			"OSM": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+			    maxZoom: 19,
+				minZoom: 3,
+			}).addTo(map),	
+			"Base": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
+			    maxZoom: 9,
+				minZoom: 3,
+			}),
             "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 maxZoom: 20,
-            }).addTo(map),
+				minZoom: 3,
+			}),
             "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 20,
-            }),
+				minZoom: 3,
+			}),	
+			"Satellite": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                maxZoom: 19,
+				minZoom: 3,
+			}),
             "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
                 maxZoom: 20,
+				minZoom: 3,
                 subdomains:['mt0','mt1','mt2','mt3']
+			}),
+			"Bike paths": L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+				maxZoom: 20,
+				minZoom: 3,
             })
         };
 

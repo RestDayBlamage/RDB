@@ -21,235 +21,22 @@
             font-family: 'PismoTech';
             src: url('fonts/FL Pismo Techniczne.ttf') format('truetype');
         }
+		
         #map {
             height: 100vh;
             width: 100vw;
-        }
-        #page {
-            height: 40vh;
-            width: 100vw;
+			position: fixed;
+            top: 0;
         }
 
         body {
             background: #eee;
         }
 
-        .time {
-            overflow-x: auto;
-            background: #eee;
-            margin: 0;
-            display: flex;
-            flex-direction: row;
-            max-height: 40vh;
-            font-family: 'PismoTech', sans-serif;
-            scroll-snap-type: x mandatory;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .day {
-            min-height: 20vh;
-            min-width: 100%;
-            max-height: 30vh;
-            max-width: 100%;
-            color: #30404d;
-            background: #eee;
-            background-position: center center;
-            border: none;
-            text-decoration: none;
-            text-align: center;
-            scroll-snap-align: center;
-        }
-
-        .opis {
-            text-align: justify;
-            padding-left: 10%;
-        }
-        
-        .highlight {
-        }
     </style>
 </head>
 <body>
-    
-    <div id="page" class="time">
-        <div class="day" id="day-1">
-            <h2>
-			●○○○○○○○○○○○○○○○<br>
-			27.07.2023
-			</h2>
-            <h3>Poznań - Berlin - Munich</h3>🇵🇱 ⮕ 🇩🇪
-            <p class="opis">
-
-            </p>
-        </div>
-        
-        <div class="day" id="day-2">
-            <h2>
-			○●○○○○○○○○○○○○○○<br>
-			28.07.2023
-			</h2>
-            <h3>Munich - Innsbruck</h3>🇩🇪 ⮕ 🇦🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-3">
-            <h2>
-			○○●○○○○○○○○○○○○○<br>
-			29.07.2023
-			</h2>
-            <h3>Innsbruck - Bolzano</h3>🇩🇪 ⮕ 🇮🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-4">
-            <h2>
-			○○○●○○○○○○○○○○○○<br>
-			30.07.2023
-			</h2>
-            <h3>Bolzano - Lago di Garda</h3>🇮🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-5">
-            <h2>
-			○○○○●○○○○○○○○○○○<br>
-			31.07.2023
-			</h2>
-            <h3>Lago di Garda - Verona</h3>🇮🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-6">
-            <h2>
-			○○○○○●○○○○○○○○○○<br>
-			01.08.2023
-			</h2>
-            <h3>Verona - Genova</h3>🇮🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-7">
-             <h2>
-			 ○○○○○○●○○○○○○○○○<br>
-			 02.08.2023
-			 </h2>
-            <h3>Genova - Mestre</h3>🇮🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-8">
-             <h2>
-			 ○○○○○○○●○○○○○○○○<br>
-			 03.08.2023
-			 </h2>
-            <h3>Mestre - Muggia</h3>🇮🇹
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-9">
-            <h2>
-			○○○○○○○○●○○○○○○○<br>
-			04.08.2023
-			</h2>
-            <h3>Muggia - Icici</h3>🇮🇹 ⮕ 🇸🇮 ⮕ 🇭🇷
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-10">
-            <h2>
-			○○○○○○○○○●○○○○○○<br>
-			05.08.2023
-			</h2>
-            <h3>Icici - Rim</h3>🇭🇷
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-11">
-             <h2>
-			 ○○○○○○○○○○●○○○○○<br>
-			 06.08.2023
-			 </h2>
-            <h3>Rim - Zagreb</h3>🇭🇷
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-12">
-             <h2>
-			 ○○○○○○○○○○○●○○○○<br>
-			 07.08.2023
-			 </h2>
-            <h3>Zagreb - Ptuj</h3>🇨🇭 ⮕ 🇸🇮
-            <p class="opis">
-                
-            </p>
-        </div>
-        
-        <div class="day" id="day-13">
-            <h2>
-			○○○○○○○○○○○○●○○○<br>
-			08.08.2023
-			</h2>
-            <h3>Ptuj - Holl</h3>🇸🇮 ⮕ 🇦🇹
-            <p class="opis">
-                
-            </p>
-		</div>
-		
-        <div class="day" id="day-14">
-            <h2>
-			○○○○○○○○○○○○○●○○<br>
-			09.08.2023
-			</h2>
-            <h3>Holl - Vienna - Horersdorf</h3>🇦🇹
-            <p class="opis">
-                
-            </p>
-		</div>
-		
-        <div class="day" id="day-15">
-            <h2>
-			○○○○○○○○○○○○○○●○<br>
-			10.08.2023
-			</h2>
-            <h3>Horersdorf - Brno - Krenov</h3>🇦🇹 ⮕ 🇨🇿
-            <p class="opis">
-                
-            </p>
-		</div>
-		
-        <div class="day" id="day-16">
-            <h2>
-			○○○○○○○○○○○○○○○●<br>
-			11.08.2023
-			</h2>
-            <h3>Krenov - Wrocław</h3>🇨🇿 ⮕ 🇵🇱
-            <p class="opis">
-                
-            </p>
-        </div>
-    </div>
-    
+ 
     <div id="map"></div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
@@ -264,15 +51,34 @@
 
         // Base layers
         var baseLayers = {
+			"OSM": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+			    maxZoom: 19,
+				minZoom: 3,
+			}).addTo(map),	
+			"Base": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
+			    maxZoom: 9,
+				minZoom: 3,
+			}),
             "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 maxZoom: 20,
-            }).addTo(map),
+				minZoom: 3,
+			}),
             "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 20,
-            }),
+				minZoom: 3,
+			}),	
+			"Satellite": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                maxZoom: 19,
+				minZoom: 3,
+			}),
             "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
                 maxZoom: 20,
+				minZoom: 3,
                 subdomains:['mt0','mt1','mt2','mt3']
+			}),
+			"Bike paths": L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+				maxZoom: 20,
+				minZoom: 3,
             })
         };
 
