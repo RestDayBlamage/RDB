@@ -147,6 +147,7 @@ header {
     .project {
         flex: 1 1 100%; /* Pełna szerokość w kolumnie */
         max-width: 100%;
+
     }
 }
 
@@ -246,4 +247,14 @@ ul {
 a {
   text-decoration: none;
   display: block;
+}
+
+.strava-embed-placeholder {
+    width: 100%;
+    max-width: 100%;
+}
+
+.strava-embed-placeholder iframe {
+    width: 100%;
+    max-width: 100%;
 }
