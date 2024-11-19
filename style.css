@@ -66,6 +66,42 @@ header {
 	font-weight: bold;
 }
 
+a:link
+{
+   color: #fc5200;
+   text-decoration: none;
+}
+
+a:visited
+{
+   color: #fc5200;
+}
+
+a:hover
+{
+   color: #fc5200;
+}
+
+a:active
+{
+   color: #fc5200;
+}
+
+.wild {
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+    background-image: url("icons/map.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+	min-height: 300px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}	
+
 .trip {
     font-family: 'PismoTech', sans-serif;
     background-color: #f0f0f0;
@@ -150,6 +186,7 @@ header {
 
     }
 }
+
 
 .footer {
     display: flex;
