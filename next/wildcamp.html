@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wildcamps</title>
-	<link rel="shortcut icon" href="icons/rdb.png">
+	<link rel="shortcut icon" href="icons/blmzduzy.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <style>
@@ -52,19 +52,42 @@
 			zoomControl: false
 		}).setView([47.609401746377145, 13.783270663071217], 5);
 
-    // Warstwy mapy
-    var baseLayers = {
-        "Google Satellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-            maxZoom: 20,
-            subdomains:['mt0','mt1','mt2','mt3']
-        }).addTo(map),
-        "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 20,
-        }),
-        "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            maxZoom: 20,
-        })
-    };
+        // Base layers
+        var baseLayers = {
+			"OSM": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+			    maxZoom: 19,
+				minZoom: 3,
+			}),
+			"Base": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
+			    maxZoom: 9,
+				minZoom: 3,
+			}),
+            "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 20,
+				minZoom: 3,
+			}),
+            "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 20,
+				minZoom: 3,
+			}),	
+			"Satellite": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                maxZoom: 19,
+				minZoom: 3,
+			}).addTo(map),	
+            "GoogleSatellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+				minZoom: 3,
+                subdomains:['mt0','mt1','mt2','mt3']
+			}),
+			"Bike paths": L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+				maxZoom: 20,
+				minZoom: 3,
+			}),
+			"X": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+				maxZoom: 20,
+				minZoom: 3,
+            })
+        };
 
     // Ikony dla markerów
     var hotIcon = L.icon({
