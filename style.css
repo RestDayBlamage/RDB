@@ -222,6 +222,11 @@ padding: 10px;
 bottom: 0;
 }
 
+.coop img {
+    width: 15%;
+    height: auto;
+}
+
 .tile {
     text-align: center;
     position: relative;
