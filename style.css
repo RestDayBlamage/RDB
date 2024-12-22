@@ -314,3 +314,58 @@ a {
     width: 100%;
     max-width: 100%;
 }
+
+        .overlay-container {
+			background-color: #fff;
+			width: 100%;
+			font-size: 20px;
+			font-weight: bold;
+            position: relative;
+            display: inline-block;     
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+			padding-top: 64px;
+			padding-bottom: 64px;
+        }
+
+        /* Obraz roweru */
+        .bike-image {
+            width: 100%; /* Dopasowanie obrazu roweru do kontenera */
+            height: auto;
+            display: block;
+        }
+
+        /* SVG jako nakładka */
+        .svg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Dopasowanie SVG do kontenera */
+            height: 100%;
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* Powiększenie i podświetlenie na hover */
+        .svg-overlay:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        /* Efekt kliknięcia */
+        .svg-overlay:active {
+            transform: scale(1.2);
+            filter: brightness(1.4);
+        }
+
+        /* Pole informacji */
+        .info-box {
+            margin-top: 20px;
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
