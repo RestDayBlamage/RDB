@@ -325,8 +325,6 @@ a {
             display: inline-block;     
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 			border-radius: 8px;
-			padding-top: 64px;
-			padding-bottom: 64px;
         }
 
         /* Obraz roweru */
@@ -341,7 +339,6 @@ a {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%; /* Dopasowanie SVG do kontenera */
             height: 100%;
             cursor: pointer;
             transition: transform 0.3s ease, filter 0.3s ease;
