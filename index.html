@@ -17,6 +17,10 @@
 </head>
 <body>
 
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
 	<header class="top">
 		<img " src="icons/blmz.png" alt="BLMZ">
 	</header>
@@ -241,4 +245,15 @@ legend.addTo(map);
 			}
 		}
 </script>
+
+<script>
+// Po załadowaniu strony ukrywamy preloader
+window.onload = function() {
+  // Ukrywamy preloader
+  document.getElementById('loader').style.display = 'none';
+  // Pokazujemy zawartość strony
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+
 </html>
