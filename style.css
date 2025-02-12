@@ -86,7 +86,9 @@ header {
 
 header img {
     width: 61.8%;
+	min-width: 350px;
     height: auto;
+
 }
 
 a:link
