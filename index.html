@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blamaż.vc</title>
 	<link rel="shortcut icon" href="icons/blmzduzy.png">
+	
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
+	
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" >
+	
+	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple-icons/siimple-icons.css">
+   
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -15,6 +25,8 @@
             crossorigin="">
     </script>	
 </head>
+
+
 <body>
 
   <div id="loader">
@@ -24,72 +36,204 @@
 <div id="content">
 
 
+
 	<header class="top">
 		<img " src="icons/blmz.png" alt="BLMZ">
 	</header>
-	<h3>Bikepacking Wildcamping</h3>
+	<h3><br>"Żeby jeździć, trzeba jeździć"</h3>
+	<br>
 <div id="map"></div>
+
+			<button id="toggle-btn" class="toggle-btn" onclick="toggleTheme()">
+				<img src="icons/light_mode.svg" alt="Light Mode">
+				<img src="icons/dark_mode.svg" alt="Dark Mode">
+			</button>
+			
+		
+	<section>
+		<div class="swiper">
+			<div class="swiper-wrapper">
+			
+				<div class="swiper-slide swiper-slide--one">
+				
+				<a href="next/photos2024.html">
+				<span>2024 Photos</span>
+					<div>
+						<h2>1,198km road bikepacking through:<br>Switzerland, Liechtenstein and Italy.<br>🇨🇭 🇱🇮 🇮🇹</h2>
+					</div>
+				</a>
+			</div>
+	  
+				<div class="swiper-slide swiper-slide--two">
+				
+				<a href="next/photos2023.html">
+				<span>2023 Photos</span>
+					<div>
+						<h2>1,886km road bikepacking through:<br>Germany, Austria, Italy, Slovenia, Croatia, Austria and Czech Republic. <br>🇩🇪 🇦🇹 🇮🇹 🇸🇮 🇭🇷 🇦🇹 🇨🇿</h2>
+					</div>
+				</a>
+			</div>
+
+				<div class="swiper-slide swiper-slide--three">
+	  
+				<a href="next/photos2022.html">
+				<span>2022 Photos</span>
+					<div>
+						<h2>1,695km road bikepacking through:<br>Czech Republic, Austria, Slovakia and Hungary.<br>🇨🇿 🇦🇹 🇸🇰 🇭🇺</h2> 
+					</div>
+				</a>
+			</div>
+		</a>
+
+				<div class="swiper-slide swiper-slide--four">
+				
+				<a href="portfolio/4.html">
+				<span>2026</span>
+					<div>
+						<h2>?</h2>
+					</div>
+				</a>
+			</div>
+		
+				<div class="swiper-slide swiper-slide--five">
+				
+				<a href="portfolio/5.html">
+				<span>2025</span>
+					<div>
+					<h2>?</h2>
+				</div>
+			</div>
+		</a>
+		
+    </div>
+
+				<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+	</section>
+
+
+			<div class="social">
+			
+		<a href="https://pl-pl.facebook.com/Pafkoroki" target="_blank" class="box">	
+			<hr>
+				<div class="disc">
+				<h2>Facebook</h2>
+				<p>Restdayblamage</p>
+				</div>
+				<div class="tile">
+				<img src="icons/facebook.svg" alt="Facebook">
+				</div>
+		</a>
+			
+			
+		<a href="https://www.instagram.com/blamaz.vc/" target="_blank" class="box">
+			<hr>
+				<div class="disc">
+				<h2>Instagram</h2>
+				<p>@blamaz.vc</p>
+				</div>
+				<div class="tile">				
+				<img src="icons/instagram.svg" alt="Instagram">
+				</div>
+		</a>
+
+		<a href="https://www.strava.com/athletes/34214799" target="_blank" class="box">
+			<hr>
+				<div class="disc">
+				<h2>Komoot</h2>
+				<p>RDB</p>
+				</div>	
+				<div class="tile">
+				<img src="icons/komoot.svg" alt="Strava">
+			</div>
+		</a>
+		
+		
+		<a href="https://pl-pl.facebook.com/Pafkoroki" target="_blank" class="box">	
+			<hr>
+				<div class="disc">
+				<h2>Youtube</h2>
+				<p>Restdayblamage</p>
+				</div>
+				<div class="tile">
+				<img src="icons/youtube.svg" alt="Facebook">
+				</div>
+		</a>
+			
+			
+		<a href="https://www.strava.com/athletes/22747634" target="_blank" class="box">
+			<hr>
+				<div class="disc">
+				<h2>Strava</h2>
+				<p>Filip</p>
+				</div>
+				<div class="tile">				
+				<img src="icons/strava.svg" alt="Instagram">
+				</div>
+		</a>
+
+		<a href="https://www.strava.com/athletes/34214799" target="_blank" class="box">
+			<hr>
+				<div class="disc">
+				<h2>Strava</h2>
+				<p>Pafko</p>
+				</div>	
+				<div class="tile">
+				<img src="icons/strava.svg" alt="Strava">
+			</div>
+		</a>
+		
+		<a href="https://www.strava.com/athletes/43856339" target="_blank" class="box">	
+			<hr>
+				<div class="disc">
+				<h2>Strava</h2>
+				<p>Janek</p>
+				</div>
+				<div class="tile">
+				<img src="icons/strava.svg" alt="Facebook">
+				</div>
+		</a>
+			
+			
+		<a href="https://www.strava.com/athletes/83068305" target="_blank" class="box">
+			<hr>
+				<div class="disc">
+				<h2>Strava</h2>
+				<p>Szymon</p>
+				</div>
+				<div class="tile">				
+				<img src="icons/strava.svg" alt="Instagram">
+				</div>
+		</a>
+
+		<a href="https://www.strava.com/athletes/79153110" target="_blank" class="box">
+			<hr>
+				<div class="disc">
+				<h2>Strava</h2>
+				<p>Łukasz</p>
+				</div>	
+				<div class="tile">
+				<img src="icons/strava.svg" alt="Strava">
+			</div>
+		</a>
+		
+		</div>
+		
+		<h2>WILD CAMPING SPOTS</h2>
+		<h3>south-eastern europe map</h3>
+		<br>	
+		<div class="legenda">
+				<div class="marker"><img src="icons/Camp.png" alt="Zdjęcie roweru" class="bike-image" /> &nbsp;- CAMPING SPOTS</div>
+				<div class="marker"><img src="icons/Tent.png" alt="Zdjęcie roweru" class="bike-image" /> &nbsp;- WILD CAMPING SPOTS</div>
+		</div>
+		
+<div id="wildmap"></div>
+
 
 	<div class="trip">
 		<div class="container">
-			<div class="project">
-				<img src="images/Photos3.jpg" alt="Projekt 1">
-				<div class="project-content">
-					<h3 class="project-title">Italo disco</h3>
-					<hr class="hr3">
-					<p class="project-date">2024.09.03-14</p>
-					<p class="project-description">1,198km road bikepacking and wildcamping through:<br>Switzerland, Liechtenstein and Italy.<br>🇨🇭 🇱🇮 🇮🇹</p>
-					<br>
-						<div class="icons">
-							<div class="tile"><a href="https://www.komoot.com/tour/1813716276?share_token=a0RByeSrYlayD1pmy1Sd06ymNX0wDXueg70aDf7sqnqiDfvK7V&ref=wtd"><img src="icons/gpx.svg" alt="Facebook"></a></div>
-							<div class="tile"><a href="next/trip2024.html"><img src="icons/location.svg" alt="Facebook"></a></div>
-							<div class="tile"><a href="next/photos2024.html"><img src="icons/camera.svg" alt="Facebook"></a></div>
-						</div>
-				</div>
-			</div>
 
-			<div class="project">
-				<img src="images/Photos2.jpg" alt="Projekt 2">
-				<div class="project-content">
-					<h3 class="project-title">Rest day blamage</h3>
-					<hr class="hr2">
-					<p class="project-date">2023.07.27-08.11</p>
-					<p class="project-description">1,886km road bikepacking and wildcamping through:<br>Germany, Austria, Italy, Slovenia, Croatia, Austria and Czech Republic. 🇩🇪 🇦🇹 🇮🇹 🇸🇮 🇭🇷 🇦🇹 🇨🇿</p>
-					<br>
-						<div class="icons">
-							<div class="tile"><a href="https://www.komoot.com/tour/1770640428?share_token=aNhusbe1C4fOwQIlG9WURmsCpWUPMkeWljABWFTPbZISQmyUJi&ref=wtd"><img src="icons/gpx.svg" alt="Facebook"></a></div>
-							<div class="tile"><a href="next/trip2023.html"><img src="icons/location.svg" alt="Facebook"></a></div>
-							<div class="tile"><a href="next/photos2023.html"><img src="icons/camera.svg" alt="Facebook"></a></div>
-						</div>							
-				</div>
-			</div>
-
-			<div class="project">
-				<img src="images/Photos1.jpg" alt="Projekt 3">
-				<div class="project-content">
-					<h3 class="project-title">Schnell wie Niki Lauda</h3>
-					<hr class="hr1">
-					<p class="project-date">2022.08.13-28</p>
-					<p class="project-description">1,695km road bikepacking and wildcamping through:<br>Czech Republic, Austria, Slovakia and Hungary.<br>🇨🇿 🇦🇹 🇸🇰 🇭🇺</p>
-					<br>
-						<div class="icons">
-							<div class="tile"><a href="https://www.komoot.com/tour/1770640593?share_token=a5Jy3XrZiwBYuLwclTZQU9uKSNKegzWgfDjXva3LNQXhBzfqDQ&ref=wtd"><img src="icons/gpx.svg" alt="Facebook"></a></div>
-							<div class="tile"><a href="next/trip2022.html"><img src="icons/location.svg" alt="Facebook"></a></div>
-							<div class="tile"><a href="next/photos2022.html"><img src="icons/camera.svg" alt="Facebook"></a></div>
-						</div>				
-				</div>
-			</div>
-		
-											<div class="wild">
-												<a href="next/wildcamp.html">
-													<div>
-														<h2>WILD CAMPING SPOTS</h2>
-														<h3>south-eastern europe map</h3>
-														<br>
-													</div>
-												</a>
-											</div>
-											
 											
 
 	<div class="overlay-container">
@@ -103,29 +247,14 @@
 
 			<div class="project">
 				<div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="12436478077" data-style="standard"></div><script src="https://strava-embeds.com/embed.js"></script>
-				<div class="project-content">
-					<h3 class="project-title">Italo disco</h3>
-					<hr class="hr3">
-					<p class="project-date">2024.09.03-14</p>
-				</div>
 			</div>
 
 			<div class="project">
 				<div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="9635310119" data-style="standard"></div><script src="https://strava-embeds.com/embed.js"></script>
-				<div class="project-content">
-					<h3 class="project-title">Rest day blamage</h3>
-					<hr class="hr2">
-					<p class="project-date">2023.07.27-08.11</p>					
-				</div>
 			</div>
 
 			<div class="project">
 				<div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="7722163068" data-style="standard"></div><script src="https://strava-embeds.com/embed.js"></script>
-				<div class="project-content">
-					<h3 class="project-title">Schnell wie Niki Lauda</h3>
-					<hr class="hr1">
-					<p class="project-date">2022.08.13-28</p>			
-				</div>
 			</div>			
 			
 			<iframe src="https://www.komoot.com/tour/1813716276/embed?share_token=a0RByeSrYlayD1pmy1Sd06ymNX0wDXueg70aDf7sqnqiDfvK7V&profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe>
@@ -133,133 +262,58 @@
 			<iframe src="https://www.komoot.com/tour/1770640428/embed?share_token=aNhusbe1C4fOwQIlG9WURmsCpWUPMkeWljABWFTPbZISQmyUJi&profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe>
 			
 			<iframe src="https://www.komoot.com/tour/1770640593/embed?share_token=a5Jy3XrZiwBYuLwclTZQU9uKSNKegzWgfDjXva3LNQXhBzfqDQ&profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe>
-			
 
 		</div>
 	</div>
 	
-   <div class="coop">
-        Blamaż.vc 2024<br>
-		<img " src="icons/blmzmini.png" alt="BLMZ">
-		<hr class="hr3">
-		<hr class="hr2">
-		<hr class="hr1">
-		<br><br><br>
-    </div>	
-	
+
+
 <footer class="footer">
-    <div class="tile"><a href="https://www.facebook.com/"><img src="icons/facebook.svg" alt="Facebook"></a></div>
-    <div class="tile"><a href="https://www.instagram.com/blamaz.vc/"><img src="icons/instagram.svg" alt="Instagram"></a></div>
-    <div class="tile"><a href="https://www.youtube.com/"><img src="icons/youtube.svg" alt="Youtube"></a></div>
-	<div class="tile">
-		<a href="#">
-			<img src="icons/strava.svg" alt="Strava" onclick="toggleDropdown()">
-		</a>
-		<div class="dropdown-menu" id="dropdownMenu">
-			<ul>
-				<li><a href="https://www.strava.com/athletes/22747634">Filip</a></li>
-				<li><a href="https://www.strava.com/athletes/34214799">Pafko</a></li>
-				<li><a href="https://www.strava.com/athletes/43856339">Janek</a></li>
-				<li><a href="https://www.strava.com/athletes/83068305">Szymon</a></li>
-				<li><a href="https://www.strava.com/athletes/79153110">Łukasz</a></li>
-			</ul>
-		</div>
-	</div>
-    <div class="tile"><a href="https://www.komoot.com/user/4337639147933"><img src="icons/komoot.svg" alt="Komoot"></a></div>
+	<p>© 2025 Blamaż.vc, All rights reserved | <button onclick="toggleBar()">Credits</button></p>
 </footer>
+
+
+    <div class="slide-up-bar" id="slideUpBar">
+		<div class="credits">
+			<p>Technologies</p>
+			<a href="https://swiperjs.com/" target="_blank">Swiper.Js</a>, <a href="https://leafletjs.com/" target="_blank">Leaflet.Js</a>
+		</div>
+		  
+		<div class="credits">	
+			<p>Fonts</p>
+			<a style="font-family: 'Montserrat', sans-serif;" href="https://fonts.google.com/specimen/Oswald" target="_blank">Montserrat</a>
+		</div>
+		  
+		<div class="credits">
+			<p>Designed and Developed By</p>
+			<a href="https://pafkoroki.github.io/Portfolio/">Paweł Rokicki</a>
+		</div>
+		
+		<div class="credits">  
+		 <img " src="icons/blmzmini.png" alt="BLMZ">
+		</div>
+		
+		<div class="credits">  
+			<button onclick="toggleBar()"><i class="si-x-circle"></i></button>
+		</div>
+    </div>
+
+	
 
 </div>
 
 </body>
 
-<script>
-		function toggleDropdown() {
-			var dropdownMenu = document.getElementById("dropdownMenu");
-			if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
-				dropdownMenu.style.display = "block";
-			} else {
-				dropdownMenu.style.display = "none";
-			}
-		}
-</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
+
 <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
-<script>
-  // Initialize map
-  var map = L.map('map', {
-    closePopupOnClick: false,
-    dragging: false,
-    zoomControl: false,
-	maxZoom: 10,
-	minZoom: 3
-  }).setView([47.803320, 13.039210], 4);
 
-  // Add tile layer to the map
- L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}').addTo(map);
-			
-  // Add GPX tracks using Omnivore
-  function addGPXLayer(gpxFile, color, label) {
-    return omnivore.gpx(gpxFile, null, L.geoJson(null, {
-      style: {
-        color: color,
-        weight: 6,
-        opacity: 0.9
-      }
-    })).on('ready', function() {
-      this.eachLayer(function(layer) {
-        layer.on('click', function() {
-          map.fitBounds(layer.getBounds());
-        });
-      });
-    }).addTo(map);
-  }
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
 
-  // Add GPX layers
-  var gpxLayers = {
-    "2024": addGPXLayer('data/2024/2024full.gpx', '#FF9D8B'),
-    "2023": addGPXLayer('data/2023/2023full.gpx', '#FFB797'),
-    "2022": addGPXLayer('data/2022/2022full.gpx', '#FFCCA2')
-  };
-
-// Add a legend
-var legend = L.control({ position: 'topleft' });
-
-legend.onAdd = function(map) {
-  var div = L.DomUtil.create('div', 'info legend');
-  div.style.color = 'white';      // Set text color to white
-  div.style.fontWeight = 'bold';  // Make the text bold
-  div.style.fontFamily = 'Arial, sans-serif';  // Change the font
-
-  for (var year in gpxLayers) {
-    div.innerHTML +=
-      '<i style="background:' + gpxLayers[year].options.style.color + 
-      '; width: 20px; height: 8px; display: inline-block; margin-right: 5px;"></i>' +
-      year + '<br>';
-  }
-  return div;
-};
-legend.addTo(map);
-
-  
-		function toggleDropdown() {
-			var dropdownMenu = document.getElementById("dropdownMenu");
-			if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
-				dropdownMenu.style.display = "block";
-			} else {
-				dropdownMenu.style.display = "none";
-			}
-		}
-</script>
-
-<script>
-// Po załadowaniu strony ukrywamy preloader
-window.onload = function() {
-  // Ukrywamy preloader
-  document.getElementById('loader').style.display = 'none';
-  // Pokazujemy zawartość strony
-  document.getElementById('content').style.display = 'block';
-};
-</script>
+<script src="script.js"></script>
 
 </html>
+
