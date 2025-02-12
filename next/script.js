@@ -12,3 +12,11 @@ function openModal(element, title, date, location) {
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
+
+//------------------------------------------------------------------------------------------------------------
+
+		
+        function toggleBar() {
+            const bar = document.getElementById("slideUpBar");
+            bar.classList.toggle("show");
+        }

@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2024 Gallery</title>
   <link rel="shortcut icon" href="icons/blmzduzy.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple-icons/siimple-icons.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header>
+  <header class="trip2024">
     <h1>2024</h1>
   </header>
 
@@ -381,14 +382,35 @@
 	
   </main>
 
-   <div class="coop">
-        Blamaż.vc 2024<br>
-		<img " src="icons/blmzmini.png" alt="BLMZ">
-		<hr class="hr3">
-		<hr class="hr2">
-		<hr class="hr1">
+ <footer class="footer">
+	<p>© 2025 Blamaż.vc, All rights reserved | <button onclick="toggleBar()">Credits</button></p>
+</footer>
 
-    </div>	
+
+    <div class="slide-up-bar" id="slideUpBar">
+		<div class="credits">
+			<p>Technologies</p>
+			<a href="https://swiperjs.com/" target="_blank">Swiper.Js</a>, <a href="https://leafletjs.com/" target="_blank">Leaflet.Js</a>
+		</div>
+		  
+		<div class="credits">	
+			<p>Fonts</p>
+			<a style="font-family: 'Montserrat', sans-serif;" href="https://fonts.google.com/specimen/Oswald" target="_blank">Montserrat</a>
+		</div>
+		  
+		<div class="credits">
+			<p>Designed and Developed By</p>
+			<a href="https://pafkoroki.github.io/Portfolio/">Paweł Rokicki</a>
+		</div>
+		
+		<div class="credits">  
+		 <img " src="icons/blmzmini.png" alt="BLMZ">
+		</div>
+		
+		<div class="credits">  
+			<button onclick="toggleBar()"><i class="si-x-circle"></i></button>
+		</div>
+    </div>
 
   <!-- Modal do powiększenia zdjęć -->
   <div id="modal" class="modal">
