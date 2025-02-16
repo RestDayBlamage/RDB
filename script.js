@@ -16,6 +16,9 @@ var map = L.map('map', {
   closePopupOnClick: false,
   dragging: false,
   zoomControl: false,
+  scrollWheelZoom: false,
+  doubleClickZoom: false,
+  touchZoom: false,
   maxZoom: 10,
   minZoom: 3
 }).setView([47.803320, 13.039210], 4);
