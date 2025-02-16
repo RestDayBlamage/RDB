@@ -1,0 +1,226 @@
+@font-face {
+			
+			font-family: 'Montserrat';
+			src: url('fonts/Montserrat.ttf') format('truetype');
+			
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+	
+:root {
+            --primary-color: #30404d;
+            --background-color:  radial-gradient(circle, #f0f0f0, #e0e0e0);
+			--gradient-color: linear-gradient(145deg, #ffffff, #dcdcdc);
+            --text-color: #f0f0f0;
+			--header-color: #a47864;
+			--footer-color: #f0f0f0;
+}
+
+.dark-theme {
+            --primary-color: #f0f0f0;
+            --background-color: radial-gradient(circle, #2e4757, #2a404f);
+			--gradient-color: linear-gradient(145deg, #2e4757, #293f4e);
+            --text-color: #f0f0f0;
+			--header-color: #3c636e;
+			--footer-color: #2f4858;
+}
+ 
+ /*----------------------------------------------------------------------------*/ 
+ 
+.error {
+    font-family: 'Montserrat', sans-serif;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;  
+    color: #5f6368;
+    font-weight: bold;
+    text-align: center;
+	padding-top: 150px;
+	padding-bottom: 150px;
+}
+
+.footer {
+    display: flex;
+    align-items: left;
+    padding: 5px;
+    background-color: var(--footer-color);
+    color: var(--primary-color);
+    bottom: 0;
+	z-index: 1000;
+	align-items: center;
+	padding: 20px 20px 20px 20px;
+	position: fixed;
+    bottom: 0;
+	width: 100%;
+	opacity: 0.86;
+	box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+.footer button{
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+	text-decoration: underline;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+}
+
+.error h1{
+	font-size: 150px;
+	color: #5f6368;
+}
+
+.error p{
+	font-size: 15px;
+	color: #5f6368;
+}
+
+.si-arrow-circle-left{
+		font-size: 140px;
+}
+
+/*----------------------------------------------------------------------------*/
+ 
+body {
+    font-family: 'Oswald', sans-serif;
+    background: var(--background-color);
+	text-align: center;
+	overflow-x: hidden;
+	width: 100vw;
+	background-size: cover;
+	background-position: center;
+	animation: gradientShift 6s ease-in-out infinite;
+	background-attachment: fixed;
+	
+
+}
+
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            filter: blur(5px);
+			z-index: -1000;
+			
+        }
+        .bubble {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-color);
+            border-radius: 50%;
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+			transition: transform 0.5s ease-in-out;
+        }
+        .bubble:nth-child(odd) {
+            width: 250px;
+            height: 250px;
+        }
+        .bubble:nth-child(even) {
+            width: 150px;
+            height: 150px;
+        }
+        .bubble:hover {
+            transform: scale(1.3);
+        }		
+		
+		h1 {
+			color: var(--primary-color);
+		}
+
+		img {
+			width: 50%;
+			min-width: 350px;
+			height: auto;
+		}
+		
+		a:link
+		{
+		   color: #5f6368;
+		   text-decoration: none;
+		}
+
+		a:visited
+		{
+		   color: #5f6368;
+		}
+
+		a:hover
+		{
+		   color: #f0f0f0;
+		}
+
+		a:active
+		{
+		   color: #f0f0f0;
+		}
+
+/*----------------------------------------------------------------------------*/
+
+        .slide-up-bar {
+            position: fixed;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			gap: 25px;
+			align-items: center;
+			flex-wrap: wrap;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            padding: 50px 0px 50px 0px;
+            text-align: left;
+            transition: bottom 0.3s;
+			z-index: 1000;
+			justify-content: space-around;
+			
+        }
+        .slide-up-bar.show {
+            bottom: 0;
+			background: var(--background-color);
+			box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+		
+        .credits {
+		align-items: center;
+		width: 300px;
+        }
+		
+		.credits p{
+		font-weight: normal;
+		font-size: 15px;
+		text-transform: uppercase;
+		
+        }
+		
+        .credits a:link{
+			color: var(--primary-color);
+			text-decoration: underline;
+			font-size: 25px;
+			font-weight: bold;
+        }	
+		
+        .credits a:visited{
+			color: var(--primary-color);
+			text-decoration: underline;
+			font-size: 30px;
+        }	
+		
+		 .credits button{
+				text-align: right;
+			    background: none;
+				border: none;
+				color: var(--primary-color);
+				cursor: pointer;
+				font-size: 50px;				
+        }	
