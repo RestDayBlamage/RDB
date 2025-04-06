@@ -93,6 +93,13 @@ header img {
 
 }
 
+h6 {
+	text-align: justify;
+	max-width: 1160px;
+	margin: 0px auto;
+	position: relative;
+}
+
 a:link
 {
    color: #30404d;
