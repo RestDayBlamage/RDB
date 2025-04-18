@@ -94,10 +94,13 @@ header img {
 }
 
 h6 {
+	width: 2899px;
+	width: 61.8%;
 	text-align: justify;
 	max-width: 1160px;
 	margin: 0px auto;
 	position: relative;
+	min-width: 350px;
 }
 
 a:link
