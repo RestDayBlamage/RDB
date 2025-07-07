@@ -1,16 +1,66 @@
-window.onload = function() {
-  document.getElementById('loader').style.display = 'none';
-  document.getElementById('content').style.display = 'block';
-};
+let items = document.querySelectorAll('.slider .list .item');
+let next = document.getElementById('next');
+let prev = document.getElementById('prev');
+let thumbnails = document.querySelectorAll('.thumbnail .item');
 
-function toggleDropdown() {
-  var dropdownMenu = document.getElementById("dropdownMenu");
-  if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
-    dropdownMenu.style.display = "block";
-  } else {
-    dropdownMenu.style.display = "none";
-  }
+// config param
+let countItem = items.length;
+let itemActive = 0;
+// event next click
+next.onclick = function(){
+    itemActive = itemActive + 1;
+    if(itemActive >= countItem){
+        itemActive = 0;
+    }
+    showSlider();
 }
+//event prev click
+prev.onclick = function(){
+    itemActive = itemActive - 1;
+    if(itemActive < 0){
+        itemActive = countItem - 1;
+    }
+    showSlider();
+}
+
+function showSlider(){
+    // remove item active old
+    let itemActiveOld = document.querySelector('.slider .list .item.active');
+    let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
+    itemActiveOld.classList.remove('active');
+    thumbnailActiveOld.classList.remove('active');
+
+    // active new item
+    items[itemActive].classList.add('active');
+    thumbnails[itemActive].classList.add('active');
+    setPositionThumbnail();
+
+    // clear auto time run slider
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(() => {
+        next.click();
+    }, 5000)
+}
+function setPositionThumbnail () {
+    let thumbnailActive = document.querySelector('.thumbnail .item.active');
+    let rect = thumbnailActive.getBoundingClientRect();
+    if (rect.left < 0 || rect.right > window.innerWidth) {
+        thumbnailActive.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
+    }
+}
+
+// click thumbnail
+thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        itemActive = index;
+        showSlider();
+    })
+})
+
+//------------------------------------------------------------------------------------------------------------   
+
+
+
 
 var map = L.map('map', {
   closePopupOnClick: false,
@@ -92,33 +142,14 @@ legend.addTo(map);
             }
         });
 		
-//------------------------------------------------------------------------------------------------------------
-		
-		var swiper = new Swiper(".swiper", {
-		  effect: "coverflow",
-		  grabCursor: true,
-		  centeredSlides: true,
-		  slidesPerView: "auto",
-		  coverflowEffect: {
-			rotate: 0,
-			stretch: 0,
-			depth: 100,
-			modifier: 2,
-			slideShadows: true
-		  },
-		  spaceBetween: 60,
-		  loop: true,
-		  pagination: {
-			el: ".swiper-pagination",
-			clickable: true
-		  }
-		});		
 		
 //------------------------------------------------------------------------------------------------------------	
 	
 		// Inicjalizacja mapy
 		var map = L.map('wildmap', {
-			zoomControl: false
+			dragging: false,
+      zoomControl: false
+      
 		}).setView([47.609401746377145, 13.783270663071217], 5);
 
 		// Base layers
@@ -126,7 +157,7 @@ legend.addTo(map);
 			"OSM": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
 				maxZoom: 19,
 				minZoom: 3,
-			}).addTo(map),
+			}),
 			"Base": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
 				maxZoom: 9,
 				minZoom: 3,
@@ -134,7 +165,7 @@ legend.addTo(map);
 			"Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 				maxZoom: 20,
 				minZoom: 3,
-			}),
+			}).addTo(map),
 			"OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 20,
 				minZoom: 3,
@@ -233,3 +264,7 @@ legend.addTo(map);
 
 		// Dopasowanie mapy do zasięgu wszystkich markerów
 		map.fitBounds(markerGroup.getBounds(), { padding: [50, 50] });
+
+//------------------------------------------------------------------------------------------------------------	
+
+

@@ -29,90 +29,134 @@
 
 <body>
 
-  <div id="loader">
-	<img src="images/preloader.gif" alt="Ładowanie..." id="loading-gif">
+
+
+
+
+	<input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon" />
+	<label for="menu-icon"></label>
+	<nav class="nav">
+	  <ul class="pt-5">
+		<li><a href="https://www.instagram.com/blamaz.vc/">Instagram</a></li>
+		<li><a href="https://www.komoot.com/user/4337639147933">Komoot</a></li>
+		<li><a href="#">Camps</a></li>
+		<li><a href="#">Maps</a></li>
+	  </ul>
+	</nav>
+
+
+ 
+	
+  <div class="main">
+    <img src="icons/blmz.svg"/>
+	
+	<h6><br><br>BLAMAGE roughly translates from German as <b>failure</b> from blamieren +-age, coined by German students from two French components.<br> Blâmer comes from Old French blasmer, which in turn derives from Late Latin blastēmāre (a variant of blasphēmāre, meaning “to blaspheme”)<br>Czech: <b>blamáž</b> | Dutch: <b>blamage</b> | Polish: <b>blamaż</b> | Slovak: <b>blamáž</b><br></h4>
+	<h2><br><br>"Żeby jeździć, trzeba jeździć"</h2>
+	<h4>"There’s no substitute for time in the saddle"</h4>
   </div>
 
-<div id="content">
 
+    <div class="slider">
+        <!-- list Items -->
+        <div class="list">
+            <div class="item active">
+                <img src="images/Photos3.jpg">
+                <div class="content">
+                    <p>Italo disco</p>
+                    <h2>2024</h2>
+                    <p>
+                        Countries:&nbsp;<b>🇨🇭 🇱🇮 🇮🇹</b><br>
+						Distance:&nbsp;<b> 1 198 km</b><br>
+						Duration:&nbsp;<b> 12 days</b><br>
+                    </p><br>
+                    <div class="more-container">
+                        <a href="next/photos2024.html" class="more-info-button">PHOTOS</a>
+                    </div>
+					<div class="more-container">
+                        <a href="next/photos2022.html" class="more-info-button">MAP</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/F4190035.jpg">
+                <div class="content">
+                    <p>Rest day blamage</p>
+                    <h2>2023</h2>
+                    <p>
+                        Countries:&nbsp;<b>🇩🇪 🇦🇹 🇮🇹 🇸🇮 🇭🇷 🇦🇹 🇨🇿</b><br>
+						Distance:&nbsp;<b> 1 886 km</b><br>
+						Duration:&nbsp;<b> 15 days</b><br>
+                    </p><br>
+                    <div class="more-container">
+                        <a href="next/photos2023.html" class="more-info-button">PHOTOS</a>
+                    </div>
+					<div class="more-container">
+                        <a href="next/photos2022.html" class="more-info-button">MAP</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/Photos1.jpg">
+                <div class="content">
+                    <p>Schnell wie Niki Lauda</p>
+                    <h2>2022</h2>
+                    <p>
+                        Countries:&nbsp;<b>🇨🇿 🇦🇹 🇸🇰 🇭🇺</b><br>
+						Distance:&nbsp;<b> 1 695 km</b><br>
+						Duration:&nbsp;<b> 16 days</b><br>
+                    </p><br>
+                    <div class="more-container">
+                        <a href="next/photos2022.html" class="more-info-button">PHOTOS</a>
+                    </div>
+					<div class="more-container">
+                        <a href="next/photos2022.html" class="more-info-button">MAP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	<header class="top">
-		<img " src="icons/blmz.png" alt="BLMZ">
-	</header>
-	<h6>BLAMAGE roughly translates from German as <b>failure</b> from blamieren +‎ -age, coined by German students from two French components.<br> Blâmer comes from Old French blasmer, which in turn derives from Late Latin blastēmāre (a variant of blasphēmāre, meaning “to blaspheme”)<br>Czech: <b>blamáž</b> | Dutch: <b>blamage</b> | Polish: <b>blamaż</b> | Slovak: <b>blamáž</b><br></h6>
-	<h3><br>"Żeby jeździć, trzeba jeździć"</h3>
-	
-	<br>
-<div id="map"></div>
+        <!-- button arrows -->
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- thumbnail -->
 
-			<button id="toggle-btn" class="toggle-btn" onclick="toggleTheme()">
-				<img src="icons/light_mode.svg" alt="Light Mode">
-				<img src="icons/dark_mode.svg" alt="Dark Mode">
-			</button>
-			
-		
-	<section>
-		<div class="swiper">
-			<div class="swiper-wrapper">
-			
-				<div class="swiper-slide swiper-slide--one">
-				
-				<a href="next/photos2024.html">
-				<span>2024 Photos</span>
-					<div>
-						<h2>1,198km road bikepacking through:<br>Switzerland, Liechtenstein and Italy.<br>🇨🇭 🇱🇮 🇮🇹</h2>
-					</div>
-				</a>
-			</div>
-	  
-				<div class="swiper-slide swiper-slide--two">
-				
-				<a href="next/photos2023.html">
-				<span>2023 Photos</span>
-					<div>
-						<h2>1,886km road bikepacking through:<br>Germany, Austria, Italy, Slovenia, Croatia, Austria and Czech Republic. <br>🇩🇪 🇦🇹 🇮🇹 🇸🇮 🇭🇷 🇦🇹 🇨🇿</h2>
-					</div>
-				</a>
-			</div>
-
-				<div class="swiper-slide swiper-slide--three">
-	  
-				<a href="next/photos2022.html">
-				<span>2022 Photos</span>
-					<div>
-						<h2>1,695km road bikepacking through:<br>Czech Republic, Austria, Slovakia and Hungary.<br>🇨🇿 🇦🇹 🇸🇰 🇭🇺</h2> 
-					</div>
-				</a>
-			</div>
-		</a>
-
-				<div class="swiper-slide swiper-slide--four">
-				
-				<a href="portfolio/4.html">
-				<span>2026</span>
-					<div>
-						<h2>?</h2>
-					</div>
-				</a>
-			</div>
-		
-				<div class="swiper-slide swiper-slide--five">
-				
-				<a href="portfolio/5.html">
-				<span>2025</span>
-					<div>
-					<h2>?</h2>
-				</div>
-			</div>
-		</a>
-		
+        <div class="thumbnail">
+            <div class="item active">
+                <img src="images/Poster3.png">
+                <div class="content">
+                    2024
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/Poster2.png">
+                <div class="content">
+                    2023
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/Poster1.png">
+                <div class="content">
+                    2022
+                </div>
+            </div>
+        </div>
     </div>
 
-				<!-- Add Pagination -->
-			<div class="swiper-pagination"></div>
+<div class="map">
+	<div id="map"></div>
+<br><br>
+		<h2>WILD CAMPING SPOTS</h2>
+		<h3>south-eastern europe map</h3>
+		<br>	
+		<div class="legenda">
+				<div class="marker"><img src="icons/Camp.png" alt="Zdjęcie roweru" class="bike-image" /> &nbsp;-&nbsp;<b>10</b>&nbsp;CAMPING SPOTS</div>
+				<div class="marker"><img src="icons/Tent.png" alt="Zdjęcie roweru" class="bike-image" /> &nbsp;-&nbsp;<b>27</b>&nbsp;WILD CAMPING SPOTS</div>
 		</div>
-	</section>
-
+		
+<div id="wildmap"></div>
+</div>
 
 			<div class="social">
 			
@@ -220,24 +264,12 @@
 		</a>
 		
 		</div>
-		
-		
-		
-		<h2>WILD CAMPING SPOTS</h2>
-		<h3>south-eastern europe map</h3>
-		<br>	
-		<div class="legenda">
-				<div class="marker"><img src="icons/Camp.png" alt="Zdjęcie roweru" class="bike-image" /> &nbsp;-&nbsp;<b>10</b>&nbsp;CAMPING SPOTS</div>
-				<div class="marker"><img src="icons/Tent.png" alt="Zdjęcie roweru" class="bike-image" /> &nbsp;-&nbsp;<b>27</b>&nbsp;WILD CAMPING SPOTS</div>
-		</div>
-		
-<div id="wildmap"></div>
 
 
-	<div class="trip">
+			<div class="trip">
 		<div class="container">
 
-											
+
 
 	<div class="overlay-container">
         <!-- Zdjęcie roweru -->
@@ -246,8 +278,8 @@
 		<img src="bike/pack2.svg" alt="Przód" class="svg-overlay" id="svgButton" />
         <img src="bike/pack1.svg" alt="Mała" class="svg-overlay" id="svgButton" />
     </div>
-
-
+		
+		
 			<div class="project">
 				<div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="12436478077" data-style="standard"></div><script src="https://strava-embeds.com/embed.js"></script>
 			</div>
@@ -274,7 +306,15 @@
 
 		</div>
 		<br><br><br><br>
-	</div>
+
+
+
+
+
+
+
+</body>
+
 
 
 
@@ -300,7 +340,7 @@
 		</div>
 		
 		<div class="credits">  
-		 <img " src="icons/blmzmini.png" alt="BLMZ">
+		 <img src="icons/blmzmini.png" alt="BLMZ">
 		</div>
 		
 		<div class="credits">  
