@@ -59,8 +59,24 @@ thumbnails.forEach((thumbnail, index) => {
 
 //------------------------------------------------------------------------------------------------------------   
 
+document.addEventListener('DOMContentLoaded', function() {
+    const logo = document.getElementById('blmzLogo');
+    if (!logo) return;
 
+    logo.addEventListener('click', function() {
+        // Przełącz motyw
+        document.body.classList.toggle('dark-theme');
+        document.body.classList.toggle('darkmode');
+        // Zmień obrazek
+        if (logo.src.includes('blmz.png')) {
+            logo.src = 'icons/blmz1.png';
+        } else {
+            logo.src = 'icons/blmz.png';
+        }
+    });
+});
 
+//------------------------------------------------------------------------------------------------------------ 
 
 var map = L.map('map', {
   closePopupOnClick: false,
@@ -92,9 +108,9 @@ function addGPXLayer(gpxFile, color) {
 }
 
 var gpxLayers = {
-  "2024": addGPXLayer('data/2024/2024full.gpx', '#5bbd94'),
-  "2023": addGPXLayer('data/2023/2023full.gpx', '#42a496'),
-  "2022": addGPXLayer('data/2022/2022full.gpx', '#408a8d')
+  "2024": addGPXLayer('data/2024/2024full.gpx', '#fff7d6'),
+  "2023": addGPXLayer('data/2023/2023full.gpx', '#ffe6b7'),
+  "2022": addGPXLayer('data/2022/2022full.gpx', '#ffd0a1')
 };
 
 var legend = L.control({ position: 'topleft' });

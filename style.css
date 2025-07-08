@@ -11,18 +11,20 @@
 
 :root {
             --primary-color: #30404d;
-            --secondary-color: #ffeba7;
-            --background-color:  radial-gradient(circle, #f0f0f0, #efefef);
+            --secondary-color: #f0f0f0;
+            --background-color: #f0f0f0;
             --text-color: #30404d;
+            --ex-color: #fff7d6;
 			      --header-color: #9ca2a5;
 		      	--footer-color: #f0f0f0;
 }
 
 .dark-theme {
             --primary-color: #f0f0f0;
-            --secondary-color: #ffeba7;
-            --background-color: radial-gradient(circle, #30404d, #30404d);
+            --secondary-color: #30404d;
+            --background-color: #333333;
             --text-color: #f0f0f0;
+            --ex-color: #fff7d6;
 			      --header-color: #30404d;
 		      	--footer-color: #30404d;
 }
@@ -48,6 +50,10 @@ body {
 			background-position: center;
 			animation: gradientShift 6s ease-in-out infinite;
 			background-attachment: fixed;
+      transition: 
+        background-color 0.5s cubic-bezier(.77,0,.18,1), 
+        color 0.5s cubic-bezier(.77,0,.18,1), 
+        border-color 0.5s cubic-bezier(.77,0,.18,1);
 }
 
 .background {
@@ -92,7 +98,7 @@ h6 {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    min-height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,6 +122,7 @@ h6 {
 
 }
 
+
 /*----------------------------------------------------------------------------*/
 .slider::before {
     content: "";
@@ -128,15 +135,15 @@ h6 {
     z-index: 20;
     background: linear-gradient(
         to bottom,
-        rgba(239,239,239,1) 0%,   /* kolor tła strony */
+        var(--background-color) 0%,   /* kolor tła strony */
         rgba(51,51,51,0) 100%
     );
 }
 .slider{
-    height: 100vh;
+    height: 1000px;
     position: relative;
     z-index: 1;
-    color: white;
+    color: #f0f0f0;
 }
 .slider .list .item{
     position: absolute;
@@ -163,7 +170,7 @@ h6 {
 }
 .slider .list .item .content{
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 50%;
     min-width: 350px;
     max-width: 1200px;
@@ -173,6 +180,7 @@ h6 {
     transform: translate(-50%, -50%);
     margin: 0;
     justify-content: center;
+    z-index: 1000;
 }
 .slider .list .item .content p:nth-child(1){
     text-transform: uppercase;
@@ -275,7 +283,7 @@ h6 {
     height: 50%; 
     pointer-events: none;
     z-index: 10;
-    background: linear-gradient(to bottom, #333333 0%, #efefef 100%);
+    background: linear-gradient(to bottom, #333333 0%, var(--background-color) 100%);
     z-index: 1;
 }
 
@@ -585,10 +593,10 @@ h1{
   font-weight: 800;
   font-size: 7vw;
   line-height: 1;
-  color: #ffeba7;
+  color: var(--ex-color);
   text-align: center;
-  -webkit-text-stroke: 2px #ffeba7;
-  -webkit-text-stroke: 2px #ffeba7;
+  -webkit-text-stroke: 2px var(--ex-color);
+  -webkit-text-stroke: 2px var(--ex-color);
   -webkit-text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   color: transparent;
@@ -622,8 +630,8 @@ h1{
   z-index: 20;
   top: 0;
   left: 0;
-  border-top: 2px solid #ececee;
-  border-bottom: 2px solid #ececee;
+  border-top: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
   transition: border-width 100ms 1500ms ease, 
               top 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
               height 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1), 
@@ -640,7 +648,7 @@ h1{
   z-index: 20;
   top: 10px;
   right: 4px;
-  background-color: #ececee;
+  background-color: var(--secondary-color);
   margin-top: -1px;
   transition: width 100ms 1750ms ease, 
               right 100ms 1750ms ease,
@@ -651,7 +659,7 @@ h1{
   top: 10px;
   transform: rotate(45deg);
   height: 2px;
-  background-color: #ececee;
+  background-color: var(--secondary-color);
   border-width: 0;
   transition: border-width 100ms 340ms ease, 
               top 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -682,7 +690,6 @@ h1{
   margin: 0;
   z-index: 9;
   overflow: hidden;
-  box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
   background-color: var(--primary-color);
   animation: border-transform 7s linear infinite;
   transition: top 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),  
@@ -763,13 +770,13 @@ h1{
   font-weight: 800;
   display: inline-block;
   position: relative;
-  color: #ececee;
+  color: var(--secondary-color);
   transition: all 250ms linear;
 }
 .more-info-button:hover,
 .nav ul li a:hover{
   text-decoration: none;
-  color: #ffeba7;
+  color: var(--ex-color);
 }
 .more-info-button:after,
 .nav ul li a:after{
@@ -824,9 +831,9 @@ h1{
     font-size: 9vw;
     -webkit-text-stroke: 2px transparent;
     -webkit-text-stroke: 2px transparent;
-    -webkit-text-fill-color: #ffeba7;
-    -webkit-text-fill-color: #ffeba7;
-    color: #ffeba7;
+    -webkit-text-fill-color: var(--ex-color);
+    -webkit-text-fill-color: var(--ex-color);
+    color: var(--ex-color);
   }
   .nav ul li a{
     font-size: 8vh;
