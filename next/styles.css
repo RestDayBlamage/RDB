@@ -27,18 +27,18 @@ header {
 }
 
 .trip2022 {
-  background: #408a8d;
-  box-shadow: 0 0px 25px #408a8d;
+  background: #ffd0a1;
+  box-shadow: 0 0px 25px #ffd0a1;
 } 
   
 .trip2023 {
-  background: #42a496;
-  box-shadow: 0 0px 25px #42a496;
+  background: #ffe6b7;
+  box-shadow: 0 0px 25px #ffe6b7;
 } 
 
 .trip2024 {
-  background: #5bbd94;
-  box-shadow: 0 0px 25px #5bbd94;
+  background: #fff7d6;
+  box-shadow: 0 0px 25px #fff7d6;
 } 
   
 .gallery-container {
@@ -120,7 +120,7 @@ header {
     align-items: left;
     padding: 5px;
     background-color: #c0c0c0;
-    color: #324b4c;
+    color: #30404d;
 	position: fixed;
     bottom: 0;
 	z-index: 1000;
@@ -134,7 +134,7 @@ header {
 .footer button{
     background: none;
     border: none;
-    color: #324b4c;
+    color: #30404d;
     cursor: pointer;
 	text-decoration: underline;
 	font-family: 'Montserrat', sans-serif;
@@ -156,7 +156,7 @@ header {
             left: 0;
             width: 100%;
             background-color: #c0c0c0;
-            color: #324b4c;
+            color: #30404d;
             padding: 50px 0px 50px 0px;
             text-align: left;
             transition: bottom 0.3s;
