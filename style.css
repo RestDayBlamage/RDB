@@ -250,7 +250,6 @@ h6 {
 }
 .thumbnail .item.active{
     filter: brightness(2);
-    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400);
 }
 .thumbnail .item .content{
     position: absolute;
@@ -511,7 +510,7 @@ h6 {
 
 /*----------------------------------------------------------------------------*/
 
-        .slide-up-bar {
+      .slide-up-bar {
       position: fixed;
 			display: flex;
 			flex-direction: row;
