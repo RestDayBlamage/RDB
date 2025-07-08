@@ -7,6 +7,13 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+
+}
+
+*::-webkit-scrollbar {
+    display: none; 
 }
 
 :root {
@@ -26,18 +33,9 @@
             --text-color: #f0f0f0;
             --ex-color: #fff7d6;
 			      --header-color: #30404d;
-		      	--footer-color: #30404d;
+		      	--footer-color: #333333;
 }
 
-
-
-header {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  will-change: transform;
-  transition: height 0.3s ease;
-}
 
 
 body {
@@ -66,13 +64,18 @@ body {
 	z-index: -1000;	
 }
  
-.all {
-  margin-top: 100%;
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  width: 0%;
+  height: 10px;
+  background: var(--primary-color);
+  z-index: 10000;
 }
 
 .container {
   max-width: 1200px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   gap: 20px;
   flex-direction: row; /* Ustawienie w rzędzie na większych ekranach */
