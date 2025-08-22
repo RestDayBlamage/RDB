@@ -40,8 +40,8 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: url('images/Back.png') no-repeat center center fixed;
-  background-size: cover;
+  background: url('images/Back.png') no-repeat top center fixed;
+  background-size: 100% auto;
   color: var(--primary-color);
   text-align: center;
   overflow-x: hidden;
@@ -60,6 +60,7 @@ body {
   flex-wrap: wrap;
   filter: blur(5px);
 	z-index: -1000;	
+  top: 0;
 }
  
 #scroll-progress {
