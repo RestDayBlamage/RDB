@@ -68,26 +68,7 @@ window.addEventListener('scroll', () => {
     document.body.scrollTop || document.documentElement.scrollTop;
   scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
 });
-
-//------------------------------------------------------------------------------------------------------------   
-
-document.addEventListener('DOMContentLoaded', function() {
-    const logo = document.getElementById('blmzLogo');
-    if (!logo) return;
-
-    logo.addEventListener('click', function() {
-        // Przełącz motyw
-        document.body.classList.toggle('dark-theme');
-        document.body.classList.toggle('darkmode');
-        // Zmień obrazek
-        if (logo.src.includes('blmz.png')) {
-            logo.src = 'icons/blmz.png';
-        } else {
-            logo.src = 'icons/blmz.png';
-        }
-    });
-});
-
+ 
 //------------------------------------------------------------------------------------------------------------ 
 
 var map = L.map('map', {
