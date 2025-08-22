@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.toggle('darkmode');
         // Zmień obrazek
         if (logo.src.includes('blmz.png')) {
-            logo.src = 'icons/blmz1.png';
+            logo.src = 'icons/blmz.png';
         } else {
             logo.src = 'icons/blmz.png';
         }
@@ -271,7 +271,20 @@ legend.addTo(map);
         { coords: [45.4083410, 9.1414780], icon: sleepIcon, title: "WILD", description: "Milan" },
         { coords: [45.8219370, 9.4146720], icon: hotIcon, title: "CAMP", description: "Lecco" },
         { coords: [46.3102690, 9.3938510], icon: sleepIcon, title: "WILD", description: "Chiavenna" },
-        { coords: [46.7047960, 9.4453320], icon: sleepIcon, title: "WILD", description: "Thusis" }
+        { coords: [46.7047960, 9.4453320], icon: sleepIcon, title: "WILD", description: "Thusis" },
+
+        { coords: [43.6840860, 10.6270670], icon: sleepIcon, title: "WILD", description: "Calcinaia" },
+        { coords: [43.0626320, 10.5673810], icon: sleepIcon, title: "WILD", description: "Calcinaia" },
+        { coords: [42.6334930, 11.4158530], icon: sleepIcon, title: "WILD", description: "Calcinaia" },
+        { coords: [42.1070710, 12.2790500], icon: sleepIcon, title: "WILD", description: "Calcinaia" },
+        { coords: [41.5643660, 12.5322440], icon: hotIcon, title: "CAMP", description: "Calcinaia" },
+        { coords: [41.2311500, 13.5133040], icon: sleepIcon, title: "WILD", description: "Calcinaia" },
+        { coords: [41.0202120, 14.2977570], icon: sleepIcon, title: "WILD", description: "Calcinaia" },
+        { coords: [42.5791000, 14.0947540], icon: hotIcon, title: "CAMP", description: "Calcinaia" },
+        { coords: [42.6570770, 14.0330300], icon: hotIcon, title: "CAMP", description: "Calcinaia" },
+        { coords: [43.6336200, 13.3624550], icon: sleepIcon, title: "WILD", description: "Calcinaia" },
+        { coords: [44.0619750, 12.4375920], icon: sleepIcon, title: "WILD", description: "Calcinaia" },
+        { coords: [43.7653370, 11.3172370], icon: hotIcon, title: "CAMP", description: "Calcinaia" },
     ];
 
 
