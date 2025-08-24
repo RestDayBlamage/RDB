@@ -1,61 +1,38 @@
-let items = document.querySelectorAll('.slider .list .item');
-let next = document.getElementById('next');
-let prev = document.getElementById('prev');
-let thumbnails = document.querySelectorAll('.thumbnail .item');
 
-// config param
-let countItem = items.length;
-let itemActive = 0;
-// event next click
-next.onclick = function(){
-    itemActive = itemActive + 1;
-    if(itemActive >= countItem){
-        itemActive = 0;
-    }
-    showSlider();
-}
-//event prev click
-prev.onclick = function(){
-    itemActive = itemActive - 1;
-    if(itemActive < 0){
-        itemActive = countItem - 1;
-    }
-    showSlider();
-}
-
-function showSlider(){
-    // remove item active old
-    let itemActiveOld = document.querySelector('.slider .list .item.active');
-    let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
-    itemActiveOld.classList.remove('active');
-    thumbnailActiveOld.classList.remove('active');
-
-    // active new item
-    items[itemActive].classList.add('active');
-    thumbnails[itemActive].classList.add('active');
-    setPositionThumbnail();
-
-    // clear auto time run slider
-    clearInterval(refreshInterval);
-    refreshInterval = setInterval(() => {
-        next.click();
-    }, 5000)
-}
-function setPositionThumbnail () {
-    let thumbnailActive = document.querySelector('.thumbnail .item.active');
-    let rect = thumbnailActive.getBoundingClientRect();
-    if (rect.left < 0 || rect.right > window.innerWidth) {
-        thumbnailActive.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
-    }
-}
-
-// click thumbnail
-thumbnails.forEach((thumbnail, index) => {
-    thumbnail.addEventListener('click', () => {
-        itemActive = index;
-        showSlider();
-    })
-})
+    // Latarka hover na works bez background
+    document.querySelectorAll('.work').forEach(card => {
+      const thumb = card.querySelector('.thumb');
+      let spotlight = thumb.querySelector('.spotlight');
+      if (!spotlight) {
+      spotlight = document.createElement('div');
+      spotlight.className = 'spotlight';
+      Object.assign(spotlight.style, {
+        position: 'absolute',
+        pointerEvents: 'none',
+        borderRadius: '50%',
+        width: '120px',
+        height: '120px',
+        boxShadow: '0 0 60px 40px rgba(207,235,230,0.3)',
+        left: '0',
+        top: '0',
+        display: 'none',
+        zIndex: '2'
+      });
+      thumb.style.position = 'relative';
+      thumb.appendChild(spotlight);
+      }
+      card.addEventListener('mousemove', e => {
+      const r = thumb.getBoundingClientRect();
+      const x = e.clientX - r.left - 60;
+      const y = e.clientY - r.top - 60;
+      spotlight.style.left = `${x}px`;
+      spotlight.style.top = `${y}px`;
+      spotlight.style.display = 'block';
+      });
+      card.addEventListener('mouseleave', () => {
+      spotlight.style.display = 'none';
+      });
+    });
 
 //------------------------------------------------------------------------------------------------------------   
 
@@ -101,9 +78,10 @@ function addGPXLayer(gpxFile, color) {
 }
 
 var gpxLayers = {
-  "2024": addGPXLayer('data/2024/2024full.gpx', '#fff7d6'),
-  "2023": addGPXLayer('data/2023/2023full.gpx', '#ffe6b7'),
-  "2022": addGPXLayer('data/2022/2022full.gpx', '#ffd0a1')
+  "2025": addGPXLayer('data/2025/2025full.gpx', '#696984'),
+  "2024": addGPXLayer('data/2024/2024full.gpx', '#8d7d9c'),
+  "2023": addGPXLayer('data/2023/2023full.gpx', '#b591b0'),
+  "2022": addGPXLayer('data/2022/2022full.gpx', '#dea5bf')
 };
 
 var legend = L.control({ position: 'topleft' });
@@ -174,7 +152,7 @@ legend.addTo(map);
 			"Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 				maxZoom: 20,
 				minZoom: 3,
-			}).addTo(map),
+			}),
 			"OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 20,
 				minZoom: 3,
@@ -195,7 +173,7 @@ legend.addTo(map);
 			"X": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 				maxZoom: 20,
 				minZoom: 3,
-			})
+			}).addTo(map)
 		};
 
 		// Ikony dla markerów
@@ -285,8 +263,7 @@ legend.addTo(map);
 		L.control.layers(baseLayers, { "Markers": markerGroup }).addTo(map);
 
 		// Dopasowanie mapy do zasięgu wszystkich markerów
-		map.fitBounds(markerGroup.getBounds(), { padding: [50, 50] });
+		map.fitBounds(markerGroup.getBounds(), { padding: [25, 25] });
 
 //------------------------------------------------------------------------------------------------------------	
-
 
