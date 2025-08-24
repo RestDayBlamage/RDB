@@ -8,7 +8,7 @@ const h = window.innerHeight;
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-camera.position.z = 2;
+camera.position.z = 3.6;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(w, h);
@@ -17,7 +17,6 @@ document.body.appendChild(renderer.domElement);
 const ctrls = new OrbitControls(camera, renderer.domElement);
 ctrls.enableDamping = true;
 ctrls.enableZoom = false; //  blokujemy scroll
-ctrls.enableRotate = false; //  blokujemy obrót (tylko myszka steruje modelem)
 
 const gltfloader = new GLTFLoader();
 let astronaut = null;
@@ -32,8 +31,20 @@ gltfloader.load("models/Astronaut.glb", (gltf) => {
   scene.add(astronaut);
 });
 
-const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+// Zwiększamy oświetlenie hemisferyczne
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1.5); // ostatni parametr to intensywność
 scene.add(hemiLight);
+
+// Dodajemy mocne światło kierunkowe
+const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+dirLight.position.set(5, 10, 5); // ustawienie pozycji światła
+dirLight.castShadow = true; // opcjonalnie jeśli chcesz cienie
+scene.add(dirLight);
+
+// Możesz też dodać miękkie wypełniające światło z tyłu
+const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+fillLight.position.set(-5, -5, 5);
+scene.add(fillLight);
 
 // Sprites BG
 const gradientBackground = getLayer({
@@ -46,30 +57,37 @@ const gradientBackground = getLayer({
 });
 scene.add(gradientBackground);
 
+scene.background = new THREE.Color(0xf0f0f0);
+
 // 📌 zmienne dla pozycji myszy
-let mouseX = 0;
-let mouseY = 0;
+let targetX = 0;
+let targetY = 0;
+let currentX = 0;
+let currentY = 0;
 
 window.addEventListener("mousemove", (event) => {
-  mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-  mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+  targetX = (event.clientX / window.innerWidth) * 2 - 1;
+  targetY = -(event.clientY / window.innerHeight) * 2 + 1;
 });
 
 function animate() {
   requestAnimationFrame(animate);
 
-  // 📌 poruszamy astronautą w zależności od myszy
+  // 📌 płynne przejście pozycji i rotacji
+  const lerpFactor = 0.05; // im mniejsze, tym wolniej reaguje model
+  currentX += (targetX - currentX) * lerpFactor;
+  currentY += (targetY - currentY) * lerpFactor;
+
   if (astronaut) {
-    astronaut.rotation.y = mouseX * 0.5; // obrót lewo/prawo
-    astronaut.rotation.x = mouseY * 0.3; // obrót góra/dół
-    astronaut.position.x = mouseX * 1.5; // przesunięcie w osi X
-    astronaut.position.y = mouseY * 1.0; // przesunięcie w osi Y
+    astronaut.rotation.y = currentX * 0.5;
+    astronaut.rotation.x = currentY * 0.3;
+    astronaut.position.x = currentX * 1.5;
+    astronaut.position.y = currentY * 1.0;
   }
 
   renderer.render(scene, camera);
   ctrls.update();
 }
-
 animate();
 
 function handleWindowResize() {
@@ -78,3 +96,4 @@ function handleWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 window.addEventListener("resize", handleWindowResize, false);
+

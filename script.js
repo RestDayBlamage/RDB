@@ -57,7 +57,7 @@ var map = L.map('map', {
   touchZoom: false,
   maxZoom: 10,
   minZoom: 3
-}).setView([47.803320, 13.039210], 4);
+}).setView([46, 13], 4);
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}').addTo(map);
 
@@ -78,10 +78,10 @@ function addGPXLayer(gpxFile, color) {
 }
 
 var gpxLayers = {
-  "2025": addGPXLayer('data/2025/2025full.gpx', '#696984'),
-  "2024": addGPXLayer('data/2024/2024full.gpx', '#8d7d9c'),
-  "2023": addGPXLayer('data/2023/2023full.gpx', '#b591b0'),
-  "2022": addGPXLayer('data/2022/2022full.gpx', '#dea5bf')
+  "2025": addGPXLayer('data/2025/2025full.gpx', '#0e323a'),
+  "2024": addGPXLayer('data/2024/2024full.gpx', '#3c5e67'),
+  "2023": addGPXLayer('data/2023/2023full.gpx', '#6b8d97'),
+  "2022": addGPXLayer('data/2022/2022full.gpx', '#9cc0c9')
 };
 
 var legend = L.control({ position: 'topleft' });
@@ -266,4 +266,3 @@ legend.addTo(map);
 		map.fitBounds(markerGroup.getBounds(), { padding: [25, 25] });
 
 //------------------------------------------------------------------------------------------------------------	
-
