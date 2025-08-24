@@ -23,15 +23,24 @@
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin="">
     </script>	
+    <script type="importmap">
+			{
+				"imports": {
+				"three": "https://cdn.jsdelivr.net/npm/three@0.131/build/three.module.js",
+                "jsm/": "https://cdn.jsdelivr.net/npm/three@0.131/examples/jsm/"
+        }
+			}
+	</script>
 
 </head>
 <body>
+
 
 <div id="scroll-progress"></div>
 
   <header>
     <div class="inner">
-      <a href="#top" class="logo">Blamaż.vc</a>
+      <a href="#top" class="logo"><img src="icons/blmzduzy.png" alt="Blamaż.vc logo" />Blamaż.vc</a>
       <nav style="display: flex; gap: 20px; align-items: center;">
         <a href="#works" style="color: inherit; text-decoration: none;">Trips</a>
         <a href="#Camps" style="color: inherit; text-decoration: none;">Camps</a>
@@ -383,5 +392,7 @@ We set out on road bikes with light bikepacking gear to explore Europe.
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
 
 <script src="script.js"></script>
+
+<script type="module" src="index.js"></script>
 
 </html>
