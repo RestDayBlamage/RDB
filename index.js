@@ -8,7 +8,7 @@ const h = window.innerHeight;
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-camera.position.z = 3.6;
+camera.position.z = 2;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(w, h);
@@ -16,7 +16,6 @@ document.body.appendChild(renderer.domElement);
 
 const ctrls = new OrbitControls(camera, renderer.domElement);
 ctrls.enableDamping = true;
-ctrls.enableZoom = false; //  blokujemy scroll
 
 const gltfloader = new GLTFLoader();
 let astronaut = null;
@@ -78,12 +77,12 @@ function animate() {
   currentX += (targetX - currentX) * lerpFactor;
   currentY += (targetY - currentY) * lerpFactor;
 
-  if (astronaut) {
-    astronaut.rotation.y = currentX * 0.5;
-    astronaut.rotation.x = currentY * 0.3;
-    astronaut.position.x = currentX * 1.5;
-    astronaut.position.y = currentY * 1.0;
-  }
+if (astronaut) {
+  astronaut.rotation.y = currentX * 0.5 + performance.now() * 0.0001; // + obrót wokół osi Y
+  astronaut.rotation.x = currentY * 0.3;
+  astronaut.position.x = currentX * 1.5;
+  astronaut.position.y = currentY * 1.0;
+}
 
   renderer.render(scene, camera);
   ctrls.update();
