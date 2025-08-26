@@ -11,7 +11,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xf0f0f0);
 
 const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-camera.position.set(0, 1.2, 5);
+camera.position.set(0, 1.2, 3);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(w, h);
@@ -91,7 +91,7 @@ gltfloader.load("models/Astronaut.glb", (gltf) => {
       child.geometry.center();
     }
   });
-  model.position.set(0, 1, 0);
+  model.position.set(0, 0.5, 0);
   scene.add(model);
 
   const v = new THREE.Vector3(0, 0, 0);
@@ -105,7 +105,7 @@ gltfloader.load("models/Astronaut.glb", (gltf) => {
 });
 
 // Dodajemy kilka Otu
-const OBJECT_COUNT = 20;
+const OBJECT_COUNT = 5;
 for (let i = 0; i < OBJECT_COUNT; i++) {
   gltfloader.load("models/otu.glb", (gltf) => {
     const model = gltf.scene;
