@@ -91,7 +91,7 @@ gltfloader.load("models/Astronaut.glb", (gltf) => {
       child.geometry.center();
     }
   });
-  model.position.set(0, 0, 0);
+  model.position.set(0, 1, 0);
   scene.add(model);
 
   const v = new THREE.Vector3(0, 0, 0);
@@ -105,7 +105,7 @@ gltfloader.load("models/Astronaut.glb", (gltf) => {
 });
 
 // Dodajemy kilka Otu
-const OBJECT_COUNT = 5;
+const OBJECT_COUNT = 20;
 for (let i = 0; i < OBJECT_COUNT; i++) {
   gltfloader.load("models/otu.glb", (gltf) => {
     const model = gltf.scene;
