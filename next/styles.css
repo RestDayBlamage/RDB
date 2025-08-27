@@ -27,18 +27,23 @@ header {
 }
 
 .trip2022 {
-  background: #ffd0a1;
-  box-shadow: 0 0px 25px #ffd0a1;
+  background: #9cc0c9;
+  box-shadow: 0 0px 25px #9cc0c9;
 } 
   
 .trip2023 {
-  background: #ffe6b7;
-  box-shadow: 0 0px 25px #ffe6b7;
+  background: #6b8d97;
+  box-shadow: 0 0px 25px #6b8d97;
 } 
 
 .trip2024 {
-  background: #fff7d6;
-  box-shadow: 0 0px 25px #fff7d6;
+  background: #6b8d97;
+  box-shadow: 0 0px 25px #6b8d97;
+} 
+
+.trip2025 {
+  background: #0e323a;
+  box-shadow: 0 0px 25px #0e323a;
 } 
   
 .gallery-container {
@@ -69,6 +74,15 @@ header {
   height: 100%;
   object-fit: cover; /* Dopasowanie obrazu z przycinaniem */
   object-position: center 40%; /* Wyśrodkowanie obrazu */
+  
+  /* Ciekawy filtr */
+  filter: contrast(70%) brightness(90%) saturate(200%) sepia(50%);
+  transition: filter 0.3s ease; /* Płynna animacja przy zmianie filtra */
+}
+
+/* Efekt hover */
+.gallery-item img:hover {
+  filter: contrast(100%) brightness(100%) saturate(180%) sepia(30%);
 }
 
 .caption {

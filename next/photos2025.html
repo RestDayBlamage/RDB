@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2024 Gallery</title>
+  <link rel="shortcut icon" href="icons/blmzduzy.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple-icons/siimple-icons.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="trip2025">
+    <h1>2025</h1>
+  </header>
+
+  <main class="gallery-container">
+    <!-- Galeria zdjęć -->
+    <div class="gallery">
+
+
+      <!-- Dodaj więcej zdjęć tutaj -->
+    </div>
+	
+  </main>
+
+ <footer class="footer">
+	<p>© 2025 Blamaż.vc, All rights reserved | <button onclick="toggleBar()">Credits</button></p>
+</footer>
+
+
+    <div class="slide-up-bar" id="slideUpBar">
+		<div class="credits">
+			<p>Technologies</p>
+			<a href="https://swiperjs.com/" target="_blank">Swiper.Js</a>, <a href="https://leafletjs.com/" target="_blank">Leaflet.Js</a>
+		</div>
+		  
+		<div class="credits">	
+			<p>Fonts</p>
+			<a style="font-family: 'Montserrat', sans-serif;" href="https://fonts.google.com/specimen/Oswald" target="_blank">Montserrat</a>
+		</div>
+		  
+		<div class="credits">
+			<p>Designed and Developed By</p>
+			<a href="">Paweł Rokicki</a>
+		</div>
+		
+		<div class="credits">  
+		 <img " src="icons/blmzmini.png" alt="BLMZ">
+		</div>
+		
+		<div class="credits">  
+			<button onclick="toggleBar()"><i class="si-x-circle"></i></button>
+		</div>
+    </div>
+
+  <!-- Modal do powiększenia zdjęć -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-img" class="modal-content">
+    <div id="modal-caption" class="caption"></div>
+  </div>
+
+ <script src="script.js"></script>
+ 
+</body>
+</html>
