@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: var(--background-color);
   color: var(--primary-color);
   line-height: 1.5;
@@ -45,7 +45,7 @@ section {
   z-index: 1000;
 }
 
-.content {
+.main {
   position: relative;
   top: 60vh;
   z-index: 1;
@@ -57,13 +57,13 @@ section {
   top: 0;
   width: 0%;
   height: 10px;
-  background: var(--primary-color);
+  background: var(--secondary-color);
   z-index: 10000;
 }
 
 :root {
             --primary-color: #30404d;
-            --secondary-color: #f0f0f0;
+            --secondary-color: #e6f536;
             --background-color: #f0f0f0;
             --text-color: #30404d;
             --ex-color: #cfebe6;
@@ -80,6 +80,49 @@ section {
 			      --header-color: #30404d;
 		      	--footer-color: #333333;
 }
+
+/*----------------------------------------------------------------------------*/
+
+    /* Ekran ładowania */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      backdrop-filter: blur(24px);
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bolder;
+      font-size: 10vw;
+    }
+
+    .progress-bar {
+      width: 61.8%;
+      height: 20px;
+      backdrop-filter: blur(1000px);
+      overflow: hidden;
+      margin-top: 20px;
+      border: 1px solid var(--primary-color);
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--primary-color);
+      transition: width 0.3s;
+    }
+
+    body.loaded #loader {
+      display: none;
+    }
+
+    #content {
+      display: none;
+    }
 
 /*----------------------------------------------------------------------------*/
 
@@ -137,21 +180,18 @@ nav a:hover {
 }
 
 .hero h2 {
-  font-family: sans-serif;
   font-size: clamp(12px, 3vw, 40px);
   font-weight: 800;
   line-height: 1.1;
 }
 
 .hero h4 {
-  font-family: sans-serif;
   font-size: clamp(9px, 1vw, 15px);
   line-height: 1.1;
   text-align: left;
 }
 
 .hero h3 {
-  font-family: sans-serif;
   font-size: clamp(14px, 2vw, 500px);
   line-height: 1.1;
   font-weight: 800;
@@ -254,7 +294,7 @@ nav a:hover {
   display:flex;
   align-items:flex-end;
   padding:1rem;
-  color: var(--secondary-color);
+  color: var(--background-color);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -577,8 +617,8 @@ nav a:hover {
   z-index: 20;
   top: 0;
   left: 0;
-  border-top: 2px solid var(--secondary-color);
-  border-bottom: 2px solid var(--secondary-color);
+  border-top: 2px solid var(--background-color);
+  border-bottom: 2px solid var(--background-color);
   transition: border-width 100ms 1500ms ease, 
               top 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
               height 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1), 
@@ -595,7 +635,7 @@ nav a:hover {
   z-index: 20;
   top: 10px;
   right: 4px;
-  background-color: var(--secondary-color);
+  background-color: var(--background-color);
   margin-top: -1px;
   transition: width 100ms 1750ms ease, 
               right 100ms 1750ms ease,
@@ -606,7 +646,7 @@ nav a:hover {
   top: 10px;
   transform: rotate(45deg);
   height: 2px;
-  background-color: var(--secondary-color);
+  background-color: var(--background-color);
   border-width: 0;
   transition: border-width 100ms 340ms ease, 
               top 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -717,13 +757,13 @@ nav a:hover {
   font-weight: 800;
   display: inline-block;
   position: relative;
-  color: var(--secondary-color);
+  color: var(--background-color);
   transition: all 250ms linear;
 }
 .more-info-button:hover,
 .nav ul li a:hover{
   text-decoration: none;
-  color: var(--ex-color);
+  color: var(--secondary-color);
 }
 .more-info-button:after,
 .nav ul li a:after{
