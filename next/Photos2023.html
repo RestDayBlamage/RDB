@@ -10,21 +10,16 @@ class=" w-mod-js">
   <title>2023</title>
   <link rel="shortcut icon" href="icons/blmzduzy.png">
   <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" >	
   <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
 
-<!-- Theme switcher -->
-<script>
-if (localStorage.getItem('light-mode') !== null) {
-  document.documentElement.classList.add("light-mode");
-}
-</script>
-
-<!-- [Attributes by Finsweet] Copy to clipboard -->
-<script defer="" src="js/copyclip.js"></script>
-
-<!-- [Attributes by Finsweet] Auto Video -->
-<script defer="" src="js/autovideo.js"></script>
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin="">
+</script>	
 
                 <main><header class="header template-header">
                   <div class="container w-container">
@@ -42,18 +37,13 @@ if (localStorage.getItem('light-mode') !== null) {
   </header>
   <section class="section large-section">
     <div class="container w-container">
+    <div id="map"></div>
       <div class="section-title no-margin">
         <div class="cms-meta-banner margin-large">
           
-<div id="w-node-_229c3cfc-c735-8ff9-08e8-253aad9a42ae-cf160640" class="label">27.07.2023</div>
-          <div class="svg-frame-polygon photo-card-meta-frame w-embed">
+<div id="w-node-_229c3cfc-c735-8ff9-08e8-253aad9a42ae-cf160640" class="label"><h4>27.07.2023 ⥊ 11.08.2023</h4></div>
+</div>
 
-<svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 4L-8.26528e-07 8L-4.76837e-07 -6.99382e-07L16 4Z" fill="currentcolor"></path>
-</svg>
-</div>
-<div id="w-node-_229c3cfc-c735-8ff9-08e8-253aad9a42b0-cf160640" class="label">11.08.2023</div>
-</div>
 <div class="paragraph-wrapper">
   <div words-rotate-in="" text-split="" class="page-paragraph">1 813 km</div>
   </div>
@@ -260,7 +250,12 @@ for ( var i = 0, len = elms.length; i < len; i++ ) {
 } ).mount();
 }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
+<script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
 <script src="script.js"></script>
+<script src="map2023.js"></script>
 
 </body>
 </html>
